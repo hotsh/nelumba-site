@@ -1,0 +1,3 @@
+- mentions.each do |activity|
+  - if activity.verb == :post || activity.verb == :share
+    = partial :"activities/show", {:locals => {:activity => activity}}

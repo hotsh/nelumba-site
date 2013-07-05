@@ -1,0 +1,5 @@
+%ul
+  - @authors.each do |a|
+    %li
+      %a{:href => "/authors/#{a._id}"}
+        #{a.short_name}

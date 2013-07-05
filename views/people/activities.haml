@@ -1,0 +1,6 @@
+.header
+  %h1
+    #{person.author.short_name}'s Activities
+%ul.activities
+  - activities.each do |activity|
+    = partial :"activities/show", {:locals => {:activity => activity, :show_as_activity => true}}

@@ -1,0 +1,9 @@
+%p
+  Discover someone you know.
+
+%form{:action => '/authors/discover', :method => 'post', :name => 'discover'}
+  %div
+    %label{:for => 'account'}
+      Account / Name:
+    %input{:type => 'text', :name => 'account'}
+  %input{:type => 'submit'}

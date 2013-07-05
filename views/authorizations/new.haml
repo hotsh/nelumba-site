@@ -1,0 +1,13 @@
+%p
+  Create a new account.
+
+%form{:name => 'authorization', :action => '/authorizations', :method => 'post'}
+  %div
+    %label{:for => 'username'}
+      Username:
+    %input{:type => 'text', :name => 'username'}
+  %div
+    %label{:for => 'password'}
+      Password:
+    %input{:type => 'password', :name => 'password'}
+  %input{:type => 'submit'}

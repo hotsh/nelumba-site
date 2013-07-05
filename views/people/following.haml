@@ -1,0 +1,5 @@
+%ul
+  - @following.each do |author|
+    %li
+      %a{:href => "/authors/#{author._id}"}
+        #{author.short_name}

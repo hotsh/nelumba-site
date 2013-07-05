@@ -1,0 +1,34 @@
+%p
+  Id: #{@author.id}
+%p
+  Nickname: #{@author.nickname}
+%p
+  Uri: #{@author.uri}
+%p
+  Email: #{@author.email}
+%p
+  Name: #{@author.name}
+%p
+  Gender: #{@author.gender}
+%p
+  Display Name: #{@author.display_name}
+%p
+  Preferred Username: #{@author.preferred_username}
+%p
+  Birthday: #{@author.birthday}
+%p
+  Anniversary: #{@author.anniversary}
+%p
+  Note: #{@author.note}
+
+- if @author.extended_name
+  %p
+    Extended Name: formatted: #{@author.extended_name[:formatted]}, given name: #{@author.extended_name[:given_name]}, family name: #{@author.extended_name[:family_name]}, middle_name: #{@author.extended_name[:middle_name]}, prefix: #{@author.extended_name[:honorific_prefix]}, suffix: #{@author.extended_name[:honorific_suffix]}
+
+- if @author.organization
+  %p
+    Organization: name: #{@author.organization[:name]}, department: #{@author.organization[:department]}, title: #{@author.organization[:title]}, type: #{@author.organization[:type]}, start: #{@author.organization[:start_date]}, end: #{@author.organization[:end_date]}, location: #{@author.organization[:location]}, description: #{@author.organization[:description]}
+
+- if @author.address
+  %p
+    Address: formatted: #{@author.address[:formatted]}, street: #{@author.address[:street_address]}, locality: #{@author.address[:locality]}, region: #{@author.address[:region]}, postal code: #{@author.address[:postal_code]}, country: #{@author.address[:country]}

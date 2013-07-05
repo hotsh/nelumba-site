@@ -1,0 +1,16 @@
+%article
+  %header
+    %ul
+      %li.title
+        #{article.title}
+      %li.author
+        - if article.author && article.author.avatar
+          %img.avatar{:src => article.author.avatar.url}
+        - else
+          %img.avatar{:src => "/assets/images/avatar.png"}
+        %p.name
+          = article.author.short_name if article.author
+      %li.date
+        #{article.created_at.strftime("%A, %b %d")}
+
+  #{article.content}

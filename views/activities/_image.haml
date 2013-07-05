@@ -1,0 +1,31 @@
+%ul
+  %li.avatar
+    - if verb == :favorite && show_as_activity
+      %img{:src => "/assets/images/favorite.png"}
+    - elsif verb == :share && show_as_activity
+      %img{:src => "/assets/images/shared.png"}
+    - elsif activity.actor.avatar
+      %img{:src => activity.actor.avatar.url}
+    - else
+      %img{:src => "/assets/images/avatar.png"}
+  - if show_as_activity
+    %li.title #{initial.sentence}
+  - else
+    %li.actor_display #{activity.actor.display_name}
+    %li.actor #{activity.actor.short_name}
+  - if verb == :share && !show_as_activity
+    %li.shared_by #{original.short_name}
+    %li.shared_when #{initial.published_ago_in_words}
+  %li.content
+    #{activity.sentence}:
+    %a{:href => "/images/#{activity.object.id}"}#{activity.object.id}
+  %li.favorite
+    %form{:action => "/people/#{current_person.id}/favorites", :method => "post", :name => "favorite_#{initial.id}"}
+      %input{:name => "activity_id", :value => initial.id, :type => "hidden"}
+      %input{:type => "submit", :value => "Favorite"}
+  %li.share
+    %form{:action => "/people/#{current_person.id}/shared", :method => "post", :name => "share_#{initial.id}"}
+      %input{:name => "activity_id", :value => initial.id, :type => "hidden"}
+      %input{:type => "submit", :value => "Share"}
+  %li.when
+    %a{:href => activity.url} #{activity.published_ago_in_words}

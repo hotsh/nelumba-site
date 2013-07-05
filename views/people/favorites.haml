@@ -1,0 +1,6 @@
+.header
+  %h1
+    #{person.author.short_name}'s Favorites
+%ul.activities
+  = partial :"people/favorites", {:locals => {:person => person,
+                                              :favorites => favorites}}

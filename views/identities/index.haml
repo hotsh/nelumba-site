@@ -1,0 +1,5 @@
+%ul
+  - @identities.each do |i|
+    %li
+      %a{:href => "/identities/#{i._id}"}
+        #{i.username}

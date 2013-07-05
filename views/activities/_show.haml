@@ -1,0 +1,25 @@
+- # TODO: Presenter
+- show_as_activity = false unless show_as_activity
+- verb = activity.verb
+- initial = activity
+- original = activity.actor
+- activity = activity.object if activity.external_object_type == "Activity"
+%li.activity
+  - if activity.type == :note
+    = partial :"activities/note", :locals => {:show_as_activity => show_as_activity,
+                                              :verb => verb,
+                                              :initial => initial,
+                                              :original => original,
+                                              :activity => activity}
+  - elsif activity.type == :article
+    = partial :"activities/article", :locals => {:show_as_activity => show_as_activity,
+                                                 :verb => verb,
+                                                 :initial => initial,
+                                                 :original => original,
+                                                 :activity => activity}
+  - elsif activity.type == :image
+    = partial :"activities/image", :locals => {:show_as_activity => show_as_activity,
+                                               :verb => verb,
+                                               :initial => initial,
+                                               :original => original,
+                                               :activity => activity}

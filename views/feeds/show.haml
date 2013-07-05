@@ -1,0 +1,10 @@
+%h1
+  Entries
+
+%ul
+  - @activities.each do |activity|
+    %li
+      %p
+        Title: #{activity.title}
+      %p
+        Content: #{activity.content}

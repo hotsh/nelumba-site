@@ -1,0 +1,119 @@
+%p
+  Edit your contact details:
+
+%form{:name => 'author', :action => "/authors/#{@author._id}", :method => 'post'}
+  %div
+    %label{:for => 'nickname'}
+      Nickname:
+    %input{:type => 'text', :name => 'nickname', :value => @author.nickname}
+
+  %div
+    %label{:for => 'email'}
+      Email:
+    %input{:type => 'text', :name => 'email', :value => @author.email}
+
+  %div
+    %label{:for => 'name'}
+      Name:
+    %input{:type => 'text', :name => 'name', :value => @author.name}
+
+  %div
+    Extended Name:
+    %div
+      %label{:for => 'extended_name[formatted]'}
+        Formatted:
+      %input{:type => 'text', :name => 'extended_name[formatted]', :value => @author.extended_name ? @author.extended_name[:formatted] : ""}
+    %div
+      %label{:for => 'extended_name[given_name]'}
+        Given Name (First Name):
+      %input{:type => 'text', :name => 'extended_name[given_name]', :value => @author.extended_name ? @author.extended_name[:given_name] : ""}
+    %div
+      %label{:for => 'extended_name[family_name]'}
+        Family Name (Last Name):
+      %input{:type => 'text', :name => 'extended_name[family_name]', :value => @author.extended_name ? @author.extended_name[:family_name] : ""}
+    %div
+      %label{:for => 'extended_name[middle_name]'}
+        Middle Name:
+      %input{:type => 'text', :name => 'extended_name[middle_name]', :value => @author.extended_name ? @author.extended_name[:middle_name] : ""}
+    %div
+      %label{:for => 'extended_name[honorific_prefix]'}
+        Prefix:
+      %input{:type => 'text', :name => 'extended_name[honorific_prefix]', :value => @author.extended_name ? @author.extended_name[:honorific_prefix] : ""}
+    %div
+      %label{:for => 'extended_name[honorific_suffix]'}
+        Suffix:
+      %input{:type => 'text', :name => 'extended_name[honorific_suffix]', :value => @author.extended_name ? @author.extended_name[:honorific_suffix] : ""}
+
+  %div
+    %label{:for => 'display_name'}
+      Display Name:
+    %input{:type => 'text', :name => 'display_name', :value => @author.display_name}
+
+  %div
+    %label{:for => 'preferred_username'}
+      Preferred Username:
+    %input{:type => 'text', :name => 'preferred_username', :value => @author.preferred_username}
+
+  %div
+    %label{:for => 'note'}
+      Personal Note:
+    %textarea{:name => 'note'}
+      #{@author.note}
+
+  %div
+    Organization/Company
+    %div
+      %label{:for => 'organization[name]'}
+        Company Name:
+      %input{:type => 'text', :name => 'organization[name]', :value => @author.organization ? @author.organization[:name] : ""}
+    %div
+      %label{:for => 'organization[department]'}
+        Department:
+      %input{:type => 'text', :name => 'organization[department]', :value => @author.organization ? @author.organization[:department] : ""}
+    %div
+      %label{:for => 'organization[title]'}
+        Title:
+      %input{:type => 'text', :name => 'organization[title]', :value => @author.organization ? @author.organization[:title] : ""}
+    %div
+      %label{:for => 'organization[type]'}
+        Company Type:
+      %input{:type => 'text', :name => 'organization[type]', :value => @author.organization ? @author.organization[:type] : ""}
+    %div
+      %label{:for => 'organization[location]'}
+        Location:
+      %input{:type => 'text', :name => 'organization[location]', :value => @author.organization ? @author.organization[:location] : ""}
+    %div
+      %label{:for => 'organization[description]'}
+        Job Description:
+      %textarea{:name => 'organization[description]'}
+        #{@author.organization ? @author.organization[:description] : ""}
+
+  %div
+    Address
+    %div
+      %label{:for => 'address[formatted]'}
+        Formatted:
+      %textarea{:name => 'address[formatted]'}
+        #{@author.address ? @author.address[:formatted] : ""}
+    %div
+      %label{:for => 'address[street_address]'}
+        Street:
+      %input{:type => 'text', :name => 'address[street_address]', :value => @author.address ? @author.address[:street_address] : ""}
+    %div
+      %label{:for => 'address[locality]'}
+        Locality (City):
+      %input{:type => 'text', :name => 'address[locality]', :value => @author.address ? @author.address[:locality] : ""}
+    %div
+      %label{:for => 'address[region]'}
+        Region (State):
+      %input{:type => 'text', :name => 'address[region]', :value => @author.address ? @author.address[:region] : ""}
+    %div
+      %label{:for => 'address[postal_code]'}
+        Postal/Zip Code:
+      %input{:type => 'text', :name => 'address[postal_code]', :value => @author.address ? @author.address[:postal_code] : ""}
+    %div
+      %label{:for => 'address[country]'}
+        Country:
+      %textarea{:name => 'address[country]'}
+        #{@author.address ? @author.address[:country] : ""}
+  %input{:type => 'submit'}

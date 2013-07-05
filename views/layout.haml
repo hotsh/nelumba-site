@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    %link{:rel => 'stylesheet', :type => 'text/css', :href => '/assets/css/reset.css'}
+    %link{:rel => 'stylesheet', :type => 'text/css',
+      :href => 'http://fonts.googleapis.com/css?family=Open+Sans:400,300,600|Overlock|Cinzel+Decorative:700'}
+    %link{:rel => 'stylesheet', :type => 'text/css', :href => '/assets/css/main.css'}
+    %title
+      My Application.
+  %body
+    - if current_person.nil?
+      %nav.topbar
+        %ul.navbar
+          %li
+            %a{:href => "/login"} Login
+          %li
+            %a{:href => "/authorizations/new"} Signup
+    = yield
+    %script{:src=>"/assets/js/jquery.js"}
+    %script{:src=>"/assets/js/jquery.pjax.js"}
+    %script{:src=>"/assets/js/jquery.filestyle.js"}
+    %script{:src=>"/assets/js/app.js"}
