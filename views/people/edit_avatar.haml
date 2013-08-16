@@ -1,7 +1,7 @@
 %p
   Use an avatar from some source:
 
-%form{:name => 'avatar_edit', :action => "/authors/#{@author._id}/avatar", :method => 'post'}
+%form{:name => 'avatar_edit', :action => "/people/#{@author._id}/avatar", :method => 'post'}
   %label{:for => 'avatar_url'}
     URL for avatar:
   %input{:type => 'text', :name => 'avatar_url'}

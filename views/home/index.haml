@@ -42,6 +42,6 @@
     %li>
       %a#shared-tab{:"data-pjax" => true, :href => "/people/#{current_person.id}/shared"}> Shared
 %ul.activities
-  - current_person.timeline.feed.ordered.each do |activity|
+  - current_person.timeline.ordered.each do |activity|
     - next if activity.verb == :favorite
     = partial :"activities/show", {:locals => {:activity => activity}}

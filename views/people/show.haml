@@ -1,43 +1,43 @@
 %p
-  Id: #{person.author.id}
+  Id: #{person.id}
 %p
-  Nickname: #{person.author.nickname}
+  Nickname: #{person.nickname}
 %p
-  Uri: #{person.author.uri}
+  Uri: #{person.uri}
 %p
-  Email: #{person.author.email}
+  Email: #{person.email}
 %p
-  Name: #{person.author.name}
+  Name: #{person.name}
 %p
-  Gender: #{person.author.gender}
+  Gender: #{person.gender}
 %p
-  Display Name: #{person.author.display_name}
+  Display Name: #{person.display_name}
 %p
-  Preferred Username: #{person.author.preferred_username}
+  Preferred Username: #{person.preferred_username}
 %p
-  Birthday: #{person.author.birthday}
+  Birthday: #{person.birthday}
 %p
-  Anniversary: #{person.author.anniversary}
+  Anniversary: #{person.anniversary}
 %p
-  Note: #{person.author.note}
+  Note: #{person.note}
 
-- if person.author.avatar
-  %img{:src => person.author.avatar.read_base64}
+- if person.avatar
+  %img{:src => person.avatar.read_base64}
 
-- if person.author.avatar
-  %img{:src => person.author.avatar.url}
+- if person.avatar
+  %img{:src => person.avatar.url}
 
-- if person.author.extended_name
+- if person.extended_name
   %p
-    Extended Name: formatted: #{person.author.extended_name[:formatted]}, given name: #{person.author.extended_name[:given_name]}, family name: #{person.author.extended_name[:family_name]}, middle_name: #{person.author.extended_name[:middle_name]}, prefix: #{person.author.extended_name[:honorific_prefix]}, suffix: #{person.author.extended_name[:honorific_suffix]}
+    Extended Name: formatted: #{person.extended_name[:formatted]}, given name: #{person.extended_name[:given_name]}, family name: #{person.extended_name[:family_name]}, middle_name: #{person.extended_name[:middle_name]}, prefix: #{person.extended_name[:honorific_prefix]}, suffix: #{person.extended_name[:honorific_suffix]}
 
-- if person.author.organization
+- if person.organization
   %p
-    Organization: name: #{person.author.organization[:name]}, department: #{person.author.organization[:department]}, title: #{person.author.organization[:title]}, type: #{person.author.organization[:type]}, start: #{person.author.organization[:start_date]}, end: #{person.author.organization[:end_date]}, location: #{person.author.organization[:location]}, description: #{person.author.organization[:description]}
+    Organization: name: #{person.organization[:name]}, department: #{person.organization[:department]}, title: #{person.organization[:title]}, type: #{person.organization[:type]}, start: #{person.organization[:start_date]}, end: #{person.organization[:end_date]}, location: #{person.organization[:location]}, description: #{person.organization[:description]}
 
-- if person.author.address
+- if person.address
   %p
-    Address: formatted: #{person.author.address[:formatted]}, street: #{person.author.address[:street_address]}, locality: #{person.author.address[:locality]}, region: #{person.author.address[:region]}, postal code: #{person.author.address[:postal_code]}, country: #{person.author.address[:country]}
+    Address: formatted: #{person.address[:formatted]}, street: #{person.address[:street_address]}, locality: #{person.address[:locality]}, region: #{person.address[:region]}, postal code: #{person.address[:postal_code]}, country: #{person.address[:country]}
 
 %h1
   Activities

@@ -1,6 +1,6 @@
 .header
   %h1
-    #{person.author.short_name}'s Shared
+    #{person.short_name}'s Shared
 %ul.activities
   = partial :"people/shared", {:locals => {:person => person,
                                            :shared => shared}}

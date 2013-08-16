@@ -1,13 +1,13 @@
 GIT
   remote: git://github.com/hotsh/lotus-i18n.git
-  revision: 1dc0a60a244a0475413951975f511444df37abb6
+  revision: 1c5ff0df601f66ff1552acab7a820a7dd188f8d7
   specs:
     lotus-i18n (0.0.1)
       i18n
 
 GIT
   remote: git://github.com/hotsh/lotus-mongodb.git
-  revision: 926251de59020097af25339985345de146bcee20
+  revision: cb2b14dd8880531f0767392cf12df756a8f983bb
   specs:
     lotus-mongodb (0.0.1)
       bcrypt-ruby
@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: git://github.com/hotsh/lotus.git
-  revision: 86fe1c48d8dd6335af2a777c203ce4436fe951b4
+  revision: 17ad724b199c388a7ce6bcf92ae2647be6fbfdfc
   specs:
     lotus (0.0.12)
       nokogiri
@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: git://github.com/hotsh/rack-lotus.git
-  revision: 749868bd618a86cbef6137da743341f7f509d10c
+  revision: e59d99b665dc3136239f85f9c16cb4c20dc28b2d
   specs:
     rack-lotus (0.0.1)
       bcrypt-ruby
@@ -59,7 +59,7 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     backports (3.3.3)
-    bcrypt-ruby (3.0.1)
+    bcrypt-ruby (3.1.0)
     bson (1.9.0)
     bson_ext (1.9.0)
       bson (~> 1.9.0)
