@@ -248,6 +248,10 @@ nav ul li.avatar img {
   color: #000;
 }
 
+.activity-input form * {
+  text-align: left;
+}
+
 .activity-input form textarea {
   text-align: left;
 
@@ -271,6 +275,7 @@ nav ul li.avatar img {
 }
 
 .activity-input form#post-input textarea {
+  text-align: left;
   height: 30em;
   min-height: 3.7em;
 }
@@ -615,4 +620,19 @@ article h6 + p {
 
 article p + p {
   margin-top: 15px;
+}
+
+.markItUp {
+  margin-left: 8px;
+  margin-bottom: 0;
+  width: 758px;
+}
+
+.markItUp textarea {
+  width: 720px !important;
+  min-width: 720px !important;
+  max-width: 720px !important;
+  border-top: 1px solid #888 !important;
+  border-bottom: 1px solid #888 !important;
+  background-color: #f7f7f7;
 }

@@ -1,4 +1,6 @@
 $(document).ready(function(){
+  $('#post-area').markItUp(mySettings);
+
   // Hide share/favorite bar by default
   $('.share').css({opacity: 0});
   $('.favorite').css({opacity: 0});
