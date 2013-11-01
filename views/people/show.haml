@@ -44,19 +44,4 @@
 
 %ul
   - timeline.each do |activity|
-    %li
-      %p
-        Title: #{activity.title}
-      %p
-        Content: #{activity.content}
-      %p
-        #{activity.human_description[:sentence]}
-      - if current_person
-        %p
-          %form{:action => "/people/#{current_person.id}/favorites", :method => "post", :name => "favorite_#{activity.id}"}
-            %input{:name => "activity_id", :value => activity.id, :type => "hidden"}
-            %input{:type => "submit", :value => "Favorite"}
-        %p
-          %form{:action => "/people/#{current_person.id}/shared", :method => "post", :name => "share_#{activity.id}"}
-            %input{:name => "activity_id", :value => activity.id, :type => "hidden"}
-            %input{:type => "submit", :value => "Share"}
+    = partial :"activities/show", {:locals => {:activity => activity}}

@@ -8,7 +8,7 @@
     %link{:rel => 'stylesheet', :type => 'text/css', :href => '/assets/css/markitup.base.css'}
     %link{:rel => 'stylesheet', :type => 'text/css', :href => '/assets/css/main.css'}
     %title
-      My Application.
+      = user_option_for :title
   %body
     - if current_person.nil?
       %nav.topbar
@@ -23,4 +23,6 @@
     %script{:src=>"/assets/js/jquery.filestyle.js"}
     %script{:src=>"/assets/js/jquery.markitup.js"}
     %script{:src=>"/assets/js/jquery.markitup.set.js"}
+    %script{:src=>"/assets/js/ckeditor/ckeditor.js"}
+    %script{:src=>"/assets/js/ckeditor/adapters/jquery.js"}
     %script{:src=>"/assets/js/app.js"}

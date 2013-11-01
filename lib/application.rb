@@ -11,6 +11,16 @@ module Rack
         end
         haml page.to_sym, options.merge!(:layout => false)
       end
+
+      def addon_enabled?(addon)
+        @blade ||= Propeller::Blade.new
+        @blade.addon_enabled? addon
+      end
+
+      def user_option_for(key)
+        @blade ||= Propeller::Blade.new
+        @blade.user_option_for(key)
+      end
     end
   end
 end
@@ -40,6 +50,16 @@ class Application < Sinatra::Base
         page = "_#{page}"
       end
       haml page.to_sym, options.merge!(:layout => false)
+    end
+
+    def addon_enabled?(addon)
+      @blade ||= Propeller::Blade.new
+      @blade.addon_enabled? addon
+    end
+
+    def user_option_for(key)
+      @blade ||= Propeller::Blade.new
+      @blade.user_option_for(key)
     end
   end
 

@@ -622,10 +622,15 @@ article p + p {
   margin-top: 15px;
 }
 
-.markItUp {
+.markItUp,
+#cke_post-area {
   margin-left: 8px;
   margin-bottom: 0;
   width: 758px;
+}
+
+#cke_post-area {
+  width: 766px;
 }
 
 .markItUp textarea {
@@ -636,3 +641,4 @@ article p + p {
   border-bottom: 1px solid #888 !important;
   background-color: #f7f7f7;
 }
+

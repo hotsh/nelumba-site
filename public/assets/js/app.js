@@ -1,5 +1,21 @@
+function hideAllTabs() {
+  $('#new-image').removeClass('current-tab');
+  $('#new-image').parent().removeClass('current-tab');
+  $('#new-note').removeClass('current-tab');
+  $('#new-note').parent().removeClass('current-tab');
+  $('#new-post').removeClass('current-tab');
+  $('#new-post').parent().removeClass('current-tab');
+  $('#new-follow').removeClass('current-tab');
+  $('#new-follow').parent().removeClass('current-tab');
+  $('#image-input').hide();
+  $('#follow-input').hide();
+  $('#note-input').hide();
+  $('#post-input').hide();
+}
+
 $(document).ready(function(){
-  $('#post-area').markItUp(mySettings);
+//$('#post-area').markItUp(mySettings);
+   $('#post-area').ckeditor();
 
   // Hide share/favorite bar by default
   $('.share').css({opacity: 0});
@@ -7,41 +23,34 @@ $(document).ready(function(){
 
   // Status input tab reveal
   $('#new-note').click(function() {
+    hideAllTabs();
     $('#new-note').addClass('current-tab');
     $('#new-note').parent().addClass('current-tab');
-    $('#new-post').removeClass('current-tab');
-    $('#new-post').parent().removeClass('current-tab');
-    $('#new-image').removeClass('current-tab');
-    $('#new-image').parent().removeClass('current-tab');
-    $('#post-input').hide();
     $('#note-input').show();
-    $('#image-input').hide();
   }).attr('href', '#');
 
   // Post input tab reveal
   $('#new-post').click(function() {
+    hideAllTabs();
     $('#new-post').addClass('current-tab');
     $('#new-post').parent().addClass('current-tab');
-    $('#new-note').removeClass('current-tab');
-    $('#new-note').parent().removeClass('current-tab');
-    $('#new-image').removeClass('current-tab');
-    $('#new-image').parent().removeClass('current-tab');
     $('#post-input').show();
-    $('#note-input').hide();
-    $('#image-input').hide();
   }).attr('href', '#');
 
   // Image input tab reveal
   $('#new-image').click(function() {
+    hideAllTabs();
     $('#new-image').addClass('current-tab');
     $('#new-image').parent().addClass('current-tab');
-    $('#new-note').removeClass('current-tab');
-    $('#new-note').parent().removeClass('current-tab');
-    $('#new-post').removeClass('current-tab');
-    $('#new-post').parent().removeClass('current-tab');
     $('#image-input').show();
-    $('#note-input').hide();
-    $('#post-input').hide();
+  }).attr('href', '#');
+
+  // Follow input tab reveal
+  $('#new-follow').click(function() {
+    hideAllTabs();
+    $('#new-follow').addClass('current-tab');
+    $('#new-follow').parent().addClass('current-tab');
+    $('#follow-input').show();
   }).attr('href', '#');
 
   // Share/favorite bar reveal/hide on mouse over

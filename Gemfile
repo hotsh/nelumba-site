@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'sinatra', '~> 1.4.2'
 gem 'sinatra-contrib'
 
+gem 'propeller', :git => "git://github.com/wilkie/propeller.git"
+
 gem 'bson_ext'
 gem 'mongo_mapper'
 
@@ -13,9 +15,9 @@ gem 'lotus-mongodb', :git => 'git://github.com/hotsh/lotus-mongodb.git'
 gem 'rack-lotus', :git => 'git://github.com/hotsh/rack-lotus.git'
 
 group :development do
-  gem 'debugger'
-  gem 'perftools.rb'
-  gem 'ruby-prof'
+  #gem 'debugger'
+  #gem 'perftools.rb'
+  #gem 'ruby-prof'
 end
 
 group :test do
