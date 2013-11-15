@@ -96,6 +96,14 @@ nav.tabbar ul li a#new-image {
   padding-bottom: 1px;
 }
 
+nav.tabbar ul li a#new-follow {
+  background-image: url('/assets/images/article_hover.png');
+  background-repeat: no-repeat;
+  background-position: 6px 5px;
+  padding-left: 24px;
+  padding-bottom: 1px;
+}
+
 nav.tabbar ul li a#mentions-tab {
   background-image: url('/assets/images/at_hover.png');
   background-repeat: no-repeat;
@@ -280,7 +288,7 @@ nav ul li.avatar img {
   min-height: 3.7em;
 }
 
-form#post-input, form#image-input {
+form#post-input, form#image-input, form#follow-input {
   display: none;
 }
 

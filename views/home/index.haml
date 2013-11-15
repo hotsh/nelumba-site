@@ -4,9 +4,9 @@
       %li.current-tab>
         %a#new-note.current-tab{:href => "people/#{current_person.id}/timeline"}> Status
       %li>
-        %a#new-post{:href => "people/#{current_person.id}/mentions"}> Post
-      %li>
         %a#new-image{:href => "people/#{current_person.id}/favorites"}> Image
+      %li>
+        %a#new-post{:href => "people/#{current_person.id}/mentions"}> Post
       %li>
         %a#new-follow{:href => "people/#{current_person.id}/following"}> Follow
   %form#note-input{:action => "/people/#{current_person.id}/activities", :method => 'post', :name => 'activity'}
