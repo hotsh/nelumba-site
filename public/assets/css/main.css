@@ -13,7 +13,7 @@
  */
 
 body {
-  background-image: url('../images/noise_black.png');
+  background-image: url('/lotus-site/public/assets/images/noise_black.png');
   background-attachment: fixed;
 }
 
@@ -40,7 +40,7 @@ a:hover {
 
 nav.top-bar {
   background-color: #383838;
-  background-image: url('../images/avatar.png');
+  background-image: url('/lotus-site/public/assets/images/avatar.png');
   background-repeat: no-repeat;
   background-position: 7px 0;
   font-family: 'Open Sans', sans-serif;
@@ -131,7 +131,7 @@ nav.top-bar li {
   background-attachment: scroll;
   background-clip: border-box;
   background-color: transparent;
-  background-image: url('../images/icons_sprite.png');
+  background-image: url('/lotus-site/public/assets/images/icons_sprite.png');
   background-origin: padding-box;
   background-repeat: no-repeat;
   background-position: -24px 2px;
@@ -142,7 +142,7 @@ nav.top-bar li {
   background-attachment: scroll;
   background-clip: border-box;
   background-color: transparent;
-  background-image: url('../images/icons_sprite.png');
+  background-image: url('/lotus-site/public/assets/images/icons_sprite.png');
   background-origin: padding-box;
   background-repeat: no-repeat;
   background-position: -24px -32px;
@@ -153,7 +153,7 @@ nav.top-bar li {
   background-attachment: scroll;
   background-clip: border-box;
   background-color: transparent;
-  background-image: url('../images/icons_sprite.png');
+  background-image: url('/lotus-site/public/assets/images/icons_sprite.png');
   background-origin: padding-box;
   background-repeat: no-repeat;
   background-position: -24px -16px;
@@ -224,7 +224,7 @@ nav.top-bar li {
   background-attachment: scroll;
   background-clip: border-box;
   background-color: transparent;
-  background-image: url('../images/plus.png');
+  background-image: url('/lotus-site/public/assets/images/plus.png');
   background-origin: padding-box;
   background-repeat: no-repeat;
   background-position: 0px 16px;
@@ -249,7 +249,7 @@ nav.top-bar li {
   background-attachment: scroll;
   background-clip: border-box;
   background-color: transparent;
-  background-image: url('../images/note.png');
+  background-image: url('/lotus-site/public/assets/images/note.png');
   background-origin: padding-box;
   background-repeat: no-repeat;
   background-position: 0px 0px;
@@ -261,14 +261,14 @@ nav.top-bar li {
 }
 
 .modal-bar ul#new-activity-list li.note:hover {
-  background-image: url('../images/note_hover.png');
+  background-image: url('/lotus-site/public/assets/images/note_hover.png');
 }
 
 .modal-bar ul#new-activity-list li.image {
   background-attachment: scroll;
   background-clip: border-box;
   background-color: transparent;
-  background-image: url('../images/image.png');
+  background-image: url('/lotus-site/public/assets/images/image.png');
   background-origin: padding-box;
   background-repeat: no-repeat;
   background-position: 0px 0px;
@@ -280,14 +280,14 @@ nav.top-bar li {
 }
 
 .modal-bar ul#new-activity-list li.image:hover {
-  background-image: url('../images/image_hover.png');
+  background-image: url('/lotus-site/public/assets/images/image_hover.png');
 }
 
 .modal-bar ul#new-activity-list li.post {
   background-attachment: scroll;
   background-clip: border-box;
   background-color: transparent;
-  background-image: url('../images/post.png');
+  background-image: url('/lotus-site/public/assets/images/post.png');
   background-origin: padding-box;
   background-repeat: no-repeat;
   background-position: 0px 0px;
@@ -299,7 +299,7 @@ nav.top-bar li {
 }
 
 .modal-bar ul#new-activity-list li.post:hover {
-  background-image: url('../images/post_hover.png');
+  background-image: url('/lotus-site/public/assets/images/post_hover.png');
 }
 
 /*
@@ -356,7 +356,7 @@ nav.navigation-bar ul li#timeline-link {
   background-attachment: scroll;
   background-clip: border-box;
   background-color: transparent;
-  background-image: url('../images/timeline.png');
+  background-image: url('/lotus-site/public/assets/images/timeline.png');
   background-origin: padding-box;
   background-repeat: no-repeat;
   background-position: 0px 0px;
@@ -369,14 +369,14 @@ nav.navigation-bar ul li#timeline-link {
 }
 
 nav.navigation-bar ul li#timeline-link:hover {
-  background-image: url('../images/timeline_hover.png');
+  background-image: url('/lotus-site/public/assets/images/timeline_hover.png');
 }
 
 nav.navigation-bar ul li#mentions-link {
   background-attachment: scroll;
   background-clip: border-box;
   background-color: transparent;
-  background-image: url('../images/mentions.png');
+  background-image: url('/lotus-site/public/assets/images/mentions.png');
   background-origin: padding-box;
   background-repeat: no-repeat;
   background-position: 0px 0px;
@@ -386,14 +386,14 @@ nav.navigation-bar ul li#mentions-link {
 }
 
 nav.navigation-bar ul li#mentions-link:hover {
-  background-image: url('../images/mentions_hover.png');
+  background-image: url('/lotus-site/public/assets/images/mentions_hover.png');
 }
 
 nav.navigation-bar ul li#favorites-link {
   background-attachment: scroll;
   background-clip: border-box;
   background-color: transparent;
-  background-image: url('../images/favorites.png');
+  background-image: url('/lotus-site/public/assets/images/favorites.png');
   background-origin: padding-box;
   background-repeat: no-repeat;
   background-position: 0px 0px;
@@ -403,14 +403,14 @@ nav.navigation-bar ul li#favorites-link {
 }
 
 nav.navigation-bar ul li#favorites-link:hover {
-  background-image: url('../images/favorites_hover.png');
+  background-image: url('/lotus-site/public/assets/images/favorites_hover.png');
 }
 
 nav.navigation-bar ul li#shared-link {
   background-attachment: scroll;
   background-clip: border-box;
   background-color: transparent;
-  background-image: url('../images/shared.png');
+  background-image: url('/lotus-site/public/assets/images/shared.png');
   background-origin: padding-box;
   background-repeat: no-repeat;
   background-position: 0px 0px;
@@ -420,7 +420,7 @@ nav.navigation-bar ul li#shared-link {
 }
 
 nav.navigation-bar ul li#shared-link:hover {
-  background-image: url('../images/shared_hover.png');
+  background-image: url('/lotus-site/public/assets/images/shared_hover.png');
 }
 
 @media only screen and (max-width: 860px) {
@@ -572,7 +572,7 @@ nav.navigation-bar.force-inline ul li#mentions-link {
 }
 
 .activity-stream ul#activities li.activity ul li.share {
-  background-image: url('../images/shared_small.png');
+  background-image: url('/lotus-site/public/assets/images/shared_small.png');
   background-origin: padding-box;
   background-repeat: no-repeat;
   display: inline-block;
@@ -585,7 +585,7 @@ nav.navigation-bar.force-inline ul li#mentions-link {
 }
 
 .activity-stream ul#activities li.activity ul li.share:hover {
-  background-image: url('../images/shared_small_hover.png');
+  background-image: url('/lotus-site/public/assets/images/shared_small_hover.png');
 }
 
 .activity-stream ul#activities li.activity ul li.share a {
@@ -595,7 +595,7 @@ nav.navigation-bar.force-inline ul li#mentions-link {
 }
 
 .activity-stream ul#activities li.activity ul li.favorite {
-  background-image: url('../images/favorites_small.png');
+  background-image: url('/lotus-site/public/assets/images/favorites_small.png');
   background-origin: padding-box;
   background-repeat: no-repeat;
   display: inline-block;
@@ -608,7 +608,7 @@ nav.navigation-bar.force-inline ul li#mentions-link {
 }
 
 .activity-stream ul#activities li.activity ul li.favorite:hover {
-  background-image: url('../images/favorites_small_hover.png');
+  background-image: url('/lotus-site/public/assets/images/favorites_small_hover.png');
 }
 
 .activity-stream ul#activities li.activity ul li.favorite a {
@@ -682,7 +682,7 @@ nav.navigation-bar.force-inline ul li#mentions-link {
 }
 
 #note-modal .modal-content .share {
-  background-image: url('../images/new_note_button.png');
+  background-image: url('/lotus-site/public/assets/images/new_note_button.png');
   display: inline-block;
   height: 28px;
   cursor: pointer;
@@ -690,5 +690,5 @@ nav.navigation-bar.force-inline ul li#mentions-link {
 }
 
 #note-modal .modal-content .share:hover {
-  background-image: url('../images/new_note_button_hover.png');
+  background-image: url('/lotus-site/public/assets/images/new_note_button_hover.png');
 }
