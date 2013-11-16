@@ -78,7 +78,7 @@ $(document).ready(function(){
     $('#favorites-tab').parent().removeClass('current-tab');
     $('#shared-tab').removeClass('current-tab');
     $('#shared-tab').parent().removeClass('current-tab');
-  })
+  });
 
   $('#mentions-tab').click(function() {
     $('#mentions-tab').addClass('current-tab');
@@ -89,7 +89,7 @@ $(document).ready(function(){
     $('#favorites-tab').parent().removeClass('current-tab');
     $('#shared-tab').removeClass('current-tab');
     $('#shared-tab').parent().removeClass('current-tab');
-  })
+  });
 
   $('#favorites-tab').click(function() {
     $('#favorites-tab').addClass('current-tab');
@@ -100,7 +100,7 @@ $(document).ready(function(){
     $('#mentions-tab').parent().removeClass('current-tab');
     $('#shared-tab').removeClass('current-tab');
     $('#shared-tab').parent().removeClass('current-tab');
-  })
+  });
 
   $('#shared-tab').click(function() {
     $('#shared-tab').addClass('current-tab');
@@ -111,50 +111,96 @@ $(document).ready(function(){
     $('#mentions-tab').parent().removeClass('current-tab');
     $('#favorites-tab').removeClass('current-tab');
     $('#favorites-tab').parent().removeClass('current-tab');
-  })
+  });
 
   // Image upload chooser styles
-  file = $("input[type=file]");
-  wrapper = $('<div>').css({
-    "position": "relative",
-    "color": file.css("color"),
-    "background-color": file.css("background-color"),
-    "width": parseInt(file.css("width")) + parseInt(file.css("padding-left"))
-                                         + parseInt(file.css("padding-right")),
-    "height": parseInt(file.css("height")) + parseInt(file.css("padding-top"))
-                                           + parseInt(file.css("padding-bottom")),
-    "margin-left": file.css("margin-left"),
-    "margin-right": file.css("margin-right"),
-    "margin-top": file.css("margin-top"),
-    "margin-bottom": file.css("margin-bottom"),
-    "text-align": "center"
+  $('form#image-input').submit(function(e) {
+    return false;
   });
-  paragraph = $('<div>').css({
+  image_uploader = $('form#image-input > input[type=file]');
+  image_uploader.fileupload({
+    dataType: 'json',
+    autoUpload: false,
+    acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+    paramName: 'file',
+    dropZone: $('#image-preview'),
+    formData: function() {
+      return [
+               {
+                 name:  'title',
+                 value: $('form#image-input > input.title').text()
+               },
+               {
+                 name:  'type',
+                 value: 'image'
+               }
+             ];
+    },
+    maxFileSize: 5000000,
+    disableImageResize: /Android(?!.*Chrome)|Opera/
+      .test(window.navigator.userAgent),
+    previewMaxWidth: 100,
+    previewMaxHeight: 100,
+    previewCrop: true
+  }).on('fileuploadadd', function(e,data) {
+    // Reset preview spanner
+    data.context = $('#image-preview');
+    data.context.empty();
+
+    $('form#image-input > input.button').click(function () {
+      data.submit();
+    });
+  }).on('fileuploadprocessalways', function(e,data) {
+    var index = data.index;
+    var file  = data.files[index];
+    var node  = data.context;
+    if (file.preview) {
+      node.append(file.preview);
+    }
+    if (file.error) {
+      node.append('<br>').append(file.error);
+    }
+  }).on('fileuploadprogressall', function(e,data) {
+  }).on('fileuploaddone', function(e,data) {
+  }).on('fileuploadfail', function(e,data) {
+  }).prop('disabled', !$.support.fileInput)
+    .parent().addClass($.support.fileInput ? undefined : 'disabled');
+
+  $('form#image-input > input.title').css('width', '500px').val("URL");
+
+  file = $("input[type=file]");
+  file.css({"display": "inline-block",
+            "width": "154px",
+            "padding": "0",
+            "margin-right": "10px"});
+  button = $('<div>').addClass('button').css({
     "position": "absolute",
     "left": "0",
-    "top": "0",
-    "width": "100%",
+    "top":  "0",
     "text-align": "center",
-    "font-family": file.css("font-family"),
-    "font-size": file.css("font-size"),
-    "line-height": file.css("line-height"),
-    "height": wrapper.css("height"),
-    "margin-left": file.css("margin-left"),
-    "margin-right": file.css("margin-right"),
-    "margin-top": file.css("margin-top"),
-    "margin-bottom": file.css("margin-bottom"),
-  }).text("Click to upload a local file.");
-  file.css({"margin-left"  : "0",
-            "margin-top"   : "0",
-            "margin-right" : "0",
-            "margin-bottom": "0",
-            "padding": "0",
-            "position": "absolute",
-            "z-order": "-2",
-            "width": "100%",
-            "opacity": "0"});
+    "padding-top": "4px",
+    "width": "158px",
+    "height": "17px"
+  }).text("upload");
+  wrapper = $('<div>').css({
+    "display": "inline-block",
+    "position": "relative",
+    "width": "157px",
+    "height": "22px",
+    "cursor": "pointer",
+    "margin": "0",
+    "margin-right": file.css('margin-right')
+  });
+  file.css({
+    "margin-left" : "0",
+    "margin-top" : "0",
+    "margin-bottom": "0",
+    "height": "22px",
+    "padding": "0",
+    "position": "relative",
+    "cursor": "pointer",
+    "z-order": "-2",
+    "opacity": "0"});
   file.wrap(wrapper);
-  file.parent().prepend(paragraph);
-  file.bind("change", function() {
-    paragraph.text("Uploading " + file.val())});
+  file.parent().prepend(button);
 });

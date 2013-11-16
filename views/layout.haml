@@ -6,6 +6,10 @@
       :href => 'http://fonts.googleapis.com/css?family=Open+Sans:400,300,600|Overlock|Cinzel+Decorative:700'}
     %link{:rel => 'stylesheet', :type => 'text/css', :href => '/assets/css/markitup.css'}
     %link{:rel => 'stylesheet', :type => 'text/css', :href => '/assets/css/markitup.base.css'}
+    %link{:rel => 'stylesheet', :type => 'text/css', :href => '/assets/css/jquery.fileupload.css'}
+    %link{:rel => 'stylesheet', :type => 'text/css', :href => '/assets/css/jquery.fileupload-noscript.css'}
+    %link{:rel => 'stylesheet', :type => 'text/css', :href => '/assets/css/jquery.fileupload-ui.css'}
+    %link{:rel => 'stylesheet', :type => 'text/css', :href => '/assets/css/jquery.fileupload-ui-noscript.css'}
     %link{:rel => 'stylesheet', :type => 'text/css', :href => '/assets/css/main.css'}
     %title
       = user_option_for :title
@@ -20,9 +24,18 @@
     = yield
     %script{:src=>"/assets/js/jquery.js"}
     %script{:src=>"/assets/js/jquery.pjax.js"}
+    %script{:src=>"/assets/js/jquery.iframe-transport.js"}
+    %script{:src=>"/assets/js/jquery.ui.widget.js"}
+    %script{:src=>"/assets/js/load-image.min.js"}
+    %script{:src=>"/assets/js/canvas-to-blob.min.js"}
     %script{:src=>"/assets/js/jquery.filestyle.js"}
     %script{:src=>"/assets/js/jquery.markitup.js"}
     %script{:src=>"/assets/js/jquery.markitup.set.js"}
+    %script{:src=>"/assets/js/jquery.fileupload.js"}
+    %script{:src=>"/assets/js/jquery.fileupload-ui.js"}
+    %script{:src=>"/assets/js/jquery.fileupload-process.js"}
+    %script{:src=>"/assets/js/jquery.fileupload-validate.js"}
+    %script{:src=>"/assets/js/jquery.fileupload-image.js"}
     %script{:src=>"/assets/js/ckeditor/ckeditor.js"}
     %script{:src=>"/assets/js/ckeditor/adapters/jquery.js"}
     %script{:src=>"/assets/js/app.js"}

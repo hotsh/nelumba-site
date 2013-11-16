@@ -292,11 +292,49 @@ form#post-input, form#image-input, form#follow-input {
   display: none;
 }
 
+form#image-input #image-preview {
+  background-color: white;
+  width: 100px;
+  height: 100px;
+  margin: 0;
+  margin-left: 8px;
+  float: left;
+}
+
+form#image-input input.title {
+  display: inline;
+  float: left;
+  margin: 0;
+  margin-left: 1px;
+  margin-bottom: 1px;
+  width: 330px;
+}
+
+form#image-input input.file {
+  display: inline;
+  margin: 0;
+  width: 337px;
+}
+
+form#image-input textarea {
+  max-width:  653px;
+  min-width:  653px;
+  width:      653px;
+
+  min-height: 62px;
+  height:     62px;
+}
+
 .activity-input form {
   text-align: right;
 }
 
-.activity-input form input.button {
+.activity-input form .button {
+  clear: both;
+
+  font-family: sans-serif;
+  font-size: 14px;
+
   display: inline-block;
   height: 26px;
   color: rgb(60, 60, 61);
@@ -323,14 +361,14 @@ form#post-input, form#image-input, form#follow-input {
   background: -o-linear-gradient(top, #d7d7d7, #ffffff);
 }
 
-.activity-input form input.button:last-child {
+.activity-input form .button:last-child {
   margin-right: 8px;
 
   border-left: 1px solid #ddd;
 }
 
-.activity-input form input.button:focus,
-.activity-input form input.button:hover {
+.activity-input form .button:focus,
+.activity-input form .button:hover {
   color: white;
   border-color: rgb(76, 144, 146);
   text-shadow: -1px 1px 0px rgba(0, 0, 0, 0.3);

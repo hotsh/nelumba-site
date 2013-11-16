@@ -27,9 +27,11 @@
   %form#image-input{:action => "/people/#{current_person.id}/activities", :method => 'post', :name => 'activity', :enctype=>"multipart/form-data"}
     %label{:for => 'file'}
       What do you see?
-    %input.title{:name => 'url', :value => 'URL or upload file below'}
+    #image-preview
+    %input.title{:name => 'url', :value => 'URL or upload file:'}
     %input.file{:name => 'file', :type => 'file'}
     %input{:type => 'hidden', :name => 'type', :value => 'image'}
+    %textarea{:name => 'title'}
     %input.button{:type => 'submit', :value => 'save'}>
     %input.button{:type => 'submit', :value => 'share'}
   %form#follow-input{:action => "/people/#{current_person.id}/following", :method => 'post', :name => 'activity'}
