@@ -369,10 +369,6 @@ ul.activities + footer {
   border-bottom: none;
 }
 
-.activity > ul > li.content {
-  margin-left: 63px;
-}
-
 .activity > ul > li.actor_display ,
 .activity > ul > li.title {
   display: inline-block;
@@ -493,12 +489,15 @@ ul.activities + footer {
   font-weight: 400;
   display: block;
 
+  min-height: 1em;
+
   width: 685px;
 
   line-height: 1.3em;
 
-  margin-top: 10px;
   margin-bottom: 10px;
+  margin-left: 63px;
+  margin-top: 10px;
 }
 
 .activity ul li {

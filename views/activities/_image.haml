@@ -19,13 +19,14 @@
   %li.content
     #{activity.sentence}:
     %a{:href => "/images/#{activity.object.id}"}#{activity.object.id}
-  %li.favorite
-    %form{:action => "/people/#{current_person.id}/favorites", :method => "post", :name => "favorite_#{initial.id}"}
-      %input{:name => "activity_id", :value => initial.id, :type => "hidden"}
-      %input{:type => "submit", :value => "Favorite"}
-  %li.share
-    %form{:action => "/people/#{current_person.id}/shared", :method => "post", :name => "share_#{initial.id}"}
-      %input{:name => "activity_id", :value => initial.id, :type => "hidden"}
-      %input{:type => "submit", :value => "Share"}
+  - if current_person
+    %li.favorite
+      %form{:action => "/people/#{current_person.id}/favorites", :method => "post", :name => "favorite_#{initial.id}"}
+        %input{:name => "activity_id", :value => initial.id, :type => "hidden"}
+        %input{:type => "submit", :value => "Favorite"}
+    %li.share
+      %form{:action => "/people/#{current_person.id}/shared", :method => "post", :name => "share_#{initial.id}"}
+        %input{:name => "activity_id", :value => initial.id, :type => "hidden"}
+        %input{:type => "submit", :value => "Share"}
   %li.when
     %a{:href => activity.url} #{activity.published_ago_in_words}
