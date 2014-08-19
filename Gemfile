@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'sinatra', '~> 1.4.2'
+gem 'sinatra'
 gem 'sinatra-contrib'
 
 gem 'propeller', :git => "git://github.com/wilkie/propeller.git"

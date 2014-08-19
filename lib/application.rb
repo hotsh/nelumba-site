@@ -66,6 +66,10 @@ class Application < Sinatra::Base
   get '/' do
     haml :"home/index"
   end
+
+  get '/stylesheet' do
+    haml :"stylesheet"
+  end
 end
 
 %w(config helpers controllers models).each do |dir|

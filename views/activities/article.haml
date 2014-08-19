@@ -11,6 +11,6 @@
         %p.name
           = article.author.short_name if article.author
       %li.date
-        #{article.created_at.strftime("%A, %b %d")}
+        #{article.published.strftime("%A, %b %d")}
 
   #{article.content}

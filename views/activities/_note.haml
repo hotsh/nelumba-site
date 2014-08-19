@@ -16,7 +16,9 @@
   - if verb == :share && !show_as_activity
     %li.shared_by #{original.short_name}
     %li.shared_when #{initial.published_ago_in_words}
-  - if activity.object.is_a? Lotus::Note
+  - if show_as_activity && initial.object.is_a?(Lotus::Activity)
+    = partial :"activities/show", {:locals => {:activity => activity}}
+  - elsif activity.object.is_a? Lotus::Note
     %li.content #{activity.object.html}
   - else
     %li.content #{activity.sentence}
