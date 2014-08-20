@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: git://github.com/hotsh/lotus-mongodb.git
-  revision: cccae01ad90e56b71193ccf4be9edb064c1fcfe9
+  revision: d05dd62fd1f9d72ebafb0139fa17f3c46722a70e
   specs:
     lotus-mongodb (0.0.1)
       bcrypt-ruby
@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: git://github.com/hotsh/rack-lotus.git
-  revision: a7a77a44427c3ab41132a11fc883150cbe757fe3
+  revision: 7439f502278fe1f7696f6e363888f12a183d7169
   specs:
     rack-lotus (0.0.1)
       bcrypt-ruby

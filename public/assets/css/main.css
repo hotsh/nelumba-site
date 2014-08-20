@@ -372,6 +372,7 @@ ul.activities + footer {
 .activity > ul > li.actor_display ,
 .activity > ul > li.title {
   display: inline-block;
+  margin-left: 63px;
   margin-top: 5px;
 }
 
@@ -505,8 +506,8 @@ ul.activities + footer {
 }
 
 .activity ul li.avatar {
+  position: absolute;
   display: block;
-  float: left;
   margin-right: 15px;
 }
 
