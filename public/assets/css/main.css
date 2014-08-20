@@ -282,52 +282,6 @@ form#image-input textarea {
   text-align: right;
 }
 
-.activity-input form .button {
-  clear: both;
-
-  font-family: sans-serif;
-  font-size: 14px;
-
-  display: inline-block;
-  height: 26px;
-  color: rgb(60, 60, 61);
-  background: red;
-  border: none;
-  cursor: pointer;
-  outline: medium none;
-  margin-right: 0;
-
-  border-left: 1px solid #ddd;
-  border-bottom: 2px solid rgb(67, 159, 195);
-
-  background-color: #555555;
-  background-repeat: repeat-x;
-  /* Safari 4-5, Chrome 1-9 */
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#555555), to(#373737));
-  /* Safari 5.1, Chrome 10+ */
-  background: -webkit-linear-gradient(top, #d7d7d7, #ffffff);
-  /* Firefox 3.6+ */
-  background: -moz-linear-gradient(top, #d7d7d7, #ffffff);
-  /* IE 10 */
-  background: -ms-linear-gradient(top, #d7d7d7, #ffffff);
-  /* Opera 11.10+ */
-  background: -o-linear-gradient(top, #d7d7d7, #ffffff);
-}
-
-.activity-input form .button:last-child {
-  margin-right: 8px;
-
-  border-left: 1px solid #ddd;
-}
-
-.activity-input form .button:focus,
-.activity-input form .button:hover {
-  color: white;
-  border-color: rgb(76, 144, 146);
-  text-shadow: -1px 1px 0px rgba(0, 0, 0, 0.3);
-  background-color: rgb(67, 159, 195);
-}
-
 ul.activities {
   padding: 0;
   margin: 0 auto;
@@ -665,5 +619,76 @@ article p + p {
   border-top: 1px solid #888 !important;
   border-bottom: 1px solid #888 !important;
   background-color: #f7f7f7;
+}
+
+.button {
+  display: inline-block;
+
+  /* REMEMBER: Duplicate the bg stuff to disabled:active */
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, hsl(190, 0%, 100%)), color-stop(1, hsl(190, 0%, 90%)) );
+  background:-moz-linear-gradient( center top, hsl(190, 0%, 100%) 5%, hsl(190, 0%, 90%) 100% );
+  background-color: hsl(190, 0%, 40%);
+
+  border: 1px solid #ccc;
+  border-radius: 3px;
+
+  color: #333;
+  cursor: pointer;
+
+  padding: 3px 4px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+
+  text-align: center;
+  text-decoration: none;
+
+  /* REMEMBER: Duplicate this line under :disabled:hover */
+  box-shadow: inset 0px 0px 1px 1px hsl(190, 60%, 100%);
+
+  font-family: "Open Sans";
+  font-weight: 300;
+  font-size: 12px;
+}
+
+.button:hover {
+  box-shadow:inset 0px 0px 1px 1px hsl(190, 60%, 50%);
+}
+
+.button:active {
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, hsl(190, 0%, 95%)), color-stop(1, hsl(190, 0%, 90%)) );
+
+  background:-moz-linear-gradient( center top, hsl(190, 0%, 95%) 5%, hsl(190, 0%, 90%) 100% );
+  background-color: hsl(190, 0%, 40%);
+}
+
+.button.disabled ,
+.button:disabled {
+  color: #aaa;
+  cursor: default;
+}
+
+.button.disabled:hover ,
+.button:disabled:hover {
+  box-shadow:inset 0px 0px 1px 1px hsl(190, 60%, 100%);
+}
+
+.button.disabled:active ,
+.button:disabled:active {
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, hsl(190, 0%, 100%)), color-stop(1, hsl(190, 0%, 90%)) );
+  background:-moz-linear-gradient( center top, hsl(190, 0%, 100%) 5%, hsl(190, 0%, 90%) 100% );
+  background-color: hsl(190, 0%, 40%);
+
+  position:relative;
+  top:0px;
+}
+
+.button.inline {
+  margin-top: 0px;
+}
+
+.button:active {
+  position:relative;
+  top:1px;
 }
 

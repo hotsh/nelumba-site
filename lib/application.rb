@@ -67,8 +67,8 @@ class Application < Sinatra::Base
     haml :"home/index"
   end
 
-  get '/stylesheet' do
-    haml :"stylesheet"
+  get '/styleguide' do
+    haml :"styleguide"
   end
 end
 
