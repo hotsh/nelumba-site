@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: git://github.com/hotsh/lotus-mongodb.git
-  revision: d05dd62fd1f9d72ebafb0139fa17f3c46722a70e
+  revision: 321a8ce5aed229d0eaa2afadfc718b7fc19ae444
   specs:
     lotus-mongodb (0.0.1)
       bcrypt-ruby
@@ -18,18 +18,18 @@ GIT
 
 GIT
   remote: git://github.com/hotsh/lotus.git
-  revision: d0b0dff6e8b1cc3fe88572bd4c7d54d7fc0f92f0
+  revision: 7ca66030da468505b60a413c9929eb1c6b87b225
   specs:
     lotus (0.0.12)
       nokogiri
-      ratom (~> 0.7.2)
+      ratom
       rsa
       ruby-hmac
       time-lord
 
 GIT
   remote: git://github.com/hotsh/rack-lotus.git
-  revision: 7439f502278fe1f7696f6e363888f12a183d7169
+  revision: f87edf793aa7ff7a5889de02f2decf73c75b5f5f
   specs:
     rack-lotus (0.0.1)
       bcrypt-ruby
@@ -37,7 +37,7 @@ GIT
       haml
       mongo_mapper
       rmagick
-      sinatra
+      sinatra (> 1.0)
       tilt
 
 GIT
@@ -90,9 +90,9 @@ GEM
     git (1.2.8)
     haml (4.0.5)
       tilt
-    hashie (3.2.0)
+    hashie (3.3.1)
     i18n (0.6.11)
-    libxml-ruby (2.3.3)
+    libxml-ruby (2.6.0)
     mime-types (2.3)
     mini_portile (0.6.0)
     minitest (2.12.1)
@@ -114,8 +114,8 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
-    ratom (0.7.2)
-      libxml-ruby (~> 2.3.2)
+    ratom (0.8.2)
+      libxml-ruby (~> 2.6.0)
     redcarpet (3.1.2)
     rest-client (1.7.2)
       mime-types (>= 1.16, < 3.0)

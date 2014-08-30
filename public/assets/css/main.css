@@ -134,10 +134,6 @@ nav.tabbar ul li a.current-tab {
   padding-top:6px;
 }
 
-.activity-input form {
-  margin-top: -30px;
-}
-
 nav.topbar ul {
   margin-right: 10px;
 }
@@ -176,25 +172,30 @@ nav ul li.avatar img {
   width: 784px;
 }
 
-.activity-input form label,
+.activity-input form label {
+  display: none;
+}
+
 .header h1,
 .activity-input form input.title,
 .activity-input form input.file {
+  border: none;
+  border-bottom: 1px solid #eee;
+  color: #eee;
   display: block;
   font-family: "Open Sans", sans-serif;
   font-size: 10pt;
-  height: 22px;
-  border: none;
   font-weight: 400;
+  height: 25px;
+  text-align: left;
+
+  margin: 0px;
+
   padding: 0;
-  margin-left: 8px;
-  margin-top: 3px;
-  margin-bottom: 4px;
   padding-left: 7px;
   padding-top: 1px;
-  width: 761px;
-  color: #eee;
-  text-align: left;
+
+  width: 777px;
 }
 
 .activity-input form input.file {
@@ -232,7 +233,7 @@ nav ul li.avatar img {
   height: 3.7em;
   min-height: 3.7em;
 
-  margin-bottom: 0;
+  margin: 0;
 }
 
 .activity-input form#post-input textarea {
@@ -250,7 +251,6 @@ form#image-input #image-preview {
   width: 100px;
   height: 100px;
   margin: 0;
-  margin-left: 8px;
   float: left;
 }
 
@@ -258,8 +258,8 @@ form#image-input input.title {
   display: inline;
   float: left;
   margin: 0;
-  margin-left: 1px;
-  margin-bottom: 1px;
+  border-left: 1px solid #eee;
+  border-bottom: 1px solid #eee;
   width: 330px;
 }
 
@@ -269,24 +269,54 @@ form#image-input input.file {
   width: 337px;
 }
 
-form#image-input textarea {
-  max-width:  653px;
-  min-width:  653px;
-  width:      653px;
+form#image-input div:hover .button {
+  box-shadow:inset 0px 0px 1px 1px hsl(190, 60%, 50%);
+}
 
-  min-height: 62px;
-  height:     62px;
+form#image-input div:active .button {
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, hsl(190, 0%, 95%)), color-stop(1, hsl(190, 0%, 90%)) );
+
+  background:-moz-linear-gradient( center top, hsl(190, 0%, 95%) 5%, hsl(190, 0%, 90%) 100% );
+  background-color: hsl(190, 0%, 40%);
+
+  position:absolute;
+  top:4px;
+}
+
+form#image-input textarea {
+  max-width:  669px;
+  min-width:  669px;
+  width:      669px;
+
+  border-left: 1px solid #eee;
+
+  min-height: 59px;
+  height:     59px;
 }
 
 .activity-input form {
   text-align: right;
 }
 
+.content {
+  width: 784px;
+  margin: 0 auto;
+}
+
 ul.activities {
   padding: 0;
   margin: 0 auto;
   background-color: #555;
-  width: 784px;
+  width: 100%;
+}
+
+ul.activities > li.message {
+  background-color: hsl(210, 50%, 90%);
+  color: #444;
+  cursor: pointer;
+  text-align: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #ddd;
 }
 
 ul.activities + footer {
@@ -294,14 +324,14 @@ ul.activities + footer {
   margin-left: auto;
   margin-right: auto;
   background-color: #555;
-  width: 764px;
-  padding: 10px;
+  width: 100%;
 }
 
 .activity {
+  position: relative;
+
   background-color: white;
-  width: 98%;
-  padding: 0 1%;
+  width: 100%;
 
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
@@ -312,9 +342,13 @@ ul.activities + footer {
   padding-top: 6px;
   padding-bottom: 6px;
 
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #eee;
 
   min-height: 48px;
+}
+
+.activity > ul {
+  position: relative
 }
 
 .activity > ul > .activity {
@@ -368,19 +402,34 @@ ul.activities + footer {
   color: #aaa;
 }
 
+.activity ul li span.amount {
+  color: #ddd;
+  font-weight: normal;
+  display: inline-block;
+  margin-top: 7px;
+  padding-right: 5px;
+}
+
+.activity ul > li:hover > form + span.amount {
+  color: #333;
+}
+
 .activity ul li.favorite {
   clear: both;
   display: inline;
+  width: 16px;
 }
 
 .activity ul li.share {
   clear: both;
   display: inline;
+  width: 16px;
 }
 
 .activity ul li.reply {
   clear: both;
   display: inline;
+  width: 16px;
 }
 
 .activity ul * form {
@@ -406,7 +455,7 @@ ul.activities + footer {
   background-image: url('/assets/images/share_small.png');
   background-repeat: no-repeat;
   text-indent: -9999px;
-  padding-right: 11px;
+  width: 16px;
 }
 
 .activity ul li.favorite form input {
@@ -414,7 +463,8 @@ ul.activities + footer {
   background-repeat: no-repeat;
   background-position: 0px -1px;
   text-indent: -9999px;
-  padding-right: 11px;
+  margin-left: 10px;
+  width: 16px;
 }
 
 .activity ul li.share form input:hover {
@@ -429,10 +479,21 @@ ul.activities + footer {
   content: "\00267b\0000A0by ";
 }
 
-.activity ul li.when {
+.activity ul > li.when {
+  position: absolute;
+  bottom: 0px;
+  right: 10px;
   display: inline;
-  float: right;
   margin-top: 10px;
+}
+
+.activity ul .activity ul > li.when {
+  bottom: 6px;
+}
+
+.activity ul .activity ul > li.when > a {
+  font-size: 10px;
+  opacity: 0.7;
 }
 
 .activity ul li.when a {
@@ -455,6 +516,16 @@ ul.activities + footer {
   margin-top: 10px;
 }
 
+.activity ul li.content .image {
+  display: block;
+  width: 100%;
+  height: 240px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
 .activity ul li {
   display: inline;
 }
@@ -462,7 +533,8 @@ ul.activities + footer {
 .activity ul li.avatar {
   position: absolute;
   display: block;
-  margin-right: 15px;
+  z-index: 999;
+  left: 5px;
 }
 
 .activity ul li.avatar img {
@@ -643,12 +715,18 @@ article p + p {
   text-align: center;
   text-decoration: none;
 
-  /* REMEMBER: Duplicate this line under :disabled:hover */
+  /* REMEMBER: Duplicate this line under :d9sabled:hover */
   box-shadow: inset 0px 0px 1px 1px hsl(190, 60%, 100%);
 
   font-family: "Open Sans";
   font-weight: 300;
   font-size: 12px;
+}
+
+.button.square {
+  border-radius: 0px;
+  border-right: none;
+  cursor: pointer;
 }
 
 .button:hover {
@@ -660,6 +738,9 @@ article p + p {
 
   background:-moz-linear-gradient( center top, hsl(190, 0%, 95%) 5%, hsl(190, 0%, 90%) 100% );
   background-color: hsl(190, 0%, 40%);
+
+  position:relative;
+  top:1px;
 }
 
 .button.disabled ,
@@ -687,8 +768,17 @@ article p + p {
   margin-top: 0px;
 }
 
-.button:active {
-  position:relative;
-  top:1px;
+.hidden {
+  display: none !important;
 }
 
+nav.tabbar span.amount {
+  background-color: hsl(300, 50%, 80%);
+  position: absolute;
+  right: 6px;
+  top: 6px;
+  padding: 3px;
+  padding-bottom: 5px;
+  color: white;
+  border-radius: 5px;
+}

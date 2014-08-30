@@ -13,53 +13,47 @@ function hideAllTabs() {
   $('#post-input').hide();
 }
 
-$(document).ready(function(){
-//$('#post-area').markItUp(mySettings);
-   $('#post-area').ckeditor();
-
-  // Hide share/favorite bar by default
-  $('.share').css({opacity: 0});
-  $('.favorite').css({opacity: 0});
+$(function() {
+//   $('#post-area').ckeditor();
 
   // Status input tab reveal
-  $('#new-note').click(function() {
+  $('#new-note').on('click', function(event) {
     hideAllTabs();
     $('#new-note').addClass('current-tab');
     $('#new-note').parent().addClass('current-tab');
     $('#note-input').show();
-  }).attr('href', '#');
+    event.stopPropagation();
+    event.preventDefault();
+  });
 
   // Post input tab reveal
-  $('#new-post').click(function() {
+  $('#new-post').on('click', function(event) {
     hideAllTabs();
     $('#new-post').addClass('current-tab');
     $('#new-post').parent().addClass('current-tab');
     $('#post-input').show();
-  }).attr('href', '#');
+    event.stopPropagation();
+    event.preventDefault();
+  });
 
   // Image input tab reveal
-  $('#new-image').click(function() {
+  $('#new-image').on('click', function(event) {
     hideAllTabs();
     $('#new-image').addClass('current-tab');
     $('#new-image').parent().addClass('current-tab');
     $('#image-input').show();
-  }).attr('href', '#');
+    event.stopPropagation();
+    event.preventDefault();
+  });
 
   // Follow input tab reveal
-  $('#new-follow').click(function() {
+  $('#new-follow').on('click', function(event) {
     hideAllTabs();
     $('#new-follow').addClass('current-tab');
     $('#new-follow').parent().addClass('current-tab');
     $('#follow-input').show();
-  }).attr('href', '#');
-
-  // Share/favorite bar reveal/hide on mouse over
-  $('.activity').mouseover(function() {
-    $(this).find('.share').css({opacity: 1});
-    $(this).find('.favorite').css({opacity: 1});
-  }).mouseout(function() {
-    $(this).find('.share').css({opacity: 0});
-    $(this).find('.favorite').css({opacity: 0});
+    event.stopPropagation();
+    event.preventDefault();
   });
 
   // pjax tabs
@@ -117,6 +111,7 @@ $(document).ready(function(){
   $('form#image-input').submit(function(e) {
     return false;
   });
+
   image_uploader = $('form#image-input > input[type=file]');
   image_uploader.fileupload({
     dataType: 'json',
@@ -124,17 +119,17 @@ $(document).ready(function(){
     acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
     paramName: 'file',
     dropZone: $('#image-preview'),
-    formData: function() {
+    formData: function(e, data) {
       return [
-               {
-                 name:  'title',
-                 value: $('form#image-input > input.title').text()
-               },
-               {
-                 name:  'type',
-                 value: 'image'
-               }
-             ];
+          {
+            name:  'type',
+            value: 'image'
+          },
+          {
+            name:  'content',
+            value: $('form#image-input textarea').val()
+          }
+        ];
     },
     maxFileSize: 5000000,
     disableImageResize: /Android(?!.*Chrome)|Opera/
@@ -142,12 +137,12 @@ $(document).ready(function(){
     previewMaxWidth: 100,
     previewMaxHeight: 100,
     previewCrop: true
-  }).on('fileuploadadd', function(e,data) {
+  }).on('fileuploadadd', function(e, data) {
     // Reset preview spanner
     data.context = $('#image-preview');
     data.context.empty();
 
-    $('form#image-input > input.button').click(function () {
+    $('form#image-input > input.button').on('click', function () {
       data.submit();
     });
   }).on('fileuploadprocessalways', function(e,data) {
@@ -166,21 +161,22 @@ $(document).ready(function(){
   }).prop('disabled', !$.support.fileInput)
     .parent().addClass($.support.fileInput ? undefined : 'disabled');
 
-  $('form#image-input > input.title').css('width', '500px').val("URL");
+  $('form#image-input > input.title').css('width', '509px').val("URL");
 
   file = $("input[type=file]");
   file.css({"display": "inline-block",
             "width": "154px",
             "padding": "0",
             "margin-right": "10px"});
-  button = $('<div>').addClass('button').css({
+  button = $('<div>').addClass('button').addClass('square').css({
     "position": "absolute",
     "left": "0",
     "top":  "0",
     "text-align": "center",
-    "padding-top": "4px",
+    "padding-top": "6px",
+    "margin": "0",
     "width": "158px",
-    "height": "17px"
+    "height": "16px"
   }).text("upload");
   wrapper = $('<div>').css({
     "display": "inline-block",

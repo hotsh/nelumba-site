@@ -17,8 +17,9 @@
     %li.shared_by #{original.short_name}
     %li.shared_when #{initial.published_ago_in_words}
   %li.content
-    #{activity.sentence}:
-    %a{:href => "/images/#{activity.object.id}"}#{activity.object.id}
+    #{activity.object.content}
+    %a{:href => "/images/#{activity.object.id}"}
+      %img.image{:src => "/images/#{activity.object.id}?width=650&height=160"}
   - if current_person
     %li.favorite
       %form{:action => "/people/#{current_person.id}/favorites", :method => "post", :name => "favorite_#{initial.id}"}

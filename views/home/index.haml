@@ -1,58 +1,59 @@
-.activity-input
+.content
+  .activity-input
+    %nav.tabbar
+      %ul
+        %li.current-tab>
+          %a#new-note.current-tab{:href => "people/#{current_person.id}/timeline"}> Status
+        %li>
+          %a#new-image{:href => "people/#{current_person.id}/favorites"}> Image
+        %li>
+          %a#new-post{:href => "people/#{current_person.id}/mentions"}> Post
+        %li>
+          %a#new-follow{:href => "people/#{current_person.id}/following"}> Follow
+    %form#note-input{:action => "/people/#{current_person.id}/activities", :method => 'post', :name => 'activity'}
+      %label{:for => 'content'}
+        What's going on?
+      %textarea{:name => 'content'}
+      %input.button{:type => 'hidden', :name => 'type', :value => 'note'}
+      %input.button{:type => 'submit', :value => 'save'}>
+      %input.button{:type => 'submit', :value => 'share'}
+    %form#post-input{:action => "/people/#{current_person.id}/activities", :method => 'post', :name => 'activity'}
+      %label{:for => 'markdown'}
+        What's on your mind?
+      %input.title{:name => 'title', :value => 'Title'}
+      %textarea{:name => 'markdown', :id => "post-area"}
+      %input{:type => 'hidden', :name => 'type', :value => 'article'}
+      %input.button{:type => 'submit', :value => 'save'}>
+      %input.button{:type => 'submit', :value => 'share'}
+    %form#image-input{:action => "/people/#{current_person.id}/activities", :method => 'post', :name => 'activity', :enctype=>"multipart/form-data"}
+      %label{:for => 'file'}
+        What do you see?
+      #image-preview
+      %input.title{:name => 'url', :value => 'URL or upload file:'}
+      %input.file{:name => 'file', :type => 'file'}
+      %input{:type => 'hidden', :name => 'type', :value => 'image'}
+      %textarea{:name => 'content'}
+      %input.button{:type => 'submit', :value => 'save'}>
+      %input.button{:type => 'submit', :value => 'share'}
+    %form#follow-input{:action => "/people/#{current_person.id}/following", :method => 'post', :name => 'activity'}
+      %label{:for => 'discover'}
+        Who do you want to follow?
+      %input.person{:name => 'discover', :value => 'name@service.tld'}
+      %input.button{:type => 'submit', :value => 'follow'}
+
   %nav.tabbar
     %ul
       %li.current-tab>
-        %a#new-note.current-tab{:href => "people/#{current_person.id}/timeline"}> Status
+        %a#timeline-tab.current-tab{:"data-pjax" => true, :href => "/people/#{current_person.id}/timeline"}> Timeline
       %li>
-        %a#new-image{:href => "people/#{current_person.id}/favorites"}> Image
+        %a#mentions-tab{:"data-pjax" => true, :href => "/people/#{current_person.id}/mentions"}> Mentions
       %li>
-        %a#new-post{:href => "people/#{current_person.id}/mentions"}> Post
+        %a#favorites-tab{:"data-pjax" => true, :href => "/people/#{current_person.id}/favorites"}> Favorites
       %li>
-        %a#new-follow{:href => "people/#{current_person.id}/following"}> Follow
-  %form#note-input{:action => "/people/#{current_person.id}/activities", :method => 'post', :name => 'activity'}
-    %label{:for => 'content'}
-      What's going on?
-    %textarea{:name => 'content'}
-    %input.button{:type => 'hidden', :name => 'type', :value => 'note'}
-    %input.button{:type => 'submit', :value => 'save'}>
-    %input.button{:type => 'submit', :value => 'share'}
-  %form#post-input{:action => "/people/#{current_person.id}/activities", :method => 'post', :name => 'activity'}
-    %label{:for => 'markdown'}
-      What's on your mind?
-    %input.title{:name => 'title', :value => 'Title'}
-    %textarea{:name => 'markdown', :id => "post-area"}
-    %input{:type => 'hidden', :name => 'type', :value => 'article'}
-    %input.button{:type => 'submit', :value => 'save'}>
-    %input.button{:type => 'submit', :value => 'share'}
-  %form#image-input{:action => "/people/#{current_person.id}/activities", :method => 'post', :name => 'activity', :enctype=>"multipart/form-data"}
-    %label{:for => 'file'}
-      What do you see?
-    #image-preview
-    %input.title{:name => 'url', :value => 'URL or upload file:'}
-    %input.file{:name => 'file', :type => 'file'}
-    %input{:type => 'hidden', :name => 'type', :value => 'image'}
-    %textarea{:name => 'title'}
-    %input.button{:type => 'submit', :value => 'save'}>
-    %input.button{:type => 'submit', :value => 'share'}
-  %form#follow-input{:action => "/people/#{current_person.id}/following", :method => 'post', :name => 'activity'}
-    %label{:for => 'discover'}
-      Who do you want to follow?
-    %input.person{:name => 'discover', :value => 'name@service.tld'}
-    %input.button{:type => 'submit', :value => 'follow'}
-
-%nav.tabbar
-  %ul
-    %li.current-tab>
-      %a#timeline-tab.current-tab{:"data-pjax" => true, :href => "/people/#{current_person.id}/timeline"}> Timeline
-    %li>
-      %a#mentions-tab{:"data-pjax" => true, :href => "/people/#{current_person.id}/mentions"}> Mentions
-    %li>
-      %a#favorites-tab{:"data-pjax" => true, :href => "/people/#{current_person.id}/favorites"}> Favorites
-    %li>
-      %a#shared-tab{:"data-pjax" => true, :href => "/people/#{current_person.id}/shared"}> Shared
-%ul.activities
-  - current_person.timeline.ordered.each do |activity|
-    - next if activity.verb == :favorite
-    = partial :"activities/show", {:locals => {:activity => activity}}
-%footer
-  hello
+        %a#shared-tab{:"data-pjax" => true, :href => "/people/#{current_person.id}/shared"}> Shared
+  %ul.activities
+    - current_person.timeline.ordered.each do |activity|
+      - next if activity.verb == :favorite
+      = partial :"activities/show", {:locals => {:activity => activity}}
+  %footer
+    hello

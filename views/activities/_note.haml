@@ -27,9 +27,13 @@
       %form{:action => "/people/#{current_person.id}/favorites", :method => "post", :name => "favorite_#{initial.id}"}
         %input{:name => "activity_id", :value => initial.id, :type => "hidden"}
         %input{:type => "submit", :value => "Favorite"}
+      %span.amount
+        #{initial.interaction_count(:favorite)}
     %li.share
       %form{:action => "/people/#{current_person.id}/shared", :method => "post", :name => "share_#{initial.id}"}
         %input{:name => "activity_id", :value => initial.id, :type => "hidden"}
         %input{:type => "submit", :value => "Share"}
+      %span.amount
+        #{initial.interaction_count(:share)}
   %li.when
     %a{:href => activity.url} #{activity.published_ago_in_words}
