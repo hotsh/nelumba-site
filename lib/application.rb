@@ -3,15 +3,6 @@ require_relative '../config/environment'
 module Rack
   class Lotus
     helpers do
-      def partial(page, options={})
-        if page.to_s.include? "/"
-          page = page.to_s.sub /[\/]([^\/]+)$/, "/_\\1"
-        else
-          page = "_#{page}"
-        end
-        haml page.to_sym, options.merge!(:layout => false)
-      end
-
       def addon_enabled?(addon)
         @blade ||= Propeller::Blade.new
         @blade.addon_enabled? addon
@@ -43,13 +34,20 @@ class Application < Sinatra::Base
   end
 
   helpers do
-    def partial(page, options={})
+    def partial_exists?(page)
+      File.exists?("./views/#{partial_to_page(page)}.haml")
+    end
+
+    def partial_to_page(page)
       if page.to_s.include? "/"
         page = page.to_s.sub /[\/]([^\/]+)$/, "/_\\1"
       else
         page = "_#{page}"
       end
-      haml page.to_sym, options.merge!(:layout => false)
+    end
+
+    def partial(page, options={})
+      haml partial_to_page(page).to_sym, options.merge!(:layout => false)
     end
 
     def addon_enabled?(addon)

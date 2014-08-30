@@ -27,12 +27,8 @@
       = partial :"activities/show", {:locals => {:activity => activity}}
     - else
       %li.content
-        - if activity.type == :note
-          = partial :"activities/note", :locals => {:activity => activity}
-        - elsif activity.type == :article
-          = partial :"activities/article", :locals => {:activity => activity}
-        - elsif activity.type == :image
-          = partial :"activities/image", :locals => {:activity => activity}
+        - if partial_exists?(:"activities/#{activity.type.to_s}")
+          = partial :"activities/#{activity.type.to_s}", :locals => {:activity => activity}
         - else
           #{activity.sentence}
     - if current_person
