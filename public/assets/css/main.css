@@ -316,6 +316,7 @@ ul.activities > li.message {
   cursor: pointer;
   text-align: center;
   padding: 15px 0;
+
   border-bottom: 1px solid #ddd;
 }
 
@@ -329,10 +330,41 @@ ul.activities + footer {
 
 .activity {
   position: relative;
+  width: 100%;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+
+  color: rgb(80,80,80);
+
+  padding-top: 6px;
+  padding-bottom: 6px;
+
+  min-height: 48px;
+}
+
+ul.activities li.activity {
+  position: relative;
 
   background-color: white;
   width: 100%;
 
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+
+  color: rgb(80,80,80);
+
+  padding-top: 6px;
+  padding-bottom: 6px;
+
+  border-bottom: 1px solid #eee;
+
+  min-height: 48px;
+}
+
+li.activity {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
   font-weight: 700;
@@ -359,9 +391,99 @@ ul.activities + footer {
 
 .activity > ul > li.actor_display ,
 .activity > ul > li.title {
+}
+
+ul.activities > li.activity > ul > li.actor_display ,
+ul.activities > li.activity > ul > li.title {
+  color: #555;
   display: inline-block;
+  font-size: 12px;
   margin-left: 63px;
   margin-top: 5px;
+  margin-bottom: 0px;
+  position: static;
+  text-align: left;
+  width: auto;
+}
+
+.activity .byline {
+  position: absolute;
+  width: 200px;
+  margin-top: 40px;
+}
+
+.activity .byline .avatar {
+  margin-left: 132px;
+}
+
+.activity .byline .actor_display,
+.activity .byline .title {
+  color: #fff;
+  display: block;
+  text-align: right;
+  margin-top: 10px;
+  width: 180px;
+}
+
+.activity .byline .actor {
+  color: #fff;
+  display: block;
+  font-weight: 200;
+  font-size: 12px;
+  text-align: right;
+  margin-top: 5px;
+  width: 180px;
+}
+
+.activity .byline ul li.actor:before {
+  color: #ccc;
+  content: "@";
+  padding-right: 2px;
+}
+
+.activity div.message {
+  background-color: #fff;
+  border-radius: 10px;
+  font-weight: 200;
+  margin-left: 200px;
+  margin-top:  20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  position: relative;
+}
+
+.activity > .message > ul > li.content img {
+  border-radius: 0;
+}
+
+.activity > .message > ul > li.when {
+  bottom: 15px;
+  color: #888;
+  font-size: 14px;
+  right: 20px;
+}
+
+.activity > .message > ul > li.content {
+  width: 545px;
+}
+
+.activity > ul > li.actor {
+}
+
+ul.activities > li.activity ul li.actor:before {
+  content: "(";
+}
+
+ul.activities > li.activity ul li.actor:after {
+  content: ")";
+}
+
+ul.activities > li.activity > ul > li.actor {
+  color: #555;
+  display: inline-block;
+  font-size: 12px;
+  text-align: left;
+  width: auto;
 }
 
 .activity > ul > .activity > ul {
@@ -374,7 +496,7 @@ ul.activities + footer {
   border-bottom: 1px solid #eee;
 }
 
-.activity:last-child {
+ul.activities > li.activity:last-child {
   border-bottom: 1px solid rgb(80, 80, 80);
 
   -moz-border-bottom-left-radius: 6px;
@@ -388,48 +510,50 @@ ul.activities + footer {
   margin: 0;
 }
 
-.activity ul li.actor:before {
-  content: "("
-}
-
-.activity ul li.actor:after {
-  content: ")"
-}
-
 .activity ul li.shared_by, .activity ul li.shared_when {
   clear: both;
-  display: inline;
   color: #aaa;
+  display: inline;
 }
 
 .activity ul li span.amount {
-  color: #ddd;
+  color: #333;
   font-weight: normal;
   display: inline-block;
-  margin-top: 7px;
+  margin-top: 5px;
   padding-right: 5px;
 }
 
+ul.activities > li.activity ul > li > form + span.amount {
+  color: #ddd;
+  margin-top: 7px;
+}
+
 .activity ul > li:hover > form + span.amount {
+  color: #111;
+
+  font-size: 16px;
+}
+
+ul.activities > li.activity ul > li:hover > form + span.amount {
   color: #333;
+
+  font-size: 12px;
 }
 
 .activity ul li.favorite {
   clear: both;
   display: inline;
-  width: 16px;
 }
 
 .activity ul li.share {
   clear: both;
   display: inline;
-  width: 16px;
 }
 
 .activity ul li.reply {
   clear: both;
   display: inline;
-  width: 16px;
 }
 
 .activity ul * form {
@@ -449,13 +573,17 @@ ul.activities + footer {
   cursor: pointer;
   margin-top: 5px;
   vertical-align: top;
+  width: 24px;
+}
+
+ul.activities > li.activity ul * form input {
+  width: 16px;
 }
 
 .activity ul li.share form input {
   background-image: url('/assets/images/share_small.png');
   background-repeat: no-repeat;
   text-indent: -9999px;
-  width: 16px;
 }
 
 .activity ul li.favorite form input {
@@ -464,7 +592,6 @@ ul.activities + footer {
   background-position: 0px -1px;
   text-indent: -9999px;
   margin-left: 10px;
-  width: 16px;
 }
 
 .activity ul li.share form input:hover {
@@ -480,11 +607,12 @@ ul.activities + footer {
 }
 
 .activity ul > li.when {
-  position: absolute;
   bottom: 0px;
-  right: 10px;
   display: inline;
+  font-size: 12px;
   margin-top: 10px;
+  position: absolute;
+  right: 10px;
 }
 
 .activity ul .activity ul > li.when {
@@ -499,9 +627,9 @@ ul.activities + footer {
 .activity ul li.when a {
 }
 
-.activity ul li.content {
+.activity > ul > li.content {
   font-family: "Open Sans", sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   display: block;
 
@@ -512,6 +640,16 @@ ul.activities + footer {
   line-height: 1.3em;
 
   margin-bottom: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+ul.activities > li.activity > ul > li.content {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+
+  margin-bottom: 10px;
   margin-left: 63px;
   margin-top: 10px;
 }
@@ -519,22 +657,18 @@ ul.activities + footer {
 .activity ul li.content .image {
   display: block;
   width: 100%;
-  height: 240px;
   border: 1px solid #ddd;
   border-radius: 10px;
   margin: 0 auto;
   margin-top: 10px;
 }
 
-.activity ul li {
-  display: inline;
-}
-
-.activity ul li.avatar {
+ul.activities li.activity ul li.avatar {
   position: absolute;
   display: block;
-  z-index: 999;
   left: 5px;
+  margin: 0;
+  z-index: 999;
 }
 
 .activity ul li.avatar img {

@@ -1,2 +1,3 @@
 - favorites.each do |activity|
-  = partial :"activities/show", {:locals => {:activity => activity}}
+  %li.activity
+    = partial :"activities/show", {:locals => {:activity => activity}}

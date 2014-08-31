@@ -1,2 +1,9 @@
 .content
-  = partial :"activities/show", {:locals => {:activity => activity}}
+  %ul.activities
+    %li.activity
+      = partial :"activities/list", {:locals => {:activity => Lotus::Activity.new({:interactions => {:share => {:count => 3}, :favorite => {:count => 2}}, :published => Time.now, :updated => Time.now, :verb => :post, :actor => Lotus::Person.new(:display_name => "wilkie"), :object => Lotus::Note.new(:html => "Hello"), :type => :note })}}
+  .activity
+    = partial :"activities/show", {:locals => {:activity => activity}}
+  %ul.activities
+    %li.activity
+      = partial :"activities/list", {:locals => {:activity => Lotus::Activity.new({:interactions => {:share => {:count => 3}, :favorite => {:count => 2}}, :published => Time.now, :updated => Time.now, :verb => :post, :actor => Lotus::Person.new(:display_name => "wilkie"), :object => Lotus::Note.new(:html => "Hello"), :type => :note })}}

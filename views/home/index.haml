@@ -54,6 +54,7 @@
   %ul.activities
     - current_person.timeline.ordered.each do |activity|
       - next if activity.verb == :favorite
-      = partial :"activities/show", {:locals => {:activity => activity}}
+      %li.activity
+        = partial :"activities/list", {:locals => {:activity => activity}}
   %footer
     hello

@@ -1,3 +1,6 @@
 #{activity.object.content}
 %a{:href => "/images/#{activity.object.id}"}
-  %img.image{:src => "/images/#{activity.object.id}?width=650&height=160"}
+  - if defined?(full) && full
+    %img.image{:src => "/images/#{activity.object.id}"}
+  - else
+    %img.image{:src => "/images/#{activity.object.id}?width=650&height=160"}

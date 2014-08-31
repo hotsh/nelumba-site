@@ -4,7 +4,7 @@
 - initial = activity
 - original = activity.actor
 - activity = activity.object if activity.external_object_type == "Activity"
-%li.activity
+.byline
   %ul
     %li.avatar
       - if verb == :favorite && show_as_activity
@@ -20,15 +20,15 @@
     - else
       %li.actor_display #{activity.actor.display_name}
       %li.actor #{activity.actor.short_name}
-    - if verb == :share && !show_as_activity
-      %li.shared_by #{original.short_name}
-      %li.shared_when #{initial.published_ago_in_words}
+.message
+  %ul
     - if show_as_activity && initial.object.is_a?(Lotus::Activity)
-      = partial :"activities/show", {:locals => {:activity => activity}}
+      %li.activity
+        = partial :"activities/show", {:locals => {:activity => activity}}
     - else
       %li.content
         - if partial_exists?(:"activities/#{activity.type.to_s}")
-          = partial :"activities/#{activity.type.to_s}", :locals => {:activity => activity}
+          = partial :"activities/#{activity.type.to_s}", :locals => {:activity => activity, :full => true}
         - else
           #{activity.sentence}
     - if current_person
@@ -45,4 +45,4 @@
         %span.amount
           #{initial.interaction_count(:share)}
     %li.when
-      %a{:href => activity.url} #{activity.published_ago_in_words}
+      #{activity.published}
