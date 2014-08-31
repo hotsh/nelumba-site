@@ -43,6 +43,16 @@ class Application < Sinatra::Base
   helpers Sinatra::ContentFor
   helpers Rack::Lotus::AuthorizationHelpers
 
+  # SASS
+  configure do
+    Compass.configuration do |config|
+      config.project_path = '.'
+      config.sass_dir = 'views'
+    end
+  end
+  set :sass, Compass.sass_engine_options
+  set :scss, Compass.sass_engine_options
+
   def self.load_tasks
     Dir[File.join(File.dirname(__FILE__), "tasks", '*.rb')].each do |file|
       require file
@@ -79,6 +89,11 @@ class Application < Sinatra::Base
 
   get '/' do
     haml :"home/index"
+  end
+
+  get '/assets/css/:name.css' do
+    content_type 'text/css', :charset => 'utf-8'
+    sass(:"stylesheets/#{params[:name]}", Compass.sass_engine_options)
   end
 
   get '/styleguide' do

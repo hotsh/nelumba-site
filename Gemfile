@@ -10,6 +10,9 @@ gem 'propeller', :git => "git://github.com/wilkie/propeller.git"
 gem 'bson_ext'
 gem 'mongo_mapper'
 
+gem 'sass'
+gem 'compass'
+
 gem "redfinger", :git => "git://github.com/hotsh/redfinger.git"
 gem 'lotus', :git => 'git://github.com/hotsh/lotus.git'
 gem 'lotus-i18n', :git => 'git://github.com/hotsh/lotus-i18n.git'
