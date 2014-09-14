@@ -1,0 +1,131 @@
+/* Activity list container */
+ul.activities
+  margin:           0
+  padding:          0
+  width:            100%
+nav.tabbar + ul.activities
+  background-color: #555
+/* Activity within a feed */
+ul.activities > li.activity
+  background-color: #fff
+  border-bottom:    1px solid #eee
+  min-height:       48px
+  padding:          6px 0
+  position:         relative
+ul.activities > li.activity:last-child
+  border-bottom:              none
+  +border-bottom-left-radius  (6px)
+  +border-bottom-right-radius (6px)
+/* Activity avatar */
+ul.activities > li.activity ul li.avatar
+  display:  block
+  left:     5px
+  margin:   0
+  position: absolute
+  z-index:  999
+ul.activities > li.activity ul li.avatar img
+  background-color: white
+  +border-radius    (6px)
+/* Activity display name */
+ul.activities > li.activity ul > li.actor_display,
+ul.activities > li.activity ul > li.title
+  color:         #555
+  display:       inline-block
+  font-family:   $title-font
+  font-size:     12px
+  font-weight:   700
+  margin-left:   63px
+  margin-top:    5px
+  margin-bottom: 0px
+/* Activity handle */
+ul.activities > li.activity ul > li.actor
+  color:         #555
+  display:       inline-block
+  font-family:   $title-font
+  font-size:     12px
+  font-weight:   400
+ul.activities > li.activity ul > li.actor:before
+  content: '('
+ul.activities > li.activity ul > li.actor:after
+  content: ')'
+/* Activity Content */
+ul.activities > li.activity ul > li.content
+  display:       block
+  font-family:   $content-font
+  font-size:     14px
+  font-weight:   400
+  line-height:   1.3em
+  margin-bottom: 10px
+  margin-left:   63px
+  margin-top:    10px
+  min-height:    1em
+/* Activity Content: Image */
+ul.activities > li.activity ul > li.content .image
+  display:       block
+  border:        1px solid #ddd
+  +border-radius (10px)
+  margin:        0
+  margin-top:    10px
+  margin-right:  10px
+/* Activity Actions */
+ul.activities > li.activity ul > li.actions > ul.verbs > li
+  display: inline
+ul.activities > li.activity ul > li.actions > ul.verbs > li > form
+  display: inline
+ul.activities > li.activity ul > li.actions > ul.verbs > li > form > input
+  background-color:    transparent
+  background-repeat:   no-repeat
+  background-position: 0px 0px
+  border:              none
+  display:             inline-block
+  height:              19px
+  margin-left:         10px
+  text-indent:         -9999px
+  width:               20px
+ul.activities > li.activity ul > li.actions > ul.verbs > li.favorite.verb > form > input
+  background-image: url('/assets/images/verb-favorite.png')
+  width:            18px
+ul.activities > li.activity ul > li.actions > ul.verbs > li.share.verb > form > input
+  background-image: url('/assets/images/verb-share.png')
+ul.activities > li.activity ul > li.actions > ul.verbs > li.verb > span.amount
+  color:          #999
+  display:        inline-block
+  font-family:    $title-font
+  font-size:      12px
+  font-weight:    bold
+  vertical-align: bottom
+/* Activity Link / Time */
+ul.activities > li.activity ul > li.when > a
+  bottom:      10px
+  display:     inline
+  font-family: $content-font
+  font-size:   12px
+  font-weight: 700
+  margin-top:  10px
+  position:    absolute
+  right:       13px
+/* Activity Action Description (shared by X, etc) */
+ul.activities > li.activity ul li.shared_by,
+ul.activities > li.activity ul li.shared_when
+  color:       #aaa
+  display:     inline
+  font-family: $title-font
+  font-size:   12px
+  font-weight: 700
+ul.activities > li.activity ul li.shared_when
+  font-weight: normal
+ul.activities > li.activity ul > li.shared_by:before
+  content:     "\00267b\0000A0by "
+  font-weight: normal
+/* Embedded Activity */
+ul.activities > li.activity ul > li.activity
+  border:      1px solid #eee
+  margin:      10px
+  margin-left: 63px
+  padding:     5px
+  position:    relative
+ul.activities > li.activity ul > li.activity .avatar
+  margin-left: 5px
+ul.activities > li.activity ul > li.activity li.when > a
+  font-size: 10px
+  opacity:   0.7

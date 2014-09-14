@@ -1,0 +1,39 @@
+form#image-input #image-preview
+  background-color: white
+  float:            left
+  height:           100px
+  margin:           0
+  width:            100px
+
+form#image-input input.title
+  border-left:   1px solid #eee
+  border-bottom: 1px solid #eee
+  display:       inline
+  float:         left
+  margin:        0
+  width:         330px
+
+form#image-input input.file
+  display: inline
+  margin:  0
+  width:   337px
+
+form#image-input div .button
+  @extend .button
+  height: 10px
+
+form#image-input div:hover .button
+  @extend .button
+  @extend .button:hover
+
+form#image-input div:active .button
+  @extend .button
+  @extend .button:active
+
+form#image-input textarea
+  border-left: 1px solid #eee
+  height:     59px
+  max-width:  669px
+  min-height: 59px
+  min-width:  669px
+  width:      669px

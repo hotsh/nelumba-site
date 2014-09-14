@@ -31,18 +31,36 @@
           = partial :"activities/#{activity.type.to_s}", :locals => {:activity => activity, :full => true}
         - else
           #{activity.sentence}
+    %li.interactions
+      %ul.verbs
+        %li.favorite.verb
+          %span.count
+            #{initial.interaction_count(:favorite)}
+          %span.verb
+            favorites
+          %ul.actors
+            %li.person
+              %a.uri{:href => "/people/#{0}"}
+                %img.avatar{:src => ""}
+        %li.share.verb
+          %span.count
+            #{initial.interaction_count(:share)}
+          %span.verb
+            shares
+          %ul.actors
+            %li.person
+              %a.uri{:href => "/people/#{0}"}
+                %img.avatar{:src => ""}
     - if current_person
-      %li.favorite
-        %form{:action => "/people/#{current_person.id}/favorites", :method => "post", :name => "favorite_#{initial.id}"}
-          %input{:name => "activity_id", :value => initial.id, :type => "hidden"}
-          %input{:type => "submit", :value => "Favorite"}
-        %span.amount
-          #{initial.interaction_count(:favorite)}
-      %li.share
-        %form{:action => "/people/#{current_person.id}/shared", :method => "post", :name => "share_#{initial.id}"}
-          %input{:name => "activity_id", :value => initial.id, :type => "hidden"}
-          %input{:type => "submit", :value => "Share"}
-        %span.amount
-          #{initial.interaction_count(:share)}
+      %li.actions
+        %ul.verbs
+          %li.favorite.verb
+            %form{:action => "/people/#{current_person.id}/favorites", :method => "post", :name => "favorite_#{initial.id}"}
+              %input{:name => "activity_id", :value => initial.id, :type => "hidden"}
+              %input{:type => "submit", :value => "Favorite"}
+          %li.share.verb
+            %form{:action => "/people/#{current_person.id}/shared", :method => "post", :name => "share_#{initial.id}"}
+              %input{:name => "activity_id", :value => initial.id, :type => "hidden"}
+              %input{:type => "submit", :value => "Share"}
     %li.when
-      #{activity.published}
+      #{activity.published.strftime("%c")}

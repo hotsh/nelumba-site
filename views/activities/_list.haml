@@ -24,7 +24,7 @@
     %li.shared_when #{initial.published_ago_in_words}
   - if show_as_activity && initial.object.is_a?(Lotus::Activity)
     %li.activity
-      = partial :"activities/show", {:locals => {:activity => activity}}
+      = partial :"activities/list", {:locals => {:activity => activity}}
   - else
     %li.content
       - if partial_exists?(:"activities/#{activity.type.to_s}")
@@ -32,17 +32,19 @@
       - else
         #{activity.sentence}
   - if current_person
-    %li.favorite
-      %form{:action => "/people/#{current_person.id}/favorites", :method => "post", :name => "favorite_#{initial.id}"}
-        %input{:name => "activity_id", :value => initial.id, :type => "hidden"}
-        %input{:type => "submit", :value => "Favorite"}
-      %span.amount
-        #{initial.interaction_count(:favorite)}
-    %li.share
-      %form{:action => "/people/#{current_person.id}/shared", :method => "post", :name => "share_#{initial.id}"}
-        %input{:name => "activity_id", :value => initial.id, :type => "hidden"}
-        %input{:type => "submit", :value => "Share"}
-      %span.amount
-        #{initial.interaction_count(:share)}
+    %li.actions
+      %ul.verbs
+        %li.favorite.verb
+          %form{:action => "/people/#{current_person.id}/favorites", :method => "post", :name => "favorite_#{initial.id}"}
+            %input{:name => "activity_id", :value => initial.id, :type => "hidden"}
+            %input{:type => "submit", :value => "Favorite"}
+          %span.amount
+            #{initial.interaction_count(:favorite)}
+        %li.share.verb
+          %form{:action => "/people/#{current_person.id}/shared", :method => "post", :name => "share_#{initial.id}"}
+            %input{:name => "activity_id", :value => initial.id, :type => "hidden"}
+            %input{:type => "submit", :value => "Share"}
+          %span.amount
+            #{initial.interaction_count(:share)}
   %li.when
     %a{:href => activity.url} #{activity.published_ago_in_words}

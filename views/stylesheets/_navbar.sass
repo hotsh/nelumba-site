@@ -1,0 +1,67 @@
+nav.tabbar
+  background-color: #555555
+  display:          table
+  height:           36px
+  width:            100%
+nav.tabbar ul
+  display: table-row
+nav.tabbar ul li
+  background-color: #eee
+  border-left:      1px solid #ddd
+  border-top:       5px solid #ddd
+  display:          table-cell
+  height:           100%
+  position:         relative
+  width:            25%
+nav.tabbar ul li a
+  background-position: 5px 8px
+  background-repeat:   no-repeat
+  display:             inline-block
+  font-family:         "Open Sans", sans-serif
+  font-size:           14px
+  padding-top:         10px
+  padding-left:        27px
+  padding-right:       4px
+/* Currently selected tab */
+nav.tabbar ul li.current-tab
+  background-color: #fff
+  border:           none
+  border-top:       5px solid rgb(67, 159, 195)
+  border-bottom:    1px solid #eee
+  height:           23px
+nav.tabbar ul li.current-tab + li
+  border-left: none
+nav.tabbar ul li.current-tab a
+  background-position: 5px 4px
+  padding-top:         6px
+/* Top bar */
+nav.tabbar ul li a#new-post
+  background-image: url('/assets/images/article_hover.png')
+nav.tabbar ul li a#new-image
+  background-image: url('/assets/images/camera_hover.png')
+nav.tabbar ul li a#new-follow
+  background-image: url('/assets/images/article_hover.png')
+nav.tabbar ul li a#new-note
+  background-image: url('/assets/images/speech_hover.png')
+/* Feed select bar*/
+nav.tabbar ul li a#timeline-tab
+  background-image: url('/assets/images/list_hover.png')
+nav.tabbar ul li a#favorites-tab
+  background-image: url('/assets/images/favorite_hover.png')
+nav.tabbar ul li a#mentions-tab
+  background-image: url('/assets/images/at_hover.png')
+nav.tabbar ul li a#shared-tab
+  background-image: url('/assets/images/share_hover.png')
+/* New Content Notification Bubbles */
+nav.tabbar span.amount
+  background-color: hsl(300, 50%, 80%)
+  +border-radius    (5px)
+  color:            white
+  font-family:      $title-font
+  font-size:        12px
+  font-weight:      700
+  right:            6px
+  padding:          3px
+  padding-bottom:   5px
+  position:         absolute
+  top:              6px

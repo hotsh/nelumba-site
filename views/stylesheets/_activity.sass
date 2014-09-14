@@ -1,0 +1,124 @@
+/* The styling for an individual activity */
+div.activity + ul.activities
+  background-color: transparent
+div.activity + ul.activities li.activity:first-child
+  +border-top-left-radius(10px)
+  +border-top-right-radius(10px)
+div.activity .byline
+  margin-top: 40px
+  position:   absolute
+  width:      200px
+div.activity .byline .avatar
+  margin-left: 132px
+div.activity .byline .actor_display,
+div.activity .byline .title
+  color:      #fff
+  display:    block
+  font-weight: 200
+  font-size:   20px
+  font-family: $content-font
+  line-height: 1.18em
+  margin-top:  10px
+  text-align:  right
+  width:       180px
+div.activity .byline .actor
+  color:       #aaa
+  display:     block
+  font-weight: bold
+  font-size:   12px
+  font-family: $title-font
+  margin-top:  10px
+  text-align:  right
+  width:       180px
+div.activity .byline ul li.actor:before
+  color:         #777
+  content:       "@"
+  font-weight:   normal
+  padding-right: 2px
+div.activity div.message
+  background-color: #fff
+  border-radius:    10px
+  font-weight:      200
+  margin-left:      200px
+  margin-top:       20px
+  margin-bottom:    20px
+  padding:          20px
+  padding-bottom:   15px
+  position:         relative
+div.activity > .message > ul > li.content
+  padding-bottom: 10px
+div.activity > .message > ul > li.content img
+  border-radius: 0
+div.activity > .message > ul > li.when
+  border-top:  1px solid #ddd
+  color:       #888
+  font-family: $title-font
+  font-size:   12px
+  font-weight: bold
+  padding-top: 10px
+div.activity > .message > ul > li.content .image
+  border: 1px solid #ddd
+  margin: 15px 0
+  width:  100%
+div.activity > .message > ul > li.content
+  border-bottom: 1px solid #ddd
+  font-weight:   200
+  font-size:     20px
+  font-family:   $content-font
+/* Favorite/Share/etc List */
+div.activity > .message > ul > li.interactions
+  color: #888
+  font-weight: 200
+  font-size:   20px
+  font-family: $content-font
+div.activity > .message > ul > li.interactions > ul.verbs
+  display: table
+div.activity > .message > ul > li.interactions > ul.verbs > li.verb
+  display: table-row
+div.activity > .message > ul > li.interactions > ul.verbs > li.verb > *
+  display:        table-cell
+  padding-right:  5px
+  padding-top:    10px
+  vertical-align: middle
+div.activity > .message > ul > li.interactions > ul.verbs > li.verb > .count
+  color:      #555
+  text-align: right
+div.activity > .message > ul > li.interactions > ul.verbs > li.verb:first-child > *
+  padding-top: 15px
+div.activity > .message > ul > li.interactions > ul.verbs > li.verb:last-child > *
+  padding-bottom: 15px
+div.activity > .message > ul > li.interactions > ul.verbs > li.verb > .verb
+  padding-right: 20px
+div.activity > .message > ul > li.interactions > ul.verbs > li.verb > ul.actors
+  display:  inline-block
+  height:   24px
+  padding:  0
+  margin-top: 10px
+  overflow: hidden
+div.activity > .message > ul > li.interactions > ul.verbs > li.verb > ul.actors > li.person
+  display: inline-block
+/* Activity Actions */
+div.activity > .message > ul > li.actions
+  border-top:     1px solid #ddd
+  padding-bottom: 5px
+  padding-top:    10px
+div.activity > .message > ul > li.actions > ul.verbs > li
+  display: inline
+div.activity > .message > ul > li.actions > ul.verbs > li > form
+  display: inline
+div.activity > .message > ul > li.actions > ul.verbs > li > form > input
+  background-color:    transparent
+  background-repeat:   no-repeat
+  background-position: 0px -1px
+  border:              none
+  display:             inline-block
+  margin-left:         10px
+  text-indent:         -9999px
+  width:               16px
+div.activity > .message > ul > li.actions > ul.verbs > li.favorite > form > input
+  background-image: url('/assets/images/verb-favorite.png')
+div.activity > .message > ul > li.actions > ul.verbs > li.share > form > input
+  background-image: url('/assets/images/verb-share.png')
+div.activity > .message > ul > li.actions > ul.verbs > li > span.amount
+  color:   #ddd
+  display: inline-block

@@ -1,0 +1,42 @@
+/* Buttons */
+
+.button
+  background:       -webkit-gradient( linear, left top, left bottom, color-stop(0.05, hsl(190, 0%, 100%)), color-stop(1, hsl(190, 0%, 90%)) )
+  background:       -moz-linear-gradient( center top, hsl(190, 0%, 100%) 5%, hsl(190, 0%, 90%) 100% )
+  background-color: hsl(190, 0%, 40%)
+  border:           1px solid #ccc
+  +border-radius    (3px)
+  +box-shadow       (inset 0px 0px 1px 1px hsl(190, 60%, 100%))
+  color:            #333
+  cursor:           pointer
+  display:          inline-block
+  font-family:      "Open Sans", sans-serif
+  font-size:        12px
+  font-weight:      200
+  padding:          3px 4px
+  text-align:       center
+  text-decoration:  none
+.button.square
+  +border-radius(0px)
+  border-right:  none
+.button:hover
+  +box-shadow(inset 0px 0px 1px 1px hsl(190, 60%, 50%))
+.button:active
+  background:       -webkit-gradient( linear, left top, left bottom, color-stop(0.05, hsl(190, 0%, 95%)), color-stop(1, hsl(190, 0%, 90%)) )
+  background:       -moz-linear-gradient( center top, hsl(190, 0%, 95%) 5%, hsl(190, 0%, 90%) 100% )
+  background-color: hsl(190, 0%, 40%)
+  position:         relative
+  top:              1px
+.button.disabled ,
+.button:disabled
+  color:  #aaa
+  cursor: default
+.button.disabled:hover ,
+.button:disabled:hover
+  @extend .button
+  +box-shadow(inset 0px 0px 1px 1px hsl(190, 60%, 100%))
+.button.disabled:active ,
+.button:disabled:active
+  @extend .button
+  position: relative
+  top:      0px
