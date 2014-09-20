@@ -1,6 +1,6 @@
 .header
   %h1
-    #{person.short_name}'s Timeline
+    #{person.preferred_display_name}'s Timeline
 %ul.activities
   %li.activity
     = partial :"people/timeline", {:locals => {:person   => person,

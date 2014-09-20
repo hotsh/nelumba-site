@@ -1,6 +1,6 @@
 .header
   %h1
-    Replies to #{person.short_name}
+    Replies to #{person.preferred_display_name}
 %ul.activities
   - replies.each do |activity|
     - if activity.verb == :post || activity.verb == :share

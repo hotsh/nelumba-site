@@ -9,7 +9,7 @@
         - else
           %img.avatar{:src => "/assets/images/avatar.png"}
         %p.name
-          = article.author.short_name if article.author
+          = article.author.preferred_display_name if article.author
       %li.date
         #{article.published.strftime("%A, %b %d")}
 

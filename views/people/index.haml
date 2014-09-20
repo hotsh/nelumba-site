@@ -2,7 +2,7 @@
   - people.each do |p|
     %li
       %a{:href => "/people/#{p._id}"}
-        #{p.short_name}
+        #{p.preferred_display_name}
       %p
         %form{:action => "/people/#{current_person.id}/following", :method => "post", :name => "follow_#{p.id}"}
           %input{:name => "author_id", :value => p.id, :type => "hidden"}
