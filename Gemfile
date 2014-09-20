@@ -14,10 +14,10 @@ gem 'sass'
 gem 'compass'
 
 gem "redfinger", :git => "git://github.com/hotsh/redfinger.git"
-gem 'lotus', :git => 'git://github.com/hotsh/lotus.git'
-gem 'lotus-i18n', :git => 'git://github.com/hotsh/lotus-i18n.git'
-gem 'lotus-mongodb', :git => 'git://github.com/hotsh/lotus-mongodb.git'
-gem 'rack-lotus', :git => 'git://github.com/hotsh/rack-lotus.git'
+gem 'nelumba', :git => 'git://github.com/hotsh/nelumba.git'
+gem 'nelumba-i18n', :git => 'git://github.com/hotsh/nelumba-i18n.git'
+gem 'nelumba-mongodb', :git => 'git://github.com/hotsh/nelumba-mongodb.git'
+gem 'rack-nelumba', :git => 'git://github.com/hotsh/rack-nelumba.git'
 
 group :development do
   #gem 'debugger'

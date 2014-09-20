@@ -1,9 +1,9 @@
 !!!
 %html
   %head
-    %link{:rel => 'icon',       :sizes => '16x16',   :href => '/assets/images/lotus_logo_purple_16.png'}
-    %link{:rel => 'icon',       :sizes => '32x32',   :href => '/assets/images/lotus_logo_purple_32.png'}
-    %link{:rel => 'icon',       :sizes => '48x48',   :href => '/assets/images/lotus_logo_purple_48.png'}
+    %link{:rel => 'icon',       :sizes => '16x16',   :href => '/assets/images/nelumba_logo_purple_16.png'}
+    %link{:rel => 'icon',       :sizes => '32x32',   :href => '/assets/images/nelumba_logo_purple_32.png'}
+    %link{:rel => 'icon',       :sizes => '48x48',   :href => '/assets/images/nelumba_logo_purple_48.png'}
     %link{:rel => 'stylesheet', :type => 'text/css',
       :href => 'http://fonts.googleapis.com/css?family=Open+Sans:400,300,600|Overlock|Cinzel+Decorative:700'}
     %link{:rel => 'stylesheet', :type => 'text/css', :href => '/assets/css/markitup.css'}
@@ -16,14 +16,61 @@
     %title
       = user_option_for :title
   %body
-    - if current_person.nil?
-      %nav.topbar
+    %nav.topbar
+      - if current_person.nil?
         %ul.navbar
+          %li>
+            %img.avatar{:src => "/assets/images/avatar.png"}>
+          %li>
+            Welcome to
+            %strong.title
+              Nelumba
+        %ul.navbar.right
+          %li>
+            %a{:href => "/login"}>Login
+          %li>
+            %a{:href => "/authorizations/new"}>Signup
+      - else
+        %ul.navbar
+          %li>
+            - if current_person.avatar
+              %img.avatar{:src => "#{current_person.avatar.url}"}>
+            - else
+              %img.avatar{:src => "/assets/images/avatar.png"}>
+          %li>
+            #{current_person.display_name}
           %li
-            %a{:href => "/login"} Login
-          %li
-            %a{:href => "/authorizations/new"} Signup
-    = yield
+            %ul.statistics
+              %li.statistic>
+                %span.collection>
+                  Updates
+                %span.count>
+                  21.3k
+              %li.statistic>
+                %span.collection>
+                  Following
+                %span.count>
+                  398
+              %li.statistic>
+                %span.collection>
+                  Followers
+                %span.count>
+                  923
+              %li.statistic>
+                %span.collection>
+                  Favorites
+                %span.count>
+                  4.3k
+              %li.statistic>
+                %span.collection>
+                  Shares
+                %span.count>
+                  1.3k
+        %ul.navbar.right
+          %li>
+            %a{:href => "/logout"}>Logout
+    .content
+      = yield
     %script{:src=>"/assets/js/jquery.js"}
     %script{:src=>"/assets/js/jquery.pjax.js"}
     %script{:src=>"/assets/js/jquery.iframe-transport.js"}

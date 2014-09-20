@@ -1,119 +1,148 @@
-%p
-  Edit your contact details:
+.banner>
+  %img{:src => "/assets/images/nelumba_profile_bg.png"}>
+.profile.card
+  %h1
+    Edit your profile:
+  %form{:name => 'author', :action => "/people/#{person._id}", :method => 'post'}
+    %h2
+      Personal Note / Bio
+    %div
+      %textarea{:name => 'note'}
+        #{person.note}
+    %ul
+      %li.header
+        %h2
+          General
+      %li
+        %label{:for => 'preferred_username'}
+          Preferred Username
+        %div
+          %input{:type => 'text', :name => 'preferred_username', :value => person.preferred_username}
+      %li
+        %label{:for => 'display_name'}
+          Display Name
+        %div
+          %input{:type => 'text', :name => 'display_name', :value => person.display_name}
+      %li
+        %label{:for => 'name'}
+          Name
+        %div
+          %input{:type => 'text', :name => 'name', :value => person.name}
+      %li
+        %label{:for => 'nickname'}
+          Nickname
+        %div
+          %input{:type => 'text', :name => 'nickname', :value => person.nickname}
+      %li
+        %label{:for => 'email'}
+          Email
+        %div
+          %input{:type => 'text', :name => 'email', :value => person.email}
+      %li
+        %label{:for => 'gender'}
+          Gender
+        %div
+          %input{:type => 'text', :name => 'gender', :value => person.gender}
+      %li.header
+        %h2
+          Extended Name
+      %li
+        %label{:for => 'extended_name[formatted]'}
+          Formatted
+        %div
+          %input{:type => 'text', :name => 'extended_name[formatted]', :value => person.extended_name ? person.extended_name[:formatted] : ""}
+      %li
+        %label{:for => 'extended_name[given_name]'}
+          Given Name (First Name)
+        %div
+          %input{:type => 'text', :name => 'extended_name[given_name]', :value => person.extended_name ? person.extended_name[:given_name] : ""}
+      %li
+        %label{:for => 'extended_name[family_name]'}
+          Family Name (Last Name)
+        %div
+          %input{:type => 'text', :name => 'extended_name[family_name]', :value => person.extended_name ? person.extended_name[:family_name] : ""}
+      %li
+        %label{:for => 'extended_name[middle_name]'}
+          Middle Name
+        %div
+          %input{:type => 'text', :name => 'extended_name[middle_name]', :value => person.extended_name ? person.extended_name[:middle_name] : ""}
+      %li
+        %label{:for => 'extended_name[honorific_prefix]'}
+          Prefix
+        %div
+          %input{:type => 'text', :name => 'extended_name[honorific_prefix]', :value => person.extended_name ? person.extended_name[:honorific_prefix] : ""}
+      %li
+        %label{:for => 'extended_name[honorific_suffix]'}
+          Suffix
+        %div
+          %input{:type => 'text', :name => 'extended_name[honorific_suffix]', :value => person.extended_name ? person.extended_name[:honorific_suffix] : ""}
+      %li.header
+        %h2
+          Organization/Company
+      %li
+        %label{:for => 'organization[name]'}
+          Company Name
+        %div
+          %input{:type => 'text', :name => 'organization[name]', :value => person.organization ? person.organization[:name] : ""}
+      %li
+        %label{:for => 'organization[department]'}
+          Department
+        %div
+          %input{:type => 'text', :name => 'organization[department]', :value => person.organization ? person.organization[:department] : ""}
+      %li
+        %label{:for => 'organization[title]'}
+          Title
+        %div
+          %input{:type => 'text', :name => 'organization[title]', :value => person.organization ? person.organization[:title] : ""}
+      %li
+        %label{:for => 'organization[type]'}
+          Company Type
+        %div
+          %input{:type => 'text', :name => 'organization[type]', :value => person.organization ? person.organization[:type] : ""}
+      %li
+        %label{:for => 'organization[location]'}
+          Location
+        %div
+          %input{:type => 'text', :name => 'organization[location]', :value => person.organization ? person.organization[:location] : ""}
+      %li
+        %label{:for => 'organization[description]'}
+          Job Description
+        %div
+          %textarea{:name => 'organization[description]'}
+            #{person.organization ? person.organization[:description] : ""}
 
-%form{:name => 'author', :action => "/people/#{@author._id}", :method => 'post'}
-  %div
-    %label{:for => 'nickname'}
-      Nickname:
-    %input{:type => 'text', :name => 'nickname', :value => @author.nickname}
-
-  %div
-    %label{:for => 'email'}
-      Email:
-    %input{:type => 'text', :name => 'email', :value => @author.email}
-
-  %div
-    %label{:for => 'name'}
-      Name:
-    %input{:type => 'text', :name => 'name', :value => @author.name}
-
-  %div
-    Extended Name:
-    %div
-      %label{:for => 'extended_name[formatted]'}
-        Formatted:
-      %input{:type => 'text', :name => 'extended_name[formatted]', :value => @author.extended_name ? @author.extended_name[:formatted] : ""}
-    %div
-      %label{:for => 'extended_name[given_name]'}
-        Given Name (First Name):
-      %input{:type => 'text', :name => 'extended_name[given_name]', :value => @author.extended_name ? @author.extended_name[:given_name] : ""}
-    %div
-      %label{:for => 'extended_name[family_name]'}
-        Family Name (Last Name):
-      %input{:type => 'text', :name => 'extended_name[family_name]', :value => @author.extended_name ? @author.extended_name[:family_name] : ""}
-    %div
-      %label{:for => 'extended_name[middle_name]'}
-        Middle Name:
-      %input{:type => 'text', :name => 'extended_name[middle_name]', :value => @author.extended_name ? @author.extended_name[:middle_name] : ""}
-    %div
-      %label{:for => 'extended_name[honorific_prefix]'}
-        Prefix:
-      %input{:type => 'text', :name => 'extended_name[honorific_prefix]', :value => @author.extended_name ? @author.extended_name[:honorific_prefix] : ""}
-    %div
-      %label{:for => 'extended_name[honorific_suffix]'}
-        Suffix:
-      %input{:type => 'text', :name => 'extended_name[honorific_suffix]', :value => @author.extended_name ? @author.extended_name[:honorific_suffix] : ""}
-
-  %div
-    %label{:for => 'display_name'}
-      Display Name:
-    %input{:type => 'text', :name => 'display_name', :value => @author.display_name}
-
-  %div
-    %label{:for => 'preferred_username'}
-      Preferred Username:
-    %input{:type => 'text', :name => 'preferred_username', :value => @author.preferred_username}
-
-  %div
-    %label{:for => 'note'}
-      Personal Note:
-    %textarea{:name => 'note'}
-      #{@author.note}
-
-  %div
-    Organization/Company
-    %div
-      %label{:for => 'organization[name]'}
-        Company Name:
-      %input{:type => 'text', :name => 'organization[name]', :value => @author.organization ? @author.organization[:name] : ""}
-    %div
-      %label{:for => 'organization[department]'}
-        Department:
-      %input{:type => 'text', :name => 'organization[department]', :value => @author.organization ? @author.organization[:department] : ""}
-    %div
-      %label{:for => 'organization[title]'}
-        Title:
-      %input{:type => 'text', :name => 'organization[title]', :value => @author.organization ? @author.organization[:title] : ""}
-    %div
-      %label{:for => 'organization[type]'}
-        Company Type:
-      %input{:type => 'text', :name => 'organization[type]', :value => @author.organization ? @author.organization[:type] : ""}
-    %div
-      %label{:for => 'organization[location]'}
-        Location:
-      %input{:type => 'text', :name => 'organization[location]', :value => @author.organization ? @author.organization[:location] : ""}
-    %div
-      %label{:for => 'organization[description]'}
-        Job Description:
-      %textarea{:name => 'organization[description]'}
-        #{@author.organization ? @author.organization[:description] : ""}
-
-  %div
-    Address
-    %div
-      %label{:for => 'address[formatted]'}
-        Formatted:
-      %textarea{:name => 'address[formatted]'}
-        #{@author.address ? @author.address[:formatted] : ""}
-    %div
-      %label{:for => 'address[street_address]'}
-        Street:
-      %input{:type => 'text', :name => 'address[street_address]', :value => @author.address ? @author.address[:street_address] : ""}
-    %div
-      %label{:for => 'address[locality]'}
-        Locality (City):
-      %input{:type => 'text', :name => 'address[locality]', :value => @author.address ? @author.address[:locality] : ""}
-    %div
-      %label{:for => 'address[region]'}
-        Region (State):
-      %input{:type => 'text', :name => 'address[region]', :value => @author.address ? @author.address[:region] : ""}
-    %div
-      %label{:for => 'address[postal_code]'}
-        Postal/Zip Code:
-      %input{:type => 'text', :name => 'address[postal_code]', :value => @author.address ? @author.address[:postal_code] : ""}
-    %div
-      %label{:for => 'address[country]'}
-        Country:
-      %textarea{:name => 'address[country]'}
-        #{@author.address ? @author.address[:country] : ""}
-  %input{:type => 'submit'}
+      %li.header
+        %h2
+          Address
+      %li
+        %label{:for => 'address[formatted]'}
+          Formatted
+        %div
+          %textarea{:name => 'address[formatted]'}
+            #{person.address ? person.address[:formatted] : ""}
+      %li
+        %label{:for => 'address[street_address]'}
+          Street
+        %div
+          %input{:type => 'text', :name => 'address[street_address]', :value => person.address ? person.address[:street_address] : ""}
+      %li
+        %label{:for => 'address[locality]'}
+          Locality (City)
+        %div
+          %input{:type => 'text', :name => 'address[locality]', :value => person.address ? person.address[:locality] : ""}
+      %li
+        %label{:for => 'address[region]'}
+          Region (State)
+        %div
+          %input{:type => 'text', :name => 'address[region]', :value => person.address ? person.address[:region] : ""}
+      %li
+        %label{:for => 'address[postal_code]'}
+          Postal/Zip Code
+        %div
+          %input{:type => 'text', :name => 'address[postal_code]', :value => person.address ? person.address[:postal_code] : ""}
+      %li
+        %label{:for => 'address[country]'}
+          Country
+        %div
+          %input{:type => 'text', :name => 'address[country]', :value => person.address ? person.address[:country] : ""}
+    %input.button{:type => 'submit'}

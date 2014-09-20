@@ -3,7 +3,9 @@
 @import buttons
 @import variables
 @import navbar
+@import form
 @import feed
+@import profile
 @import activity
 @import activity-input
 @import activity-post-input
@@ -28,7 +30,20 @@ strong
 /* Basic links */
 
 a
-  color:           rgb(67, 159, 195)
+  color:           $link-color
   text-decoration: none
 a:hover
   text-decoration: underline
+
+/* Basic headers */
+h2
+  background-color: white
+  border-bottom:    1px solid #ddd
+  font-family:      $content-font
+  font-size:        16px
+  font-weight:      200
+  padding:          10px
+
+/* Hidden */
+.content .hidden
+  display: none !important

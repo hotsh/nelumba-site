@@ -1,13 +1,17 @@
-%p
-  Login.
+.card
+  %h2
+    Login
 
-%form{:name => 'authorization', :action => '/login', :method => 'post'}
-  %div
-    %label{:for => 'username'}
-      Username:
-    %input{:type => 'text', :name => 'username'}
-  %div
-    %label{:for => 'password'}
-      Password:
-    %input{:type => 'password', :name => 'password'}
-  %input{:type => 'submit'}
+  %form{:name => 'authorization', :action => '/login', :method => 'post'}
+    %ul
+      %li
+        %label{:for => 'username'}
+          Username
+        %div
+          %input.short{:type => 'text', :name => 'username'}
+      %li
+        %label{:for => 'password'}
+          Password
+        %div
+          %input.short{:type => 'password', :name => 'password'}
+    %input.button{:type => 'submit'}

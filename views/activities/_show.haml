@@ -1,4 +1,3 @@
-- # TODO: Presenter
 - show_as_activity = false unless show_as_activity
 - verb = activity.verb
 - initial = activity
@@ -19,10 +18,10 @@
       %li.title #{initial.sentence}
     - else
       %li.actor_display #{activity.actor.display_name}
-      %li.actor #{activity.actor.short_name}
+      %li.actor #{activity.actor.preferred_username}
 .message
   %ul
-    - if show_as_activity && initial.object.is_a?(Lotus::Activity)
+    - if show_as_activity && initial.object.is_a?(Nelumba::Activity)
       %li.activity
         = partial :"activities/show", {:locals => {:activity => activity}}
     - else

@@ -1,7 +1,7 @@
 require_relative '../config/environment'
 
 module Rack
-  class Lotus
+  class Nelumba
     helpers do
       def partial_exists?(page)
         ::File.exists?("./views/#{partial_to_page(page)}.haml")
@@ -41,7 +41,7 @@ class Application < Sinatra::Base
 
   # Helpers
   helpers Sinatra::ContentFor
-  helpers Rack::Lotus::AuthorizationHelpers
+  helpers Rack::Nelumba::AuthorizationHelpers
 
   # SASS
   configure do
@@ -88,7 +88,11 @@ class Application < Sinatra::Base
   end
 
   get '/' do
-    haml :"home/index"
+    if current_person
+      haml :"people/dashboard"
+    else
+      haml :"home/index"
+    end
   end
 
   get '/assets/css/:name.css' do

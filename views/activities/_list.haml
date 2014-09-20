@@ -1,4 +1,3 @@
-- # TODO: Presenter
 - show_as_activity = false unless show_as_activity
 - verb = activity.verb
 - initial = activity
@@ -17,12 +16,14 @@
   - if show_as_activity
     %li.title #{initial.sentence}
   - else
-    %li.actor_display #{activity.actor.display_name}
-    %li.actor #{activity.actor.short_name}
+    %li.actor_display
+      %a{:href => "/people/#{activity.actor.id}"}
+        #{activity.actor.short_name}
+    %li.actor #{activity.actor.preferred_username}
   - if verb == :share && !show_as_activity
     %li.shared_by #{original.short_name}
     %li.shared_when #{initial.published_ago_in_words}
-  - if show_as_activity && initial.object.is_a?(Lotus::Activity)
+  - if show_as_activity && initial.object.is_a?(Nelumba::Activity)
     %li.activity
       = partial :"activities/list", {:locals => {:activity => activity}}
   - else
@@ -31,8 +32,8 @@
         = partial :"activities/#{activity.type.to_s}", :locals => {:activity => activity}
       - else
         #{activity.sentence}
-  - if current_person
-    %li.actions
+  %li.actions
+    - if current_person
       %ul.verbs
         %li.favorite.verb
           %form{:action => "/people/#{current_person.id}/favorites", :method => "post", :name => "favorite_#{initial.id}"}

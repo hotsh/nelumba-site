@@ -1,4 +1,4 @@
 require './lib/application'
 
-use Rack::Lotus
+use Rack::Nelumba
 run Application
