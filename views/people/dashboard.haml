@@ -13,9 +13,10 @@
     %label{:for => 'content'}
       What's going on?
     %textarea{:name => 'content'}
-    %input.button{:type => 'hidden', :name => 'type', :value => 'note'}
-    %input.button{:type => 'submit', :value => 'save'}>
-    %input.button{:type => 'submit', :value => 'share'}
+    %input.button{:type => 'hidden', :name => 'type', :value => 'note'}>
+    %input.button.orange{:type => 'button', :value => 'save'}>
+    %input.button.lavender{:type => 'button', :value => 'private'}>
+    %input.button.green{:type => 'submit', :value => 'public'}>
   %form#post-input{:action => "/people/#{current_person.id}/activities", :method => 'post', :name => 'activity'}
     %label{:for => 'markdown'}
       What's on your mind?
