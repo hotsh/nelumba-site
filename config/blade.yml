@@ -1,0 +1,12 @@
+name: "Nelumba Site"
+addons:
+  - name: "wysiwyg"
+    git: ["https://github.com/hotsh/lotus-site-wysiwyg"]
+    description: "Provides a WYSIWYG editor for posts."
+configuration:
+  - section: "Main"
+    options:
+      - name: title
+        description: "What will be the title of this node?"
+        type: string
+        default: "Nelumba Node"
