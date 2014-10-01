@@ -51,7 +51,7 @@ GIT
 
 GIT
   remote: git://github.com/wilkie/propeller.git
-  revision: d0d9811ab0763d2c314a893d1cde961b0be82b4c
+  revision: e46e50124c71db7fb495508476d4a4d530019410
   specs:
     propeller (0.0.1)
       git
