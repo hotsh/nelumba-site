@@ -4,7 +4,7 @@ ul.activities
   padding:          0
   width:            100%
 nav.tabbar + ul.activities
-  background-color: #555
+  background-color: $nav-color
 /* Activity within a feed */
 ul.activities > li.activity
   background-color: #fff
@@ -42,6 +42,12 @@ ul.activities > li.activity ul > li.actor_display a
 /* Activity handle */
 ul.activities > li.activity ul > li.actor
   color:         #555
+  display:       inline-block
+  font-family:   $title-font
+  font-size:     12px
+  font-weight:   400
+ul.activities > li.activity ul > li.pronoun
+  color:         #959
   display:       inline-block
   font-family:   $title-font
   font-size:     12px
@@ -91,8 +97,8 @@ ul.activities > li.activity ul > li.actions > ul.verbs > li.favorite.verb > form
   width:            18px
 ul.activities > li.activity ul > li.actions > ul.verbs > li.share.verb > form > input
   background-image: url('/assets/images/verb-share.png')
-ul.activities > li.activity ul > li.actions > ul.verbs > li.verb > span.amount
-  color:          #999
+ul.activities > li.activity ul > li.actions > ul.verbs > li.verb > span.count
+  color:          #ccc
   display:        inline-block
   font-family:    $title-font
   font-size:      14px

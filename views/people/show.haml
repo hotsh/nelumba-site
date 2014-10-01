@@ -1,3 +1,6 @@
+- content_for :links do
+  %link{:rel => 'alternate', :type => 'application/atom+xml', :title => "Feed for #{person.display_name}", :href => "/people/#{person.id}/timeline"}
+
 .banner.card>
   %img{:src => "/assets/images/nelumba_profile_bg.png"}>
 .profile.vcard

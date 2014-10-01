@@ -13,6 +13,9 @@
     %link{:rel => 'stylesheet', :type => 'text/css', :href => '/assets/css/jquery.fileupload-ui.css'}
     %link{:rel => 'stylesheet', :type => 'text/css', :href => '/assets/css/jquery.fileupload-ui-noscript.css'}
     %link{:rel => 'stylesheet', :type => 'text/css', :href => '/assets/css/main.css'}
+
+    = yield_content :links
+
     %title
       = user_option_for :title
   %body

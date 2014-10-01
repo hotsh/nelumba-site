@@ -29,6 +29,8 @@ module Rack
         @blade.user_option_for(key)
       end
     end
+
+    helpers Sinatra::ContentFor
   end
 end
 

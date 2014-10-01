@@ -20,6 +20,7 @@
       %a{:href => "/people/#{activity.actor.id}"}
         #{activity.actor.preferred_display_name}
     %li.actor #{activity.actor.preferred_username}
+    %li.pronoun they/their
   - if verb == :share && !show_as_activity
     %li.shared_by #{original.preferred_display_name}
     %li.shared_when #{initial.published_ago_in_words}
@@ -39,13 +40,13 @@
           %form{:action => "/people/#{current_person.id}/favorites", :method => "post", :name => "favorite_#{initial.id}"}
             %input{:name => "activity_id", :value => initial.id, :type => "hidden"}
             %input{:type => "submit", :value => "Favorite"}
-          %span.amount
+          %span.count
             #{initial.interaction_count(:favorite)}
         %li.share.verb
           %form{:action => "/people/#{current_person.id}/shared", :method => "post", :name => "share_#{initial.id}"}
             %input{:name => "activity_id", :value => initial.id, :type => "hidden"}
             %input{:type => "submit", :value => "Share"}
-          %span.amount
+          %span.count
             #{initial.interaction_count(:share)}
   %li.when
     %a{:href => activity.url} #{activity.published_ago_in_words}

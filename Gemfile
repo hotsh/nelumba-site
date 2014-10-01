@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 ruby '2.0.0'
 
+gem 'nokogiri'
+
 gem 'sinatra'
 gem 'sinatra-contrib'
 
@@ -20,7 +22,8 @@ gem 'nelumba-mongodb', :git => 'git://github.com/hotsh/nelumba-mongodb.git'
 gem 'rack-nelumba', :git => 'git://github.com/hotsh/rack-nelumba.git'
 
 group :development do
-  #gem 'debugger'
+  gem 'pry'
+  gem 'byebug'
   #gem 'perftools.rb'
   #gem 'ruby-prof'
 end

@@ -5,10 +5,10 @@ require_relative './application'
 
 class Application < Sinatra::Base
   configure :test do
-    MongoMapper.database = "openreader_test"
+    MongoMapper.database = "nelumba-test"
   end
 
   configure :development do
-    MongoMapper.database = "openreader_development"
+    MongoMapper.database = "nelumba-0"
   end
 end
