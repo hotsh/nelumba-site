@@ -16,18 +16,19 @@
   - if show_as_activity
     %li.title #{initial.sentence}
   - else
-    %li.actor_display
+    %li.actor_display<
       - if activity.actor.nil?
         ???
       - else
-        %a{:href => "/people/#{activity.actor.id}"}
+        %a{:href => "/people/#{activity.actor.id}"}>
           #{activity.actor.preferred_display_name}
-    %li.actor
+    %li.actor<
       - if activity.actor.nil?
         ???
       - else
         #{activity.actor.preferred_username}
-    %li.pronoun they/their
+    %li.pronoun<
+      they / their
   - if verb == :share && !show_as_activity
     %li.shared_by #{original.preferred_display_name}
     %li.shared_when #{initial.published_ago_in_words}
