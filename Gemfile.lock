@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: git://github.com/hotsh/nelumba-mongodb.git
-  revision: 5299554b19654c2276ed16d347c34753d2b9340c
+  revision: 41df3916a6ea5372d5ab30296f951263459d058e
   specs:
     nelumba-mongodb (0.0.1)
       bcrypt-ruby
