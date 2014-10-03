@@ -96,6 +96,17 @@
           Gender
         .gender
           #{person.gender}
+    - if person.pronoun && !person.pronoun.empty?
+      %li
+        .label
+          Pronoun
+        .pronoun
+          - if person.pronoun.has_key? :personal
+            %span.personal
+              #{person.pronoun[:personal]}
+          - if person.pronoun.has_key? :possessive
+            %span.possessive
+              #{person.pronoun[:possessive]}
     - if person.anniversary
       %li
         .label

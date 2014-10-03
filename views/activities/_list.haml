@@ -27,8 +27,15 @@
         ???
       - else
         #{activity.actor.preferred_username}
-    %li.pronoun<
-      they / their
+    - unless activity.actor.nil?
+      - if activity.actor.pronoun
+        %li.pronoun<
+          - if activity.actor.pronoun.has_key? :personal
+            %span.personal
+              #{activity.actor.pronoun[:personal]}
+          - if activity.actor.pronoun.has_key? :possessive
+            %span.possessive
+              #{activity.actor.pronoun[:possessive]}
   - if verb == :share && !show_as_activity
     %li.shared_by #{original.preferred_display_name}
     %li.shared_when #{initial.published_ago_in_words}

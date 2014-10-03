@@ -43,6 +43,16 @@
           Gender
         %div
           %input{:type => 'text', :name => 'gender', :value => person.gender}
+      %li
+        %label{:for => 'pronoun[personal]'}
+          Personal Pronoun
+        %div
+          %input{:type => 'text', :name => 'pronoun[personal]', :value => person.pronoun && person.pronoun[:personal]}
+      %li
+        %label{:for => 'pronoun[possessive]'}
+          Possessive Pronoun
+        %div
+          %input{:type => 'text', :name => 'pronoun[possessive]', :value => person.pronoun && person.pronoun[:possessive]}
       %li.header
         %h2
           Extended Name

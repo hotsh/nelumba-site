@@ -74,6 +74,10 @@
   font-weight:      200
   line-height:      1.17em
   padding:          10px
+.content .profile > ul > li > .pronoun > span + span:before
+  content:       '/'
+  padding-left:  1px
+  padding-right: 1px
 .content .profile > .name-card + .bio-card,
 .content .profile > .name-card + ul,
 .content .profile > .name-card + .bio-card + ul
@@ -109,7 +113,6 @@
   white-space:      nowrap
 .content .profile > ul > li:last-child > .label
   padding-bottom:   0
-.content .profile > ul > li > .note
 .content .profile a.edit-profile
   display:          inline-block
   font-family:      $title-font
