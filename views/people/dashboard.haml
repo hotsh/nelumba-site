@@ -1,46 +1,5 @@
-.activity-input
-  %nav.tabbar
-    %ul
-      %li#new-note.current-tab>
-        %a.current-tab{:href => "people/#{current_person.id}/timeline"}> Status
-      %li#new-image>
-        %a{:href => "people/#{current_person.id}/favorites"}> Image
-      %li#new-post>
-        %a{:href => "people/#{current_person.id}/mentions"}> Post
-      %li#new-follow>
-        %a{:href => "people/#{current_person.id}/following"}> Follow
-  %form#note-input{:action => "/people/#{current_person.id}/activities", :method => 'post', :name => 'activity'}
-    %label{:for => 'content'}
-      What's going on?
-    %textarea{:name => 'content'}
-    %input.button{:type => 'hidden', :name => 'type', :value => 'note'}>
-    %input.button.orange{:type => 'button', :value => 'save'}>
-    %input.button.lavender{:type => 'button', :value => 'private'}>
-    %input.button.green{:type => 'submit', :value => 'public'}>
-  %form#post-input{:action => "/people/#{current_person.id}/activities", :method => 'post', :name => 'activity'}
-    %label{:for => 'markdown'}
-      What's on your mind?
-    %input.title{:name => 'title', :value => 'Title'}
-    %textarea{:name => 'markdown', :id => "post-area"}
-    %input{:type => 'hidden', :name => 'type', :value => 'article'}
-    %input.button{:type => 'submit', :value => 'save'}>
-    %input.button{:type => 'submit', :value => 'share'}
-  %form#image-input{:action => "/people/#{current_person.id}/activities", :method => 'post', :name => 'activity', :enctype=>"multipart/form-data"}
-    %label{:for => 'file'}
-      What do you see?
-    #image-preview
-    %input.file{:name => 'file', :type => 'file'}
-    %input.title{:name => 'url', :value => 'URL or upload file:'}
-    %input{:type => 'hidden', :name => 'type', :value => 'image'}
-    %textarea{:name => 'content'}
-    %input.button{:type => 'submit', :value => 'save'}>
-    %input.button{:type => 'submit', :value => 'share'}
-  %form#follow-input{:action => "/people/#{current_person.id}/following", :method => 'post', :name => 'activity'}
-    %label{:for => 'discover'}
-      Who do you want to follow?
-    %input.person{:name => 'discover', :value => 'name@service.tld'}
-    %input.button{:type => 'submit', :value => 'follow'}
-
+- if current_person
+  = partial :"people/input-card"
 %nav.tabbar
   %ul
     %li#timeline-tab.current-tab>

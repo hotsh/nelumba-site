@@ -1,7 +1,19 @@
-.header
-  %h1
-    #{person.preferred_display_name}'s Timeline
+- if current_person
+  = partial :"people/input-card"
+%nav.tabbar
+  %ul
+    %li#timeline-tab.current-tab>
+      %a.current-tab{:"data-pjax" => true, :href => "/people/#{current_person.id}/timeline"}> Timeline
+    %li#mentions-tab>
+      %a{:"data-pjax" => true, :href => "/people/#{current_person.id}/mentions"}> Mentions
+    %li#favorites-tab>
+      %a{:"data-pjax" => true, :href => "/people/#{current_person.id}/favorites"}> Favorites
+    %li#shared-tab>
+      %a{:"data-pjax" => true, :href => "/people/#{current_person.id}/shared"}> Shared
 %ul.activities
-  %li.activity
-    = partial :"people/timeline", {:locals => {:person   => person,
-                                               :timeline => timeline}}
+  = partial :"people/timeline", {:locals => {:person   => person,
+                                             :timeline => timeline}}
+%footer
+  Next
+  |
+  Previous
