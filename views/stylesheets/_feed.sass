@@ -17,6 +17,15 @@ ul.activities > li.activity:last-child
   border-bottom:              none
   +border-bottom-left-radius  (6px)
   +border-bottom-right-radius (6px)
+ul.activities > li.message
+  @extend li.activity
+  background-color: #ddf
+  color:            #444
+  min-height:       0px
+  padding:          30px
+  text-align:       center
+ul.activities > li.message:last-child
+  @extend li.activity:last-child
 /* Activity avatar */
 ul.activities > li.activity ul li.avatar
   display:  block
