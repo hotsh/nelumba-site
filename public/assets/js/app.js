@@ -161,13 +161,12 @@ $(function() {
   }).prop('disabled', !$.support.fileInput)
     .parent().addClass($.support.fileInput ? undefined : 'disabled');
 
-  $('form#image-input > input.title').css('width', '509px').val("URL");
+  $('form#image-input > input.title').val("URL");
 
   file = $("input[type=file]");
   file.css({"display": "inline-block",
-            "width": "154px",
             "padding": "0",
-            "margin-right": "10px"});
+            "width": "100%"});
   button = $('<div>').addClass('button').addClass('square').css({
     "position": "absolute",
     "left": "0",
@@ -175,14 +174,17 @@ $(function() {
     "text-align": "center",
     "padding-top": "6px",
     "margin": "0",
-    "width": "158px",
-    "height": "16px"
+    "width": "100%",
+    "-webkit-box-sizing": "border-box",
+    "-moz-box-sizing":    "border-box",
+    "box-sizing":         "border-box",
+    "height": "26px"
   }).text("upload");
   wrapper = $('<div>').css({
     "display": "inline-block",
     "position": "relative",
-    "width": "157px",
-    "height": "22px",
+    "width": "100%",
+    "height": "26px",
     "cursor": "pointer",
     "margin": "0",
     "margin-right": file.css('margin-right')
@@ -191,7 +193,7 @@ $(function() {
     "margin-left" : "0",
     "margin-top" : "0",
     "margin-bottom": "0",
-    "height": "22px",
+    "height": "26px",
     "padding": "0",
     "position": "relative",
     "cursor": "pointer",
