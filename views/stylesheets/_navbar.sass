@@ -5,12 +5,24 @@ nav.topbar
   max-width:        784px
   min-height:       48px
   position:         relative
+  text-align: center
 nav.topbar ul
+  display: inline-block
+  vertical-align: top
+  position: relative
   padding: 0px 3px
+nav.topbar ul.navbar
+  float: left
 nav.topbar ul.right
-  position: absolute
-  right:    0
-  top:      0
+  float: right
+nav.topbar ul.statistics
+  margin: 0 auto
+  padding: 0
+  margin: 0
+@media only screen and (max-width: $mobile-width)
+  nav.topbar ul.statistics li:nth-child(4),
+  nav.topbar ul.statistics li:nth-child(5)
+    display: none
 nav.topbar ul .title
   color:          $title-color
 nav.topbar ul li
@@ -68,16 +80,17 @@ nav.tabbar ul
   display: table-row
 nav.tabbar ul li
   background-color: #eee
+  background-position: 5px 5px
+  background-repeat:   no-repeat
   border-left:      1px solid #ddd
   border-top:       3px solid #ddd
+  cursor:           pointer
   display:          table-cell
   height:           100%
   overflow:         hidden
   position:         relative
   width:            25%
 nav.tabbar ul li a
-  background-position: 5px 5px
-  background-repeat:   no-repeat
   display:             inline-block
   font-family:         "Open Sans", sans-serif
   font-size:           14px
@@ -95,22 +108,30 @@ nav.tabbar ul li.current-tab
 nav.tabbar ul li.current-tab + li
   border-left: none
 /* Top bar */
-nav.tabbar ul li a#new-post
+@media only screen and (max-width: $mobile-width)
+  nav.tabbar ul li
+    background-position: 50% 5px
+    text-indent: -9999px
+    overflow: hidden
+  nav.tabbar ul li a
+    text-indent: -9999px
+    overflow: hidden
+nav.tabbar ul li#new-post
   background-image: url('/assets/images/noun-post.png')
-nav.tabbar ul li a#new-image
+nav.tabbar ul li#new-image
   background-image: url('/assets/images/noun-image.png')
-nav.tabbar ul li a#new-follow
+nav.tabbar ul li#new-follow
   background-image: url('/assets/images/noun-follower.png')
-nav.tabbar ul li a#new-note
+nav.tabbar ul li#new-note
   background-image: url('/assets/images/noun-note.png')
 /* Feed select bar*/
-nav.tabbar ul li a#timeline-tab
+nav.tabbar ul li#timeline-tab
   background-image: url('/assets/images/noun-timeline.png')
-nav.tabbar ul li a#favorites-tab
+nav.tabbar ul li#favorites-tab
   background-image: url('/assets/images/noun-favorites.png')
-nav.tabbar ul li a#mentions-tab
+nav.tabbar ul li#mentions-tab
   background-image: url('/assets/images/noun-mentions.png')
-nav.tabbar ul li a#shared-tab
+nav.tabbar ul li#shared-tab
   background-image: url('/assets/images/noun-shared.png')
 /* New Content Notification Bubbles */
 nav.tabbar span.amount

@@ -1,14 +1,14 @@
 .activity-input
   %nav.tabbar
     %ul
-      %li.current-tab>
-        %a#new-note.current-tab{:href => "people/#{current_person.id}/timeline"}> Status
-      %li>
-        %a#new-image{:href => "people/#{current_person.id}/favorites"}> Image
-      %li>
-        %a#new-post{:href => "people/#{current_person.id}/mentions"}> Post
-      %li>
-        %a#new-follow{:href => "people/#{current_person.id}/following"}> Follow
+      %li#new-note.current-tab>
+        %a.current-tab{:href => "people/#{current_person.id}/timeline"}> Status
+      %li#new-image>
+        %a{:href => "people/#{current_person.id}/favorites"}> Image
+      %li#new-post>
+        %a{:href => "people/#{current_person.id}/mentions"}> Post
+      %li#new-follow>
+        %a{:href => "people/#{current_person.id}/following"}> Follow
   %form#note-input{:action => "/people/#{current_person.id}/activities", :method => 'post', :name => 'activity'}
     %label{:for => 'content'}
       What's going on?
@@ -43,14 +43,14 @@
 
 %nav.tabbar
   %ul
-    %li.current-tab>
-      %a#timeline-tab.current-tab{:"data-pjax" => true, :href => "/people/#{current_person.id}/timeline"}> Timeline
-    %li>
-      %a#mentions-tab{:"data-pjax" => true, :href => "/people/#{current_person.id}/mentions"}> Mentions
-    %li>
-      %a#favorites-tab{:"data-pjax" => true, :href => "/people/#{current_person.id}/favorites"}> Favorites
-    %li>
-      %a#shared-tab{:"data-pjax" => true, :href => "/people/#{current_person.id}/shared"}> Shared
+    %li#timeline-tab.current-tab>
+      %a.current-tab{:"data-pjax" => true, :href => "/people/#{current_person.id}/timeline"}> Timeline
+    %li#mentions-tab>
+      %a{:"data-pjax" => true, :href => "/people/#{current_person.id}/mentions"}> Mentions
+    %li#favorites-tab>
+      %a{:"data-pjax" => true, :href => "/people/#{current_person.id}/favorites"}> Favorites
+    %li#shared-tab>
+      %a{:"data-pjax" => true, :href => "/people/#{current_person.id}/shared"}> Shared
 %ul.activities
   - current_person.timeline.ordered.each do |activity|
     - next if activity.verb == :favorite
