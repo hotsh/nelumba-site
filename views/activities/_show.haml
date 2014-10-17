@@ -1,7 +1,7 @@
 - show_as_activity = false unless show_as_activity
 - verb = activity.verb
 - initial = activity
-- original = activity.actor
+- original = activity.actors.first
 - activity = activity.object if activity.external_object_type == "Activity"
 .byline
   %ul
@@ -10,15 +10,15 @@
         %img{:src => "/assets/images/favorite.png"}
       - elsif verb == :share && show_as_activity
         %img{:src => "/assets/images/shared.png"}
-      - elsif activity.actor.avatar
-        %img{:src => activity.actor.avatar.url}
+      - elsif activity.actors and activity.actors.first and activity.actors.first.avatar
+        %img{:src => activity.actors.first.avatar.url}
       - else
         %img{:src => "/assets/images/avatar.png"}
     - if show_as_activity
       %li.title #{initial.sentence}
     - else
-      %li.actor_display #{activity.actor.display_name}
-      %li.actor #{activity.actor.preferred_username}
+      %li.actor_display #{activity.actors.first.display_name}
+      %li.actor #{activity.actors.first.preferred_username}
 .message
   %ul
     - if show_as_activity && initial.object.is_a?(Nelumba::Activity)
@@ -26,8 +26,8 @@
         = partial :"activities/show", {:locals => {:activity => activity}}
     - else
       %li.content
-        - if partial_exists?(:"activities/#{activity.type.to_s}")
-          = partial :"activities/#{activity.type.to_s}", :locals => {:activity => activity, :full => true}
+        - if partial_exists?(:"activities/#{activity.object.type.to_s}")
+          = partial :"activities/#{activity.object.type.to_s}", :locals => {:activity => activity, :full => true}
         - else
           #{activity.sentence}
     %li.interactions

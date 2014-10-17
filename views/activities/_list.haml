@@ -1,7 +1,7 @@
 - show_as_activity = false unless show_as_activity
 - verb = activity.verb
 - initial = activity
-- original = activity.actor
+- original = activity.actors.first
 - activity = activity.object if activity.external_object_type == "Activity"
 %ul
   %li.avatar
@@ -9,33 +9,33 @@
       %img{:src => "/assets/images/favorite.png"}
     - elsif verb == :share && show_as_activity
       %img{:src => "/assets/images/shared.png"}
-    - elsif activity.actor && activity.actor.avatar
-      %img{:src => activity.actor.avatar.url}
+    - elsif activity.actors and activity.actors.first and activity.actors.first.avatar
+      %img{:src => activity.actors.first.avatar.url}
     - else
       %img{:src => "/assets/images/avatar.png"}
   - if show_as_activity
     %li.title #{initial.sentence}
   - else
     %li.actor_display<
-      - if activity.actor.nil?
+      - if activity.actors.nil? or activity.actors.empty?
         ???
       - else
-        %a{:href => "/people/#{activity.actor.id}"}>
-          #{activity.actor.preferred_display_name}
+        %a{:href => "/people/#{activity.actors.first.id}"}>
+          #{activity.actors.first.preferred_display_name}
     %li.actor<
-      - if activity.actor.nil?
+      - if activity.actors.nil? or activity.actors.empty?
         ???
       - else
-        #{activity.actor.preferred_username}
-    - unless activity.actor.nil?
-      - if activity.actor.pronoun
+        #{activity.actors.first.preferred_username}
+    - unless activity.actors.nil? or activity.actors.empty?
+      - if activity.actors.first.pronoun
         %li.pronoun<
-          - if activity.actor.pronoun.has_key? :personal
+          - if activity.actors.first.pronoun.has_key? :personal
             %span.personal
-              #{activity.actor.pronoun[:personal]}
-          - if activity.actor.pronoun.has_key? :possessive
+              #{activity.actors.first.pronoun[:personal]}
+          - if activity.actors.first.pronoun.has_key? :possessive
             %span.possessive
-              #{activity.actor.pronoun[:possessive]}
+              #{activity.actors.first.pronoun[:possessive]}
   - if verb == :share && !show_as_activity
     %li.shared_by #{original.preferred_display_name}
     %li.shared_when #{initial.published_ago_in_words}
@@ -44,8 +44,8 @@
       = partial :"activities/list", {:locals => {:activity => activity}}
   - else
     %li.content
-      - if partial_exists?(:"activities/#{activity.type.to_s}")
-        = partial :"activities/#{activity.type.to_s}", :locals => {:activity => activity}
+      - if partial_exists?(:"activities/#{activity.object.type.to_s}")
+        = partial :"activities/#{activity.object.type.to_s}", :locals => {:activity => activity}
       - else
         #{activity.sentence}
   %li.actions
