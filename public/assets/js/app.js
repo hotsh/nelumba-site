@@ -64,47 +64,55 @@ $(function() {
 
   // Status input tab reveal
   $('#timeline-tab').click(function() {
-    $('#timeline-tab').addClass('current-tab');
-    $('#timeline-tab').parent().addClass('current-tab');
-    $('#mentions-tab').removeClass('current-tab');
-    $('#mentions-tab').parent().removeClass('current-tab');
-    $('#favorites-tab').removeClass('current-tab');
-    $('#favorites-tab').parent().removeClass('current-tab');
-    $('#shared-tab').removeClass('current-tab');
-    $('#shared-tab').parent().removeClass('current-tab');
+    if ($(this).children('a').data('pjax') == "") {
+      $('#timeline-tab').addClass('current-tab');
+      $('#timeline-tab').parent().addClass('current-tab');
+      $('#mentions-tab').removeClass('current-tab');
+      $('#mentions-tab').parent().removeClass('current-tab');
+      $('#favorites-tab').removeClass('current-tab');
+      $('#favorites-tab').parent().removeClass('current-tab');
+      $('#shared-tab').removeClass('current-tab');
+      $('#shared-tab').parent().removeClass('current-tab');
+    }
   });
 
   $('#mentions-tab').click(function() {
-    $('#mentions-tab').addClass('current-tab');
-    $('#mentions-tab').parent().addClass('current-tab');
-    $('#timeline-tab').removeClass('current-tab');
-    $('#timeline-tab').parent().removeClass('current-tab');
-    $('#favorites-tab').removeClass('current-tab');
-    $('#favorites-tab').parent().removeClass('current-tab');
-    $('#shared-tab').removeClass('current-tab');
-    $('#shared-tab').parent().removeClass('current-tab');
+    if ($(this).children('a').data('pjax') == "") {
+      $('#mentions-tab').addClass('current-tab');
+      $('#mentions-tab').parent().addClass('current-tab');
+      $('#timeline-tab').removeClass('current-tab');
+      $('#timeline-tab').parent().removeClass('current-tab');
+      $('#favorites-tab').removeClass('current-tab');
+      $('#favorites-tab').parent().removeClass('current-tab');
+      $('#shared-tab').removeClass('current-tab');
+      $('#shared-tab').parent().removeClass('current-tab');
+    }
   });
 
   $('#favorites-tab').click(function() {
-    $('#favorites-tab').addClass('current-tab');
-    $('#favorites-tab').parent().addClass('current-tab');
-    $('#timeline-tab').removeClass('current-tab');
-    $('#timeline-tab').parent().removeClass('current-tab');
-    $('#mentions-tab').removeClass('current-tab');
-    $('#mentions-tab').parent().removeClass('current-tab');
-    $('#shared-tab').removeClass('current-tab');
-    $('#shared-tab').parent().removeClass('current-tab');
+    if ($(this).children('a').data('pjax') == "") {
+      $('#favorites-tab').addClass('current-tab');
+      $('#favorites-tab').parent().addClass('current-tab');
+      $('#timeline-tab').removeClass('current-tab');
+      $('#timeline-tab').parent().removeClass('current-tab');
+      $('#mentions-tab').removeClass('current-tab');
+      $('#mentions-tab').parent().removeClass('current-tab');
+      $('#shared-tab').removeClass('current-tab');
+      $('#shared-tab').parent().removeClass('current-tab');
+    }
   });
 
   $('#shared-tab').click(function() {
-    $('#shared-tab').addClass('current-tab');
-    $('#shared-tab').parent().addClass('current-tab');
-    $('#timeline-tab').removeClass('current-tab');
-    $('#timeline-tab').parent().removeClass('current-tab');
-    $('#mentions-tab').removeClass('current-tab');
-    $('#mentions-tab').parent().removeClass('current-tab');
-    $('#favorites-tab').removeClass('current-tab');
-    $('#favorites-tab').parent().removeClass('current-tab');
+    if ($(this).children('a').data('pjax') == "") {
+      $('#shared-tab').addClass('current-tab');
+      $('#shared-tab').parent().addClass('current-tab');
+      $('#timeline-tab').removeClass('current-tab');
+      $('#timeline-tab').parent().removeClass('current-tab');
+      $('#mentions-tab').removeClass('current-tab');
+      $('#mentions-tab').parent().removeClass('current-tab');
+      $('#favorites-tab').removeClass('current-tab');
+      $('#favorites-tab').parent().removeClass('current-tab');
+    }
   });
 
   // Image upload chooser styles

@@ -34,14 +34,15 @@
           %li>
             %a{:href => "/authorizations/new"}>Signup
       - else
-        %ul.navbar
-          %li>
-            - if current_person.avatar
-              %img.avatar{:src => "#{current_person.avatar.url}"}>
-            - else
-              %img.avatar{:src => "/assets/images/avatar.png"}>
-          %li>
-            #{current_person.display_name}
+        %a{:href => "/people/#{current_person.id}"}
+          %ul.navbar
+            %li>
+              - if current_person.avatar
+                %img.avatar{:src => "#{current_person.avatar.url}"}>
+              - else
+                %img.avatar{:src => "/assets/images/avatar.png"}>
+            %li>
+              #{current_person.display_name}
         %ul.navbar.right
           %li>
             %a{:href => "/logout"}>Logout

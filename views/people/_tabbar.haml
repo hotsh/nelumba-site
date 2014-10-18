@@ -1,0 +1,7 @@
+%nav.tabbar
+  %ul
+    - ["timeline", "mentions", "favorites", "shared"].each do |noun|
+      %li{:id => "#{noun}-tab", :class => current_tab == noun ? "current-tab" : ""}>
+        %a{:"data-pjax" => ajax, :href => "/people/#{current_person.id}/#{noun}"}>
+          %span.noun>
+            #{noun.capitalize}

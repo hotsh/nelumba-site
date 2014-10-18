@@ -1,6 +1,9 @@
 - content_for :links do
   %link{:rel => 'alternate', :type => 'application/atom+xml', :title => "Feed for #{person.display_name}", :href => "/people/#{person.id}/timeline"}
 
+.card
+  - if current_person
+    = partial :"people/tabbar", :locals => {:current_tab => nil, :ajax => false}
 .banner.card>
   %img{:src => "/assets/images/nelumba_profile_bg.png"}>
 .profile.vcard

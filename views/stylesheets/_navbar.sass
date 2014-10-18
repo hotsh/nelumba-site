@@ -75,12 +75,12 @@ nav.tabbar
   display:          table
   height:           36px
   width:            100%
+.card nav.tabbar
+  margin-bottom:    3px
 nav.tabbar ul
   display: table-row
 nav.tabbar ul li
   background-color:    #eee
-  background-position: 5px 5px
-  background-repeat:   no-repeat
   border-left:         1px solid #ddd
   border-top:          3px solid #ddd
   cursor:              pointer
@@ -92,15 +92,31 @@ nav.tabbar ul li
 nav.tabbar ul li:hover
   background-color: #f3f3f3
   border-top:       3px solid rgb(107, 199, 235)
+.card nav.tabbar ul li
+  background-color:    $activity-color
+  background-position: 5px 7px
+  border-left-color:   #222
+  border-left-width:   3px
+  border-top-width:    0
+  padding-top:         2px
+.card nav.tabbar ul li:first-child
+  border-left-width:   0
+.card nav.tabbar ul li:hover
+  background-color:    inherit
+  border-top:          inherit
 nav.tabbar ul li a
   display:             inline-block
   font-family:         "Open Sans", sans-serif
   font-size:           14px
   height:              100%
+  text-align:          center
   padding-top:         10px
-  padding-left:        33px
-  padding-right:       4px
   width:               100%
+nav.tabbar ul li a span
+  background-position: 5px -2px
+  background-repeat:   no-repeat
+  padding-left:        33px
+  padding-right:       8px
 nav.tabbar ul li a:hover
   text-decoration: none
 /* Currently selected tab */
@@ -113,29 +129,36 @@ nav.tabbar ul li.current-tab + li
   border-left: none
 /* Top bar */
 @media only screen and (max-width: $mobile-width)
-  nav.tabbar ul li
-    background-position: 50% 5px
-    text-indent:         -9999px
-    overflow:            hidden
+  nav.tabbar ul li,
   nav.tabbar ul li a
+    padding-top:         0px
+    overflow:            hidden
+  .card nav.tabbar ul li a span
+    background-position: 50% 0px
+  .card nav.tabbar ul li a span,
+  nav.tabbar ul li a span
+    display: inline-block
+    background-position: 50% 4px
+    padding-top: 0
+    height: 26px
     text-indent: -9999px
     overflow:    hidden
-nav.tabbar ul li#new-post
+nav.tabbar ul li#new-post a span
   background-image: url('/assets/images/noun-post.png')
-nav.tabbar ul li#new-image
+nav.tabbar ul li#new-image a span
   background-image: url('/assets/images/noun-image.png')
-nav.tabbar ul li#new-follow
+nav.tabbar ul li#new-follow a span
   background-image: url('/assets/images/noun-follower.png')
-nav.tabbar ul li#new-note
+nav.tabbar ul li#new-note a span
   background-image: url('/assets/images/noun-note.png')
 /* Feed select bar*/
-nav.tabbar ul li#timeline-tab
+nav.tabbar ul li#timeline-tab a span
   background-image: url('/assets/images/noun-timeline.png')
-nav.tabbar ul li#favorites-tab
+nav.tabbar ul li#favorites-tab a span
   background-image: url('/assets/images/noun-favorites.png')
-nav.tabbar ul li#mentions-tab
+nav.tabbar ul li#mentions-tab a span
   background-image: url('/assets/images/noun-mentions.png')
-nav.tabbar ul li#shared-tab
+nav.tabbar ul li#shared-tab a span
   background-image: url('/assets/images/noun-shared.png')
 /* New Content Notification Bubbles */
 nav.tabbar span.amount

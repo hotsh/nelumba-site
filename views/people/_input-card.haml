@@ -2,13 +2,21 @@
   %nav.tabbar
     %ul
       %li#new-note.current-tab>
-        %a.current-tab{:href => "people/#{current_person.id}/timeline"}> Status
+        %a.current-tab{:href => "people/#{current_person.id}/timeline"}>
+          %span.noun>
+            Status
       %li#new-image>
-        %a{:href => "people/#{current_person.id}/favorites"}> Image
+        %a{:href => "people/#{current_person.id}/favorites"}>
+          %span.noun>
+            Image
       %li#new-post>
-        %a{:href => "people/#{current_person.id}/mentions"}> Post
+        %a{:href => "people/#{current_person.id}/mentions"}>
+          %span.noun>
+            Post
       %li#new-follow>
-        %a{:href => "people/#{current_person.id}/following"}> Follow
+        %a{:href => "people/#{current_person.id}/following"}>
+          %span.noun>
+            Follow
   %form#note-input{:action => "/people/#{current_person.id}/activities", :method => 'post', :name => 'activity'}
     %label{:for => 'content'}
       What's going on?

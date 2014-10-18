@@ -1,15 +1,6 @@
 - if current_person
   = partial :"people/input-card"
-%nav.tabbar
-  %ul
-    %li#timeline-tab>
-      %a.current-tab{:"data-pjax" => true, :href => "/people/#{current_person.id}/timeline"}> Timeline
-    %li#mentions-tab.current-tab>
-      %a{:"data-pjax" => true, :href => "/people/#{current_person.id}/mentions"}> Mentions
-    %li#favorites-tab>
-      %a{:"data-pjax" => true, :href => "/people/#{current_person.id}/favorites"}> Favorites
-    %li#shared-tab>
-      %a{:"data-pjax" => true, :href => "/people/#{current_person.id}/shared"}> Shared
+= partial :"people/tabbar", :locals => {:current_tab => "mentions", :ajax => true}
 %ul.activities
   = partial :"people/mentions", {:locals => {:person => person,
                                              :mentions => mentions}}
