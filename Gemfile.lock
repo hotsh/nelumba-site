@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: git://github.com/hotsh/nelumba-mongodb.git
-  revision: 121d038808690e1815c71f0138af750bc6a6c407
+  revision: c320cd29f1e7893a3262cc384b46c2fab4a49d42
   specs:
     nelumba-mongodb (0.0.1)
       bcrypt-ruby
@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: git://github.com/hotsh/nelumba.git
-  revision: f4a1def9483edccb48444dbbda769a164af700c6
+  revision: 7d917ef5a69605965ce3c210b3bb7e7d03d0f5e6
   specs:
     nelumba (0.0.13)
       libxml-ruby (~> 2.6.0)
@@ -86,7 +86,7 @@ GEM
       xpath (~> 0.1.4)
     childprocess (0.5.5)
       ffi (~> 1.0, >= 1.0.11)
-    chunky_png (1.3.1)
+    chunky_png (1.3.2)
     coderay (1.1.0)
     columnize (0.8.9)
     compass (1.0.1)
@@ -150,7 +150,7 @@ GEM
     rsa (0.1.4)
     ruby-hmac (0.4.0)
     rubyzip (1.1.6)
-    sass (3.4.5)
+    sass (3.4.6)
     selenium-webdriver (2.43.0)
       childprocess (~> 0.5)
       multi_json (~> 1.0)
