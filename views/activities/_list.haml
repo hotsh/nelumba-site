@@ -37,7 +37,10 @@
             %span.possessive
               #{activity.actors.first.pronoun[:possessive]}
   - if verb == :share && !show_as_activity
-    %li.shared_by #{original.preferred_display_name}
+    - if original
+      %li.shared_by #{original.preferred_display_name}
+    - else
+      ???
     %li.shared_when #{initial.published_ago_in_words}
   - if show_as_activity && initial.object.is_a?(Nelumba::Activity)
     %li.activity
