@@ -97,9 +97,40 @@ class Application < Sinatra::Base
     end
   end
 
+  # Render CSS from SCSS/SASS files
   get '/assets/css/:name.css' do
     content_type 'text/css', :charset => 'utf-8'
     sass(:"stylesheets/#{params[:name]}", Compass.sass_engine_options)
+  end
+
+  # Allow dynamic colors for any arbitrary svg files
+  # XXX: assumes <?xml ... ?> line is the first line
+  get '/assets/dynamic/:name.svg' do
+    content_type = "image/svg+xml"
+
+    if params["hex"]
+      params["color"] = "##{params["hex"]}"
+    elsif params["hue"] and params["sat"] and params["light"]
+      params["color"] = "hsl(#{params["hue"]}, #{params["sat"]}%, #{params["light"]}%)"
+    end
+
+    if params["color"]
+      require 'base64'
+
+      headers 'Content-Type' => "image/svg+xml"
+      css = "path, rect { fill: #{params["color"]} !important; stroke: #{params["color"]} !important }"
+      embed = Base64.encode64(css)
+
+      stream do |out|
+        File.open("public/assets/images/#{params[:name]}.svg") do |f|
+          out << f.readline
+          out << "<?xml-stylesheet type=\"text/css\" href=\"data:text/css;charset=utf-8;base64,#{embed}\" ?>"
+          out << f.read
+        end
+      end
+    else
+      send_file "public/assets/images/#{params[:name]}.svg"
+    end
   end
 
   get '/styleguide' do

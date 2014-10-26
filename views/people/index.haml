@@ -1,7 +1,7 @@
 %ul
   - people.each do |p|
     %li
-      %a{:href => "/people/#{p._id}"}
+      %a{:href => "/people/#{p.id}"}
         #{p.preferred_display_name}
       %p
         %form{:action => "/people/#{current_person.id}/following", :method => "post", :name => "follow_#{p.id}"}

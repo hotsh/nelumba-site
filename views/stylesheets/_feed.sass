@@ -102,6 +102,7 @@ ul.activities > li.activity ul > li.actions > ul.verbs > li > form > input
   background-color:    transparent
   background-repeat:   no-repeat
   background-position: 0px 0px
+  background-size:     cover
   border:              none
   cursor:              pointer
   display:             inline-block
@@ -110,10 +111,14 @@ ul.activities > li.activity ul > li.actions > ul.verbs > li > form > input
   text-indent:         -9999px
   width:               20px
 ul.activities > li.activity ul > li.actions > ul.verbs > li.favorite.verb > form > input
-  background-image: url('/assets/images/verb-favorite.png')
+  background-image: url('/assets/images/verb-favorite.svg')
   width:            18px
+ul.activities > li.activity ul > li.actions > ul.verbs > li.favorite.verb > form > input:hover
+  background-image: url('/assets/dynamic/verb-favorite.svg?hue=150&sat=50&light=50')
 ul.activities > li.activity ul > li.actions > ul.verbs > li.share.verb > form > input
-  background-image: url('/assets/images/verb-share.png')
+  background-image: url('/assets/images/verb-share.svg')
+ul.activities > li.activity ul > li.actions > ul.verbs > li.share.verb > form > input:hover
+  background-image: url('/assets/dynamic/verb-share.svg?hue=150&sat=50&light=50')
 ul.activities > li.activity ul > li.actions > ul.verbs > li.verb > span.count
   color:          #ccc
   display:        inline-block
