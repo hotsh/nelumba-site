@@ -55,15 +55,23 @@
     - if current_person
       %ul.verbs
         %li.favorite.verb
-          %form{:action => "/people/#{current_person.id}/favorites", :method => "post", :name => "favorite_#{initial.id}"}
+          - if defined?(form_less) and form_less
             %input{:name => "activity_id", :value => initial.id, :type => "hidden"}
             %input{:type => "submit", :value => "Favorite"}
+          - else
+            %form{:action => "/people/#{current_person.id}/favorites", :method => "post", :name => "favorite_#{initial.id}"}
+              %input{:name => "activity_id", :value => initial.id, :type => "hidden"}
+              %input{:type => "submit", :value => "Favorite"}
           %span.count
             #{initial.interaction_count(:favorite)}
         %li.share.verb
-          %form{:action => "/people/#{current_person.id}/shared", :method => "post", :name => "share_#{initial.id}"}
+          - if defined?(form_less) and form_less
             %input{:name => "activity_id", :value => initial.id, :type => "hidden"}
             %input{:type => "submit", :value => "Share"}
+          - else
+            %form{:action => "/people/#{current_person.id}/shared", :method => "post", :name => "share_#{initial.id}"}
+              %input{:name => "activity_id", :value => initial.id, :type => "hidden"}
+              %input{:type => "submit", :value => "Share"}
           %span.count
             #{initial.interaction_count(:share)}
   %li.when

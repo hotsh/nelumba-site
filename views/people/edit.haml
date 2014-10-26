@@ -1,9 +1,12 @@
 .banner>
   %img{:src => "/assets/images/nelumba_profile_bg.png"}>
+.card
+  - if current_person
+    = partial :"people/tabbar", :locals => {:current_tab => nil, :ajax => false}
 .profile.card
   %h1
     Edit your profile:
-  %form{:name => 'author', :action => "/people/#{person._id}", :method => 'post'}
+  %form{:name => 'author', :action => "/people/#{person.id}", :method => 'post'}
     %h2
       Personal Note / Bio
     %div

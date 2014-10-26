@@ -97,6 +97,14 @@ class Application < Sinatra::Base
     end
   end
 
+  # Settings
+  get '/people/:id/settings' do
+    status 404 and return if current_person.nil?
+    haml :"people/settings", :locals => {
+      :person => current_person
+    }
+  end
+
   # Render CSS from SCSS/SASS files
   get '/assets/css/:name.css' do
     content_type 'text/css', :charset => 'utf-8'

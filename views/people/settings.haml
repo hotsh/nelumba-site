@@ -1,0 +1,227 @@
+- content_for :scripts do
+  %script{:src => "/assets/js/settings.js"}
+
+.card
+  - if current_person
+    = partial :"people/tabbar", :locals => {:current_tab => nil, :ajax => false}
+.banner>
+  %img{:src => "/assets/images/nelumba_profile_bg.png"}>
+.profile.card
+  %h1
+    Settings:
+  %form{:name => 'author', :action => "/people/#{person.id}", :method => 'post'}
+    %h2
+      Profile
+    .edit-profile-card
+      %a.edit-profile{:href => "/people/#{person.id}/edit"}
+        Edit Profile
+    %h2
+      Avatar
+
+    %h2
+      Banner
+
+    %h2
+      Background
+
+    %h2
+      Colors
+
+    %ul
+      %li#color-preset
+        %label
+          Preset
+        %div
+          %select
+            %option
+              default
+            %option
+              light
+            %option
+              dark
+            %option
+              high contrast
+          &nbsp;&nbsp;Does not work yet.
+
+    .edit-colors-card
+      = partial :"people/topbar", :locals => {:dead_links => true}
+      = partial :"people/tabbar", :locals => {:card => true, :dead_links => true, :ajax => false, :current_tab => ""}
+
+    %ul
+      %li#color-head-background
+        %label
+          Background
+        %div
+          .color
+          .sliders
+            .hue
+              Hue
+              %input{:type => :range, :min => 0, :max => 360, :name => :color_background_hue}
+            .sat
+              Saturation
+              %input{:type => :range, :min => 0, :max => 100, :name => :color_background_sat}
+            .light
+              Light
+              %input{:type => :range, :min => 0, :max => 100, :name => :color_background_light}
+      %li#color-head-text
+        %label
+          Text
+        %div
+          .color
+          .sliders
+            .hue
+              Hue
+              %input{:type => :range, :min => 0, :max => 360, :name => :color_text_hue}
+            .sat
+              Saturation
+              %input{:type => :range, :min => 0, :max => 100, :name => :color_text_sat}
+            .light
+              Light
+              %input{:type => :range, :min => 0, :max => 100, :name => :color_text_light}
+      %li#color-head-link
+        %label
+          Links
+        %div
+          .color
+          .sliders
+            .hue
+              Hue
+              %input{:type => :range, :min => 0, :max => 360, :name => :color_accent_hue}
+            .sat
+              Saturation
+              %input{:type => :range, :min => 0, :max => 100, :name => :color_accent_sat}
+            .light
+              Light
+              %input{:type => :range, :min => 0, :max => 100, :name => :color_accent_light}
+      %li#color-head-accent
+        %label
+          Accent
+        %div
+          .color
+          .sliders
+            .hue
+              Hue
+              %input{:type => :range, :min => 0, :max => 360, :name => :color_accent_hue}
+            .sat
+              Saturation
+              %input{:type => :range, :min => 0, :max => 100, :name => :color_accent_sat}
+            .light
+              Light
+              %input{:type => :range, :min => 0, :max => 100, :name => :color_accent_light}
+
+    .edit-colors-card
+      = partial :"people/tabbar", :locals => {:card => false, :dead_links => true, :ajax => false, :current_tab => "timeline"}
+      %ul.activities
+        %li.activity
+          = partial :"activities/list", {:locals => {:form_less => true, :activity => Nelumba::Activity.new({:interactions => {:share => {:count => 3}, :favorite => {:count => 2}}, :published => Time.now, :updated => Time.now, :verb => :post, :actor => Nelumba::Person.new(:display_name => "Wil Kie", :preferred_username => "wilkie", :pronoun => {:personal => "they", :possessive => "their"}), :object => Nelumba::Note.new(:content => "Hello http://www.example.org"), :type => :note })}}
+        %li.activity
+          = partial :"activities/list", {:locals => {:form_less => true, :activity => Nelumba::Activity.new({:interactions => {:share => {:count => 3}, :favorite => {:count => 2}}, :published => Time.now, :updated => Time.now, :verb => :post, :actor => Nelumba::Person.new(:display_name => "Wil Kie", :preferred_username => "wilkie", :pronoun => {:personal => "they", :possessive => "their"}), :object => Nelumba::Note.new(:content => "Hello http://www.example.org"), :type => :note })}}
+      %footer
+        Blah
+
+    %ul
+      %li#color-activity-background
+        %label
+          Post Background
+        %div
+          .color
+          .sliders
+            .hue
+              Hue
+              %input{:type => :range, :min => 0, :max => 360, :name => :color_activity_background_hue}
+            .sat
+              Saturation
+              %input{:type => :range, :min => 0, :max => 100, :name => :color_activity_background_sat}
+            .light
+              Light
+              %input{:type => :range, :min => 0, :max => 100, :name => :color_activity_background_light}
+      %li#color-activity-text
+        %label
+          Post Text
+        %div
+          .color
+          .sliders
+            .hue
+              Hue
+              %input{:type => :range, :min => 0, :max => 360, :name => :color_activity_text_hue}
+            .sat
+              Saturation
+              %input{:type => :range, :min => 0, :max => 100, :name => :color_activity_text_sat}
+            .light
+              Light
+              %input{:type => :range, :min => 0, :max => 100, :name => :color_activity_text_light}
+      %li#color-activity-accent
+        %label
+          Post Accent
+        %div
+          .color
+          .sliders
+            .hue
+              Hue
+              %input{:type => :range, :min => 0, :max => 360, :name => :color_activity_accent_hue}
+            .sat
+              Saturation
+              %input{:type => :range, :min => 0, :max => 100, :name => :color_activity_accent_sat}
+            .light
+              Light
+              %input{:type => :range, :min => 0, :max => 100, :name => :color_activity_accent_light}
+      %li#color-activity-link
+        %label
+          Link Text
+        %div
+          .color
+          .sliders
+            .hue
+              Hue
+              %input{:type => :range, :min => 0, :max => 360, :name => :color_link_text_hue}
+            .sat
+              Saturation
+              %input{:type => :range, :min => 0, :max => 100, :name => :color_link_text_sat}
+            .light
+              Light
+              %input{:type => :range, :min => 0, :max => 100, :name => :color_link_text_light}
+      %li#color-tab-background
+        %label
+          Tab Background
+        %div
+          .color
+          .sliders
+            .hue
+              Hue
+              %input{:type => :range, :min => 0, :max => 360, :name => :color_tab_background_hue}
+            .sat
+              Saturation
+              %input{:type => :range, :min => 0, :max => 100, :name => :color_tab_background_sat}
+            .light
+              Light
+              %input{:type => :range, :min => 0, :max => 100, :name => :color_tab_background_light}
+      %li#color-tab-accent
+        %label
+          Tab Accent
+        %div
+          .color
+          .sliders
+            .hue
+              Hue
+              %input{:type => :range, :min => 0, :max => 360, :name => :color_tab_accent_hue}
+            .sat
+              Saturation
+              %input{:type => :range, :min => 0, :max => 100, :name => :color_tab_accent_sat}
+            .light
+              Light
+              %input{:type => :range, :min => 0, :max => 100, :name => :color_tab_accent_light}
+      %li#color-tab-text
+        %label
+          Tab Text
+        %div
+          .color
+          .sliders
+            .hue
+              Hue
+              %input{:type => :range, :min => 0, :max => 360, :name => :color_tab_text_hue}
+            .sat
+              Saturation
+              %input{:type => :range, :min => 0, :max => 100, :name => :color_tab_text_sat}
+            .light
+              Light
+              %input{:type => :range, :min => 0, :max => 100, :name => :color_tab_text_light}

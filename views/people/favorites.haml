@@ -1,6 +1,6 @@
 - if current_person
   = partial :"people/input-card"
-= partial :"people/tabbar", :locals => {:current_tab => "favorites", :ajax => true}
+= partial :"people/tabbar", :locals => {:card => false, :current_tab => "favorites", :ajax => true}
 %ul.activities
   = partial :"people/favorites", {:locals => {:person => person,
                                               :favorites => favorites}}

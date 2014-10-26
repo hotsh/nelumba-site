@@ -13,65 +13,14 @@
     %link{:rel => 'stylesheet', :type => 'text/css', :href => '/assets/css/jquery.fileupload-ui.css'}
     %link{:rel => 'stylesheet', :type => 'text/css', :href => '/assets/css/jquery.fileupload-ui-noscript.css'}
     %link{:rel => 'stylesheet', :type => 'text/css', :href => '/assets/css/main.css'}
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}
 
     = yield_content :links
 
     %title
       = user_option_for :title
   %body
-    %nav.topbar
-      - if current_person.nil?
-        %ul.navbar
-          %li>
-            %img.avatar{:src => "/assets/images/avatar.png"}>
-          %li>
-            Welcome to
-            %strong.title
-              Nelumba
-        %ul.navbar.right
-          %li>
-            %a{:href => "/login"}>Login
-          %li>
-            %a{:href => "/authorizations/new"}>Signup
-      - else
-        %a{:href => "/people/#{current_person.id}"}
-          %ul.navbar
-            %li>
-              - if current_person.avatar
-                %img.avatar{:src => "#{current_person.avatar.url}"}>
-              - else
-                %img.avatar{:src => "/assets/images/avatar.png"}>
-            %li>
-              #{current_person.display_name}
-        %ul.navbar.right
-          %li>
-            %a{:href => "/logout"}>Logout
-        %ul.statistics
-          %li.statistic>
-            %span.collection>
-              Updates
-            %span.count>
-              21.3k
-          %li.statistic>
-            %span.collection>
-              Following
-            %span.count>
-              398
-          %li.statistic>
-            %span.collection>
-              Followers
-            %span.count>
-              923
-          %li.statistic>
-            %span.collection>
-              Favorites
-            %span.count>
-              4.3k
-          %li.statistic>
-            %span.collection>
-              Shares
-            %span.count>
-              1.3k
+    = partial :"people/topbar"
     .content
       = yield
     %script{:src=>"/assets/js/jquery.js"}
@@ -91,3 +40,4 @@
     %script{:src=>"/assets/js/ckeditor/ckeditor.js"}
     %script{:src=>"/assets/js/ckeditor/adapters/jquery.js"}
     %script{:src=>"/assets/js/app.js"}
+    = yield_content :scripts

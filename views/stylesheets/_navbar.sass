@@ -75,7 +75,7 @@ nav.tabbar
   display:          table
   height:           36px
   width:            100%
-.card nav.tabbar
+nav.tabbar.card
   margin-bottom:    3px
 nav.tabbar ul
   display: table-row
@@ -92,17 +92,17 @@ nav.tabbar ul li
 nav.tabbar ul li:hover
   background-color: #f3f3f3
   border-top:       3px solid rgb(107, 199, 235)
-.card nav.tabbar ul li
+nav.tabbar.card ul li
   background-color:    $activity-color
   background-position: 5px 7px
   border-left-color:   #222
   border-left-width:   3px
   border-top-width:    0
   padding-top:         2px
-.card nav.tabbar ul li:first-child
+nav.tabbar.card ul li:first-child
   border-left-width:   0
-.card nav.tabbar ul li:hover
-  background-color:    inherit
+nav.tabbar.card ul li:hover
+  background-color:    #666
   border-top:          inherit
 nav.tabbar ul li a
   display:             inline-block
@@ -115,6 +115,7 @@ nav.tabbar ul li a
 nav.tabbar ul li a span
   background-position: 5px -2px
   background-repeat:   no-repeat
+  background-size:     23px 23px
   padding-left:        33px
   padding-right:       8px
 nav.tabbar ul li a:hover
@@ -133,9 +134,9 @@ nav.tabbar ul li.current-tab + li
   nav.tabbar ul li a
     padding-top:         0px
     overflow:            hidden
-  .card nav.tabbar ul li a span
+  nav.tabbar.card ul li a span
     background-position: 50% 0px
-  .card nav.tabbar ul li a span,
+  nav.tabbar.card ul li a span,
   nav.tabbar ul li a span
     display: inline-block
     background-position: 50% 4px
@@ -144,22 +145,22 @@ nav.tabbar ul li.current-tab + li
     text-indent: -9999px
     overflow:    hidden
 nav.tabbar ul li#new-post a span
-  background-image: url('/assets/images/noun-post.png')
+  background-image: url('/assets/dynamic/noun-post.svg')
 nav.tabbar ul li#new-image a span
-  background-image: url('/assets/images/noun-image.png')
+  background-image: url('/assets/dynamic/noun-image.svg')
 nav.tabbar ul li#new-follow a span
-  background-image: url('/assets/images/noun-follower.png')
+  background-image: url('/assets/dynamic/noun-follower.svg')
 nav.tabbar ul li#new-note a span
-  background-image: url('/assets/images/noun-note.png')
+  background-image: url('/assets/dynamic/noun-note.svg')
 /* Feed select bar*/
 nav.tabbar ul li#timeline-tab a span
-  background-image: url('/assets/images/noun-timeline.png')
+  background-image: url('/assets/dynamic/noun-timeline.svg')
 nav.tabbar ul li#favorites-tab a span
-  background-image: url('/assets/images/noun-favorites.png')
+  background-image: url('/assets/dynamic/noun-favorites.svg')
 nav.tabbar ul li#mentions-tab a span
-  background-image: url('/assets/images/noun-mentions.png')
+  background-image: url('/assets/dynamic/noun-mentions.svg')
 nav.tabbar ul li#shared-tab a span
-  background-image: url('/assets/images/noun-shared.png')
+  background-image: url('/assets/dynamic/noun-shared.svg')
 /* New Content Notification Bubbles */
 nav.tabbar span.amount
   background-color: hsl(300, 50%, 80%)

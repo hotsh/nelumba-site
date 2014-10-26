@@ -35,7 +35,22 @@
 .content > .card > form > ul > li > .label + div,
 .content > .card > form > ul > li > label + div
   padding-right: 4px
-.content > .card > form input
+.content > .card > form > ul > li > label + div > div,
+.content > .card > form > ul > li > label + div > div div,
+  color: #555
+  display: inline-block
+  font-family: $title-font
+  font-size: 12px
+.content > .card > form > ul > li > label + div > div div input
+  margin-right: 10px
+.content > .card > form > ul > li > label + div > .color
+  background-color: red
+  border: 1px solid black
+  height: 13px
+  margin-right: 10px
+  width: 13px
+.content > .card > form > input,
+.content > .card > form > * > input
   border: 1px solid #ddd
   font-family: $title-font
   font-size: 12px
@@ -45,6 +60,8 @@
 .content > .card > form input.short
   min-width: 0
   max-width: 200px
+.content > .card > form input[type=range]
+  width: 80px
 .content > .card > form textarea
   border:      1px solid #ddd
   font-family: $title-font
