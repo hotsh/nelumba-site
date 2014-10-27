@@ -48,9 +48,54 @@ $(function() {
   $('.color ~ div > div > input[type=range]').on('change input', function(event) {
     var id    = $(this).parent().parent().parent().parent().attr('id');
 
+    var type  = $(this).parent().attr('class');
+
     var hue   = $(this).parent().parent().parent().find('.hue   input').val();
     var sat   = $(this).parent().parent().parent().find('.sat   input').val();
     var light = $(this).parent().parent().parent().find('.light input').val();
+
+    // Update hue slider background
+    if (type != "hue") {
+      var gradient = "-webkit-linear-gradient(left, hsl(0, " + sat + "%, " + light + "%), hsl(36, " + sat + "%, " + light + "%), hsl(72, " + sat + "%, " + light + "%), hsl(108, " + sat + "%, " + light + "%), hsl(144, " + sat + "%, " + light + "%), hsl(180, " + sat + "%, " + light + "%), hsl(216, " + sat + "%, " + light + "%), hsl(252, " + sat + "%, " + light + "%), hsl(288, " + sat + "%, " + light + "%), hsl(324, " + sat + "%, " + light + "%), hsl(360, " + sat + "%, " + light + "%))";
+
+      $(this).parent().parent().find('.hue input').css({
+        "background-image": gradient
+      });
+
+      var gradient = "-moz-linear-gradient(left, hsl(0, " + sat + "%, " + light + "%), hsl(36, " + sat + "%, " + light + "%), hsl(72, " + sat + "%, " + light + "%), hsl(108, " + sat + "%, " + light + "%), hsl(144, " + sat + "%, " + light + "%), hsl(180, " + sat + "%, " + light + "%), hsl(216, " + sat + "%, " + light + "%), hsl(252, " + sat + "%, " + light + "%), hsl(288, " + sat + "%, " + light + "%), hsl(324, " + sat + "%, " + light + "%), hsl(360, " + sat + "%, " + light + "%))";
+
+      $(this).parent().parent().find('.hue input').css({
+        "background-image": gradient
+      });
+    }
+
+    if (type != "sat") {
+      var gradient = "-webkit-linear-gradient(left, hsl(" + hue + ", 0%, " + light + "%), hsl(" + hue + ", 100%, " + light + "%))";
+
+      $(this).parent().parent().find('.sat input').css({
+        "background-image": gradient
+      });
+
+      var gradient = "-moz-linear-gradient(left, hsl(" + hue + ", 0%, " + light + "%), hsl(" + hue + ", 100%, " + light + "%))";
+
+      $(this).parent().parent().find('.sat input').css({
+        "background-image": gradient
+      });
+    }
+
+    if (type != "light") {
+      var gradient = "-webkit-linear-gradient(left, hsl(" + hue + ", " + sat + "%, 0%), hsl(" + hue + ", " + sat + "%, 10%), hsl(" + hue + ", " + sat + "%, 20%), hsl(" + hue + ", " + sat + "%, 30%), hsl(" + hue + ", " + sat + "%, 40%), hsl(" + hue + ", " + sat + "%, 50%), hsl(" + hue + ", " + sat + "%, 60%), hsl(" + hue + ", " + sat + "%, 70%), hsl(" + hue + ", " + sat + "%, 80%), hsl(" + hue + ", " + sat + "%, 90%), hsl(" + hue + ", " + sat + "%, 100%))";
+
+      $(this).parent().parent().find('.light input').css({
+        "background-image": gradient
+      });
+
+      var gradient = "-moz-linear-gradient(left, hsl(" + hue + ", " + sat + "%, 0%), hsl(" + hue + ", " + sat + "%, 10%), hsl(" + hue + ", " + sat + "%, 20%), hsl(" + hue + ", " + sat + "%, 30%), hsl(" + hue + ", " + sat + "%, 40%), hsl(" + hue + ", " + sat + "%, 50%), hsl(" + hue + ", " + sat + "%, 60%), hsl(" + hue + ", " + sat + "%, 70%), hsl(" + hue + ", " + sat + "%, 80%), hsl(" + hue + ", " + sat + "%, 90%), hsl(" + hue + ", " + sat + "%, 100%))";
+
+      $(this).parent().parent().find('.light input').css({
+        "background-image": gradient
+      });
+    }
 
     var element = $(this).parent().parent().parent().children('.color');
 

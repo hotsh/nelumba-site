@@ -79,3 +79,20 @@
 .content > .card > form ul > li.header + li > label,
 .content > .card > form ul > li.header + li > .label
   padding-top: 14px
+.content > .card > form .color ~ .sliders input[type=range]
+  width: 80px
+  height: 15px
+  -webkit-appearance: none
+  background: -moz-linear-gradient( left , hsl(0, 50%, 50%) 0%, hsl(36, 50%, 50%) 10%, hsl(72, 50%, 50%) 20%, hsl(108, 50%, 50%) 30%, hsl(144, 50%, 50%) 40%, hsl(180, 50%, 50%) 50%, hsl(216, 50%, 50%) 60%, hsl(252, 50%, 50%) 70%, hsl(288, 50%, 50%) 80%, hsl(324, 50%, 50%) 90%, hsl(360, 50%, 50%) 100%)
+  background: -webkit-linear-gradient(left, hsl(0, 50%, 50%), hsl(36, 50%, 50%), hsl(72, 50%, 50%), hsl(108, 50%, 50%), hsl(144, 50%, 50%), hsl(180, 50%, 50%), hsl(216, 50%, 50%), hsl(252, 50%, 50%), hsl(288, 50%, 50%), hsl(324, 50%, 50%), hsl(360, 50%, 50%))
+.content > .card > form .color ~ .sliders .sat input[type=range],
+.content > .card > form .color ~ .sliders .light input[type=range]
+  background: -moz-linear-gradient( left , hsl(0, 0%, 0%) 0%, hsl(0, 0%, 100%) 100%)
+  background: -webkit-linear-gradient( left , hsl(0, 0%, 0%) , hsl(0, 0%, 100%) )
+.content > .card > form .color ~ .sliders input[type=range]::-moz-range-track
+  background: transparent
+  border: none
+.content > .card > form .color ~ .sliders input[type=range]::-webkit-slider-runnable-track
+  background: transparent
+  border: none
+body .card
