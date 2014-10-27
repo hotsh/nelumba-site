@@ -146,17 +146,17 @@ $(function() {
       });
     }
     else if (id == "color-tab-background") {
-      $('.edit-colors-card nav ul li').css({
+      $('.edit-colors-card nav.tabbar:not(.card) ul li').css({
         "background-color": color,
         "border-left-color": dark
       });
-      $('.edit-colors-card nav ul li.current-tab').css({
+      $('.edit-colors-card nav.tabbar:not(.card) ul li.current-tab').css({
         "background-color": brightest
       });
-      $('.edit-colors-card nav ul li:not(.current-tab)').css({
+      $('.edit-colors-card nav.tabbar:not(.card) ul li:not(.current-tab)').css({
         "border-top-color": dark
       });
-      $('.edit-colors-card nav ul li:not(.current-tab)').hover(function() {
+      $('.edit-colors-card nav.tabbar:not(.card) ul li:not(.current-tab)').hover(function() {
         $(this).css({
           "background-color": bright
         });
