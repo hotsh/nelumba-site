@@ -1,4 +1,39 @@
 $(function() {
+  // Dynamic Image Upload Preview
+  image_uploader = $('input[type=file]');
+  image_uploader.fileupload({
+    dataType: 'json',
+    autoUpload: false,
+    acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+    paramName: 'file',
+    dropZone: $('img.preview'),
+    maxFileSize: 5000000,
+    disableImageResize: /Android(?!.*Chrome)|Opera/
+      .test(window.navigator.userAgent),
+  }).on('fileuploadadd', function(e, data) {
+    // Reset preview spanner
+    data.context = $('#image-preview');
+    data.context.empty();
+
+    $('form#image-input > input.button').on('click', function () {
+      data.submit();
+    });
+  }).on('fileuploadprocessalways', function(e,data) {
+    var index = data.index;
+    var file  = data.files[index];
+    var node  = data.context;
+    if (file.preview) {
+      node.append(file.preview);
+    }
+    if (file.error) {
+      node.append('<br>').append(file.error);
+    }
+  }).on('fileuploadprogressall', function(e,data) {
+  }).on('fileuploaddone', function(e,data) {
+  }).on('fileuploadfail', function(e,data) {
+  }).prop('disabled', !$.support.fileInput)
+    .parent().addClass($.support.fileInput ? undefined : 'disabled');
+
   // Remove links in example layout
   $('.edit-colors-card a').attr('href', 'javaScript:void(0);').on('click', function(event) {
     event.stopPropagation();
@@ -33,8 +68,8 @@ $(function() {
       oldWidth  = parseInt(svgNode.attr('width'));
       oldHeight = parseInt(svgNode.attr('height'));
       svgNode.attr('viewBox', '0 0 ' + oldWidth + " " + oldHeight);
-      svgNode.attr('width', "23px");
-      svgNode.attr('height', "23px");
+      svgNode.attr('width', "20px");
+      svgNode.attr('height', "20px");
       svgNode.attr('preserveAspectRatio', "xMaxYMax meet");
       svgNode.css({
         position: "absolute",

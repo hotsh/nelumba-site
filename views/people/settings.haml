@@ -15,14 +15,65 @@
     .edit-profile-card
       %a.edit-profile{:href => "/people/#{person.id}/edit"}
         Edit Profile
-    %h2
-      Avatar
 
     %h2
       Banner
 
+    %ul
+      %li
+        %label
+          Presets
+        %div
+          %img.thumb-preview{:src => "/assets/images/nelumba_profile_bg.png"}
+      %li
+        %label
+          Preview
+        %div
+          - if person.avatar
+            %img.preview{:src => person.avatar.url}
+          - else
+            %img.preview{:src => "/assets/images/nelumba_profile_bg.png"}
+      %li
+        %label
+          Upload
+        %div
+          %input{:type => :button, :value => "Browse"}
+
+    %h2
+      Avatar
+
+    %ul
+      %li
+        %label
+          Preview
+        %div
+          - if person.avatar
+            %img{:src => person.avatar.url}
+          - else
+            %img{:src => "/assets/images/avatar.png"}
+      %li
+        %label
+          Upload
+        %div
+          %input{:type => :button, :value => "Browse"}
+
     %h2
       Background
+
+    %ul
+      %li
+        %label
+          Preview
+        %div
+          - if person.avatar
+            %img{:src => person.avatar.url}
+          - else
+            %img{:src => "/assets/images/noise_black.png"}
+      %li
+        %label
+          Upload
+        %div
+          %input{:type => :button, :value => "Browse"}
 
     %h2
       Colors
@@ -30,7 +81,7 @@
     %ul
       %li#color-preset
         %label
-          Preset
+          Presets
         %div
           %select
             %option
