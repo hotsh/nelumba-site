@@ -75,6 +75,19 @@ nav.tabbar
   display:          table
   height:           36px
   width:            100%
+  overflow:         visible
+  position:         relative
+nav.tabbar:not(.card):after
+  content: ""
+  display: block
+  position: absolute
+  bottom: -1px
+  left: 0px
+  height: 1px
+  width:  100%
+  border-top: 1px solid rgba(0, 0, 0, 0.2)
+  background-color: rgba(0, 0, 0, 0.1)
+  z-index: 9999
 nav.tabbar.card
   margin-bottom:    3px
 nav.tabbar ul

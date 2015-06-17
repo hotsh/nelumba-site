@@ -28,7 +28,7 @@
       - else
         #{activity.actors.first.preferred_username}
     - unless activity.actors.nil? or activity.actors.empty?
-      - if activity.actors.first.pronoun
+      - if activity.actors.first.pronoun and activity.actors.first.pronoun.values.join("") != ""
         %li.pronoun<
           - if activity.actors.first.pronoun.has_key? :personal
             %span.personal

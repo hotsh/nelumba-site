@@ -3,7 +3,7 @@
 
 .card
   - if current_person
-    = partial :"people/tabbar", :locals => {:current_tab => nil, :ajax => false}
+    = partial :"people/tabbar", :locals => {:person => current_person, :current_tab => nil, :ajax => false}
 .banner.card>
   %img{:src => "/assets/images/nelumba_profile_bg.png"}>
 .profile.vcard
@@ -194,7 +194,9 @@
       %a.edit-profile{:href => "/people/#{person.id}/edit"}
         Edit Profile
 
+-# STATUSES, ACTIVITIES, FOLLOWING, FOLLOWERS
+= partial :"people/tabbar", :locals => {:person => person, :current_tab => "timeline", :ajax => true, :card => false}
 %ul.activities
-  - timeline.each do |activity|
-    %li.activity
-      = partial :"activities/list", {:locals => {:activity => activity}}
+  = partial :"people/timeline", {:locals => {:person => person,
+                                             :timeline => timeline}}
+= partial :"people/footer"

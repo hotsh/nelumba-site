@@ -1,10 +1,7 @@
 - if current_person
   = partial :"people/input-card"
-= partial :"people/tabbar", :locals => {:card => false, :current_tab => "timeline", :ajax => true}
+= partial :"people/tabbar", :locals => {:person => person, :card => false, :current_tab => "timeline", :ajax => true}
 %ul.activities
   = partial :"people/timeline", {:locals => {:person   => person,
                                              :timeline => timeline}}
-%footer
-  Next
-  |
-  Previous
+= partial :"people/footer"

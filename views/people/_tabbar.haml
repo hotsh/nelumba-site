@@ -2,6 +2,6 @@
   %ul
     - ["timeline", "mentions", "favorites", "shared"].each do |noun|
       %li{:id => "#{noun}-tab", :class => current_tab == noun ? "current-tab" : ""}>
-        %a{:"data-pjax" => ajax, :href => (defined?(dead_links) and dead_links) ? "#" : "/people/#{current_person.id}/#{noun}"}>
+        %a{:"data-pjax" => ajax, :href => (defined?(dead_links) and dead_links) ? "#" : "/people/#{person.id}/#{noun}"}>
           %span.noun>
             #{noun.capitalize}

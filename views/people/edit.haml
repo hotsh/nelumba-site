@@ -2,7 +2,7 @@
   %img{:src => "/assets/images/nelumba_profile_bg.png"}>
 .card
   - if current_person
-    = partial :"people/tabbar", :locals => {:current_tab => nil, :ajax => false}
+    = partial :"people/tabbar", :locals => {:person => current_person, :current_tab => nil, :ajax => false}
 .profile.card
   %h1
     Edit your profile:

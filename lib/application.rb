@@ -105,6 +105,14 @@ class Application < Sinatra::Base
     }
   end
 
+  # Appearance Settings
+  get '/people/:id/edit_appearance' do
+    status 404 and return if current_person.nil?
+    haml :"people/edit_appearance", :locals => {
+      :person => current_person
+    }
+  end
+
   # Render CSS from SCSS/SASS files
   get '/assets/css/:name.css' do
     content_type 'text/css', :charset => 'utf-8'

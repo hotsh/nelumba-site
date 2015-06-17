@@ -1,6 +1,6 @@
 - if current_person
   = partial :"people/input-card"
-= partial :"people/tabbar", :locals => {:card => false, :current_tab => "timeline", :ajax => true}
+= partial :"people/tabbar", :locals => {:person => current_person, :card => false, :current_tab => "timeline", :ajax => true}
 %ul.activities
   - current_person.timeline.ordered.each do |activity|
     - next if activity.verb == :favorite
