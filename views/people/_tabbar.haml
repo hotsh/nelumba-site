@@ -1,7 +1,14 @@
 %nav.tabbar{:class => (!defined?(card) or card) ? "card" : ""}
-  %ul
-    - ["timeline", "mentions", "favorites", "shared"].each do |noun|
-      %li{:id => "#{noun}-tab", :class => current_tab == noun ? "current-tab" : ""}>
-        %a{:"data-pjax" => ajax, :href => (defined?(dead_links) and dead_links) ? "#" : "/people/#{person.id}/#{noun}"}>
-          %span.noun>
-            #{noun.capitalize}
+  %ul.tabs
+    - if !defined?(browse) or not browse
+      - ["timeline", "mentions", "favorites", "shared"].each do |noun|
+        %li.tab{:id => "#{noun}-tab", :class => current_tab == noun ? "current-tab" : ""}>
+          %a{:"data-pjax" => ajax, :href => (defined?(dead_links) and dead_links) ? "#" : "/people/#{person.id}/#{noun}"}>
+            %span.noun>
+              #{noun.capitalize}
+    - else
+      - ["statuses", "activities", "following", "followers"].each do |noun|
+        %li.tab{:id => "#{noun}-tab", :class => current_tab == noun ? "current-tab" : ""}>
+          %a{:"data-pjax" => ajax, :href => (defined?(dead_links) and dead_links) ? "#" : "/people/#{person.id}/#{noun}"}>
+            %span.noun>
+              #{noun.capitalize}

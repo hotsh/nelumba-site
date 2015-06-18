@@ -32,24 +32,29 @@
         %span.collection>
           Updates
         %span.count>
-          21.3k
+          %a{:href => "/people/#{current_person.id}/statuses"}
+            21.3k
       %li.statistic>
         %span.collection>
           Following
         %span.count>
-          398
+          %a{:href => "/people/#{current_person.id}/following"}
+            398
       %li.statistic>
         %span.collection>
           Followers
         %span.count>
-          923
+          %a{:href => "/people/#{current_person.id}/followers"}
+            923
       %li.statistic>
         %span.collection>
           Favorites
         %span.count>
-          4.3k
+          %a{:href => "/people/#{current_person.id}/favorites"}
+            4.3k
       %li.statistic>
         %span.collection>
           Shares
         %span.count>
-          1.3k
+          %a{:href => "/people/#{current_person.id}/shared"}
+            1.3k

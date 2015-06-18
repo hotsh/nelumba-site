@@ -1,6 +1,7 @@
-- if favorites.empty?
-  %li.message
-    None
-- favorites.each do |activity|
-  %li.activity
-    = partial :"activities/list", {:locals => {:activity => activity}}
+%ul.activities
+  - if favorites.empty?
+    %li.message
+      None
+  - favorites.each do |activity|
+    %li.activity
+      = partial :"activities/list", {:locals => {:activity => activity}}

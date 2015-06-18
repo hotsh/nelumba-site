@@ -70,6 +70,13 @@ nav.topbar ul li.statistic span.count
   font-weight:      400
   padding-top:      3px
 
+nav.topbar ul li.statistic span.count a
+  color:            $nav-accent-color
+
+nav.topbar ul li.statistic span.count a:hover
+  color:            $nav-accent-color
+  text-decoration:  none
+
 nav.tabbar
   background-color: $nav-color
   display:          table
@@ -174,6 +181,13 @@ nav.tabbar ul li#mentions-tab a span
   background-image: url('/assets/dynamic/noun-mentions.svg')
 nav.tabbar ul li#shared-tab a span
   background-image: url('/assets/dynamic/noun-shared.svg')
+/* People show bar */
+nav.tabbar ul li#statuses-tab a span
+  background-image: url('/assets/dynamic/noun-note.svg')
+nav.tabbar ul li#activities-tab a span
+  background-image: url('/assets/dynamic/noun-activities.svg')
+nav.tabbar ul li#following-tab a span
+  background-image: url('/assets/dynamic/noun-following.svg')
 /* New Content Notification Bubbles */
 nav.tabbar span.amount
   background-color: hsl(300, 50%, 80%)

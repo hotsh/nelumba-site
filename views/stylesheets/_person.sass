@@ -1,0 +1,81 @@
+/* Person list container */
+ul.people
+  margin:  0
+  padding: 0
+  width:   100%
+/* Person within a feed */
+ul.people > li.person
+  background-color: #fff
+  border-bottom:    1px solid #eee
+  min-height:       48px
+  padding:          6px 0px
+  padding-right:    12px
+  position:         relative
+ul.people > li.person:last-child
+  border-bottom:              none
+  +border-bottom-left-radius  (6px)
+  +border-bottom-right-radius (6px)
+ul.people > li.message
+  @extend li.person
+  background-color: #ddf
+  color:            #444
+  min-height:       0px
+  padding:          30px
+  text-align:       center
+ul.people > li.message:last-child
+  @extend li.person:last-child
+/* Person avatar */
+ul.people > li.person ul li.avatar
+  display:  block
+  left:     5px
+  margin:   0
+  position: absolute
+  z-index:  999
+ul.people > li.person ul li.avatar img
+  background-color: white
+  +border-radius    (6px)
+/* Person display name */
+ul.people > li.person ul > li.actor_display,
+ul.people > li.person ul > li.title
+  color:         #555
+  display:       inline-block
+  font-family:   $title-font
+  font-size:     12px
+  font-weight:   700
+  margin-left:   63px
+  margin-top:    5px
+  margin-bottom: 0px
+ul.people > li.person ul > li.actor_display a
+  color:         #555
+/* Person handle */
+ul.people > li.person ul > li.actor
+  color:         #555
+  display:       inline-block
+  font-family:   $title-font
+  font-size:     12px
+  font-weight:   400
+ul.people > li.person ul > li.pronoun
+  color:         #959
+  display:       inline-block
+  font-family:   $title-font
+  font-size:     12px
+  font-weight:   400
+ul.people > li.person ul > li.pronoun > span + span:before
+  content:       '/'
+  padding-left:  1px
+  padding-right: 1px
+ul.people > li.person ul > li.actor:before
+  content: '('
+ul.people > li.person ul > li.actor:after
+  content: ')'
+/* Person Bio */
+ul.people > li.person ul > li.content
+  display:       block
+  font-family:   $content-font
+  font-size:     12px
+  font-weight:   400
+  line-height:   1.3em
+  margin-bottom: 10px
+  margin-left:   63px
+  margin-top:    10px
+  min-height:    1em

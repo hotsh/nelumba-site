@@ -1,0 +1,7 @@
+%ul.people
+  - if following.empty?
+    %li.message
+      None
+  - following.each do |person|
+    %li.person
+      = partial :"people/list", {:locals => {:person => person}}

@@ -1,5 +1,8 @@
-%ul
-  - @followers.each do |author|
-    %li
-      %a{:href => "/people/#{author._id}"}
-        #{author.preferred_display_name}
+= partial :"people/links", :locals => {:person => person}
+= partial :"people/banner", :locals => {:person => person}
+
+= partial :"people/tabbar", :locals => {:person => person, :card => false, :current_tab => "followers", :ajax => true, :browse => true}
+#stream
+  = partial :"people/followers", {:locals => {:person    => person,
+                                              :followers => followers}}
+= partial :"people/footer"

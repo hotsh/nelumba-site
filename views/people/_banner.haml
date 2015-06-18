@@ -1,0 +1,192 @@
+.card
+  - if current_person
+    = partial :"people/tabbar", :locals => {:person => current_person, :current_tab => nil, :ajax => false}
+.banner.card>
+  %img{:src => "/assets/images/nelumba_profile_bg.png"}>
+.profile.vcard
+  .name-card.card
+    .avatar
+      - if person.avatar
+        %img.photo{:src => activity.actor.avatar.url}
+      - else
+        %img{:src => "/assets/images/avatar_96.png"}
+    .display-name<#{person.display_name}
+    .username<#{person.preferred_username}
+    %ul.statistics>
+      %li.statistic>
+        %span.collection>
+          Updates
+        %span.count>
+          21.4k
+      %li.statistic>
+        %span.collection>
+          Following
+        %span.count>
+          398
+      %li.statistic>
+        %span.collection>
+          Followers
+        %span.count>
+          923
+  - if person.note
+    .bio-card.card
+      .label.hidden
+        Personal Note / Bio
+      .note
+        #{person.note}
+  %ul
+    - if person.name
+      %li
+        .label
+          Name
+        .fn
+          #{person.name}
+    - elsif person.extended_name
+      - if person.extended_name[:formatted]
+        %li
+          .label
+            Name
+          .fn
+            #{person.extended_name[:formatted]}
+          .n.hidden{:"aria-hidden" => "true"}
+            - if person.extended_name[:honorific_prefix]
+              .honorific-prefix
+                #{person.extended_name[:honorific_prefix]}
+            - if person.extended_name[:given_name]
+              .given-name
+                #{person.extended_name[:given_name]}
+            - if person.extended_name[:middle_name]
+              .additional-name
+                #{person.extended_name[:middle_name]}
+            - if person.extended_name[:family_name]
+              .family-name
+                #{person.extended_name[:family_name]}
+            - if person.extended_name[:honorific_suffix]
+              .honorific-suffix
+                #{person.extended_name[:honorific_suffix]}
+      - else
+        %li
+          .label
+            Name
+          .n
+            - if person.extended_name[:honorific_prefix]
+              .honorific-prefix
+                #{person.extended_name[:honorific_prefix]}
+            - if person.extended_name[:given_name]
+              .given-name
+                #{person.extended_name[:given_name]}
+            - if person.extended_name[:middle_name]
+              .additional-name
+                #{person.extended_name[:middle_name]}
+            - if person.extended_name[:family_name]
+              .family-name
+                #{person.extended_name[:family_name]}
+            - if person.extended_name[:honorific_suffix]
+              .honorific-suffix
+                #{person.extended_name[:honorific_suffix]}
+    - if person.email && person.email != ""
+      %li
+        .label
+          Email
+        .email
+          #{person.email}
+    - if person.gender && person.gender != ""
+      %li
+        .label
+          Gender
+        .gender
+          #{person.gender}
+    - if person.pronoun && !person.pronoun.empty?
+      %li
+        .label
+          Pronoun
+        .pronoun
+          - if person.pronoun.has_key? :personal
+            %span.personal
+              #{person.pronoun[:personal]}
+          - if person.pronoun.has_key? :possessive
+            %span.possessive
+              #{person.pronoun[:possessive]}
+    - if person.anniversary
+      %li
+        .label
+          Anniversary
+        .anniversary
+          %abbr.value{:title => person.anniversary}
+            #{person.anniversary}
+    - if person.birthday
+      %li
+        .label
+          Birthday
+        .bday
+          %abbr.value{:title => person.birthday}
+            #{person.birthday}
+    - if person.address
+      %li
+        .label
+          Address
+        .adr
+          - if person.address[:street_address]
+            .street-address
+              #{person.address[:street_address]}
+          - if person.address[:locality]
+            .locality
+              #{person.address[:locality]}
+          - if person.address[:region]
+            .region
+              #{person.address[:region]}
+          - if person.address[:postal_code]
+            .postal-code
+              #{person.address[:postal_code]}
+          - if person.address[:country]
+            .country-name
+              #{person.address[:country]}
+    - if person.organization
+      - if person.organization[:location]
+        %li
+          .label
+            Organization
+          .adr
+            .org
+              - if person.organization[:title]
+                .organization-title
+                  #{person.organization[:title]}
+              - if person.organization[:name]
+                .organization-name
+                  #{person.organization[:name]}
+              - if person.organization[:department]
+                .organization-unit
+                  #{person.organization[:department]}
+            - if person.organization[:location][:street_address]
+              .street-address
+                #{person.organization[:location][:street_address]}
+            - if person.organization[:location][:locality]
+              .locality
+                #{person.organization[:location][:locality]}
+            - if person.organization[:location][:region]
+              .region
+                #{person.organization[:location][:region]}
+            - if person.organization[:location][:postal_code]
+              .postal-code
+                #{person.organization[:location][:postal_code]}
+            - if person.organization[:location][:country]
+              .country-name
+                #{person.organization[:location][:country]}
+      - else
+        %li
+          .label
+            Organization
+          .org
+            - if person.organization[:title]
+              .organization-title
+                #{person.organization[:title]}
+            - if person.organization[:name]
+              .organization-name
+                #{person.organization[:name]}
+            - if person.organization[:department]
+              .organization-unit
+                #{person.organization[:department]}
+  - if current_person && current_person.id == person.id
+    .edit-profile-card
+      %a.edit-profile{:href => "/people/#{person.id}/edit"}
+        Edit Profile

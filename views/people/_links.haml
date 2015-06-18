@@ -1,0 +1,4 @@
+-# Contains <link> tags for person metadata on every person page
+
+- content_for :links do
+  %link{:rel => 'alternate', :type => 'application/atom+xml', :title => "Feed for #{person.display_name}", :href => "/people/#{person.id}/timeline"}

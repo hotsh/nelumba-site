@@ -1,7 +1,7 @@
 - if current_person
   = partial :"people/input-card"
 = partial :"people/tabbar", :locals => {:person => person, :card => false, :current_tab => "shared", :ajax => true}
-%ul.activities
+#stream
   = partial :"people/shared", {:locals => {:person => person,
                                            :shared => shared}}
 %footer

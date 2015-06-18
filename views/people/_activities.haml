@@ -1,8 +1,8 @@
 %ul.activities
-  - if mentions.empty?
+  - if activities.empty?
     %li.message
       None
-  - mentions.each do |activity|
+  - activities.each do |activity|
     - if activity.verb == :post || activity.verb == :share
       %li.activity
         = partial :"activities/list", {:locals => {:activity => activity}}

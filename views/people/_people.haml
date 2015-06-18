@@ -1,0 +1,3 @@
+- people.each do |person_item|
+  %li.person
+    = partial :"people/list", {:locals => {:person => person_item}}
