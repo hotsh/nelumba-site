@@ -80,6 +80,119 @@ $(function() {
     }, 'xml');
   });
 
+  var color_ids = [
+    "color-head-background",
+    "color-head-text",
+    "color-head-link",
+    "color-head-accent",
+    "color-activity-background",
+    "color-activity-text",
+    "color-activity-accent",
+    "color-activity-link",
+    "color-tab-background",
+    "color-tab-accent",
+    "color-tab-text"
+  ];
+
+  var color_element_selectors = [
+      ".edit-colors-card nav.topbar",
+      ".edit-colors-card nav.topbar ul.navbar li",
+      ".edit-colors-card nav.topbar ul.navbar.right li a",
+      ".edit-colors-card nav.topbar ul.statistics li span.count",
+      ".edit-colors-card ul.activities li.activity",
+      ".edit-colors-card ul.activities li.activity",
+      ".edit-colors-card ul.activities li.activity ul li.pronoun span.personal",
+      ".edit-colors-card ul.activities li.activity li:not(.actor_display) a",
+      ".edit-colors-card nav.tabbar:not(.card) ul li",
+      ".edit-colors-card nav ul li.current-tab",
+      ".edit-colors-card nav ul li a"
+  ];
+
+  var color_element_keys = [
+    "background-color",
+    "color",
+    "color",
+    "color",
+    "background-color",
+    "color",
+    "color",
+    "color",
+    "background-color",
+    "border-top-color",
+    "color"
+  ];
+
+  var color_to_hsl = function(color_str) {
+    color_str = color_str.trim();
+
+    var h = 0;
+    var s = 0;
+    var l = 0;
+
+    if (color_str.startsWith('hsl')){
+      var elements = color_str.match(/\d+[%]?/g);
+    }
+    else if (color_str.startsWith('rgb')){
+      var elements = color_str.match(/\d+[%]?/g);
+
+      color_str = "#";
+
+      elements.forEach(function(element) {
+        var color = parseInt(element);
+        if (element.endsWith('%')) {
+          color = (color / 100.0) * 255;
+        }
+
+        var color_hex = color.toString(16).substring(0, 2);
+        if (color_hex.length == 1) {
+          color_hex = "0" + color_hex;
+        }
+        color_str = color_str + color_hex;
+      });
+    }
+
+    if (color_str.startsWith('#')) {
+      color_str = color_str.substring(1);
+      if (color_str.length < 6) {
+        color_str = color_str[0] + color_str[0] +
+                    color_str[1] + color_str[1] +
+                    color_str[2] + color_str[2];
+      }
+
+      var r = parseInt(color_str.substring(0, 2), 16);
+      var g = parseInt(color_str.substring(2, 4), 16);
+      var b = parseInt(color_str.substring(4, 6), 16);
+
+      r /= 255.0;
+      g /= 255.0;
+      b /= 255.0;
+
+      var max = Math.max(r, g, b);
+      var min = Math.min(r, g, b);
+      var h, s, l = (max + min) / 2;
+
+      if(max == min) {
+        h = s = 0;
+      }
+      else {
+        var d = max - min;
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        switch(max) {
+          case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+          case g: h = (b - r) / d + 2; break;
+          case b: h = (r - g) / d + 4; break;
+        }
+        h /= 6;
+      }
+
+      h = Math.floor(h * 360);
+      s = Math.floor(s * 100);
+      l = Math.floor(l * 100);
+    }
+
+    return [h, s, l];
+  };
+
   $('.color ~ div > div > input[type=range]').on('change input', function(event) {
     var id    = $(this).parent().parent().parent().parent().attr('id');
 
@@ -164,6 +277,9 @@ $(function() {
       $('.edit-colors-card nav.topbar ul.statistics li span.count').css({
         "color": color
       });
+      $('.edit-colors-card nav.topbar ul.statistics li span.count a').css({
+        "color": color
+      });
     }
     else if (id == "color-activity-background") {
       $('.edit-colors-card ul.activities li.activity').css({
@@ -172,6 +288,11 @@ $(function() {
     }
     else if (id == "color-activity-text") {
       $('.edit-colors-card ul.activities li.activity').css({
+        "color": color
+      });
+    }
+    else if (id == "color-activity-accent") {
+      $('.edit-colors-card ul.activities li.activity ul li.pronoun span').css({
         "color": color
       });
     }
@@ -217,14 +338,14 @@ $(function() {
       });
     }
     else if (id == "color-tab-text") {
-      $('.edit-colors-card nav ul li a').css({
+      $('.edit-colors-card nav ul.tabs li.tab a').css({
         "color": color
       });
-      $('.edit-colors-card nav ul li a span svg rect').css({
+      $('.edit-colors-card nav ul.tabs li.tab a span svg rect').css({
         "fill": color,
         "stroke": color
       });
-      $('.edit-colors-card nav ul li a span svg path').css({
+      $('.edit-colors-card nav ul.tabs li.tab a span svg path').css({
         "fill": color,
         "stroke": color
       });
@@ -233,5 +354,19 @@ $(function() {
     element.css({
       "background-color": color
     });
+  });
+
+  color_ids.forEach(function(key, index) {
+    // Pull out the colors
+    var element = $('#' + key);
+    var selector = $(color_element_selectors[index]);
+    var color_key = color_element_keys[index];
+    var color = selector.css(color_key);
+
+    var hsl = color_to_hsl(color);
+
+    element.find('.hue input[type=range]').val(hsl[0]).trigger('change');
+    element.find('.sat input[type=range]').val(hsl[1]).trigger('change');
+    element.find('.light input[type=range]').val(hsl[2]).trigger('change');
   });
 });
